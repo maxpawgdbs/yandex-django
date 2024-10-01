@@ -3,6 +3,7 @@
 source - call
 pip3 - pip
 python3 - python
+export - SET
 Также если у вас windows, то не забудьте взять пути к файлам в кавычки
 
 Команды для установки и запуска виртуального окружения:
@@ -11,7 +12,14 @@ source venv/bin/activate
 (для windows путь "Название_папки/Scripts/activate.bat")
 
 Установка зависимостей:
-pip3 install -r requirements.txt
+Для prod-режима:
+pip3 install -r requirements/prod.txt
+Для test-режима:
+pip3 install -r requirements/test.txt
+Для dev-режима:
+pip3 install -r requirements/dev.txt
 
+Перед запуском проекта откройте файл .env через блокнот и замените значения переменных на свои
+Команды для запуска проекта:
 cd lyceum
 python3 manage.py runserver
