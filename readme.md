@@ -23,3 +23,6 @@ pip3 install -r requirements/dev.txt
 Команды для запуска проекта:
 cd lyceum
 python3 manage.py runserver
+
+Показ статуса пайплайна последнего коммита(это не команды):
+[![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/pipelines)

@@ -1,5 +1,5 @@
 stages:
-  [ 'linting']
+  [ 'linting', 'refactoring' ]
 
 flake8:
   stage: linting
@@ -7,4 +7,14 @@ flake8:
   script:
     - pip3 install flake8==7.1.1
     - pip3 install flake8-quotes==3.4.0
-    - flake8 --verbose . --inline-quotes double
+    - pip3 install pep8-naming==0.14.1
+    - pip3 install flake8-import-order==0.18.2
+    - pip3 install flake8-commas==4.0.0
+    - flake8 --verbose . --inline-quotes double --import-order google
+
+black:
+  stage: refactoring
+  image: registry.gitlab.com/pipeline-components/black:latest
+  script:
+    - pip3 install black
+    - black --check .
