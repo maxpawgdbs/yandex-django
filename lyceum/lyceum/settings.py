@@ -57,6 +57,8 @@ MIDDLEWARE = [
 if DEBUG:
     MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
 
+INTERNAL_IPS = ["127.0.0.1", "localhost"]
+
 ROOT_URLCONF = "lyceum.urls"
 
 TEMPLATES = [

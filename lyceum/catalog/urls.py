@@ -1,5 +1,4 @@
 from catalog import views
-
 from django.http import Http404
 from django.urls import path, re_path, register_converter
 
