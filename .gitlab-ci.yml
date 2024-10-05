@@ -1,5 +1,5 @@
 stages:
-  [ 'linting', 'refactoring' ]
+  [ 'linting', 'refactoring', 'test' ]
 
 flake8:
   stage: linting
@@ -18,3 +18,11 @@ black:
   script:
     - pip3 install black
     - black --check .
+
+test:
+  stage: test
+  image: python:3.11
+  script:
+    - pip3 install -r requirements/dev.txt
+    - cd lyceum
+    - python3 manage.py test about.tests catalog.tests homepage.tests
