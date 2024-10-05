@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "about.apps.AboutConfig",
+    "catalog.apps.CatalogConfig",
+    "homepage.apps.HomepageConfig",
 ]
 if DEBUG:
     INSTALLED_APPS.append("debug_toolbar")
