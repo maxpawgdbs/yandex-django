@@ -5,3 +5,11 @@ class StaticUrlHomepageTest(TestCase):
     def test_homepage(self):
         response = Client().get("/")
         self.assertEqual(response.status_code, 200)
+
+    def test_coffee_status(self):
+        response = Client().get("/coffee/")
+        self.assertEqual(response.status_code, 418)
+
+    def test_coffee_text(self):
+        response = Client().get("/coffee/")
+        self.assertEqual(response.content.decode("utf8"), "Я чайник")
