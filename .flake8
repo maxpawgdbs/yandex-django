@@ -1,2 +1,2 @@
-[flake8-import-order]
-application,django,third,local
+[flake8]
+ignore = I100
