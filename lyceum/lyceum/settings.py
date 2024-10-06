@@ -25,7 +25,7 @@ DEBUG = os.environ.get("DJANGO_DEBUG", default="false").lower() in [
 
 ALLOW_REVERSE = os.environ.get(
     "DJANGO_ALLOW_REVERSE",
-    default="true"
+    default="true",
 ).lower() in [
     "true",
     "yes",
