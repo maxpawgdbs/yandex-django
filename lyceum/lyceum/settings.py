@@ -23,6 +23,18 @@ DEBUG = os.environ.get("DJANGO_DEBUG", default="false").lower() in [
     "y",
 ]
 
+ALLOW_REVERSE = os.environ.get(
+    "DJANGO_ALLOW_REVERSE",
+    default="true"
+).lower() in [
+    "true",
+    "yes",
+    "on",
+    "1",
+    "y",
+    "",
+]
+
 if not DEBUG:
     ALLOWED_HOSTS = [
         x.strip()
@@ -56,6 +68,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "lyceum.middleware.MyMiddleware",
 ]
 if DEBUG:
     MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
