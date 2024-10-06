@@ -12,11 +12,11 @@ class MyMiddleware:
 
     def __call__(self, request):
         response = self.get_response(request)
-        global n
-        n += 1
-        if n == 10:
-            n = 0
-            if settings.ALLOW_REVERSE:
+        if settings.ALLOW_REVERSE:
+            global n
+            n += 1
+            if n == 10:
+                n = 0
                 response.content = re.sub(
                     r"\w+[а-яА-ЯёЁ]",
                     lambda m: f"{m.group(0)[::-1]}",

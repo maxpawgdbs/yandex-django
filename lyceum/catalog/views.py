@@ -1,4 +1,4 @@
-from django.http import Http404, HttpResponse
+from django.http import HttpResponse
 
 
 def item_list(request):
@@ -10,8 +10,6 @@ def item_detail(request, index):
 
 
 def item_detail_re(request, index):
-    if index == "0":
-        raise Http404
     return HttpResponse("<body>" + index + "</body>")
 
 

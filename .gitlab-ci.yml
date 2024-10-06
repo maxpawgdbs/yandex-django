@@ -26,4 +26,4 @@ test:
     - pip3 install -r requirements/prod.txt
     - pip3 install django-debug-toolbar==4.3.0
     - cd lyceum
-    - python3 manage.py test about.tests catalog.tests homepage.tests lyceum.tests
+    - python3 manage.py test

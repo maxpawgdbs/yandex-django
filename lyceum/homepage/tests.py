@@ -6,7 +6,7 @@ from django.test import Client, TestCase
 class StaticUrlHomepageTest(TestCase):
     def test_homepage(self):
         response = Client().get("/")
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
 
     def test_coffee_status(self):
         response = Client().get("/coffee/")
