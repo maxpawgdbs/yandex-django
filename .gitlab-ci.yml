@@ -21,8 +21,9 @@ black:
 
 test:
   stage: test
-  image: python:3.11
+  image: python:3.12
   script:
-    - pip3 install -r requirements/dev.txt
+    - pip3 install Django==4.2
+    - pip3 install django-debug-toolbar==4.3.0
     - cd lyceum
     - python3 manage.py test about.tests catalog.tests homepage.tests lyceum.tests
