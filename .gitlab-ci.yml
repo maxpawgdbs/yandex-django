@@ -25,4 +25,4 @@ test:
   script:
     - pip3 install -r requirements/dev.txt
     - cd lyceum
-    - python3 manage.py test lyceum.tests about.tests catalog.tests homepage.tests lyceum.tests
+    - python3 manage.py test about.tests catalog.tests homepage.tests lyceum.tests
