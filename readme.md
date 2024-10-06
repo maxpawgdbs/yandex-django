@@ -1,28 +1,27 @@
-Команды ниже приведены для linux, но возможно вам надо запустить на windows,
-так что вот аналоги этих команд для windows(формат linux - windows):
-source - call
-pip3 - pip
-python3 - python
-export - SET
-Также если у вас windows, то не забудьте взять пути к файлам в кавычки
-
-Команды для установки и запуска виртуального окружения:
+УСТАНОВКА И ЗАПУСК ВИРТУАЛЬНОГО ОКРУЖЕНИЯ
 python3 -m venv venv
 source venv/bin/activate
-(для windows путь "Название_папки/Scripts/activate.bat")
 
-Установка зависимостей:
-Для prod-режима:
+УСТАНОВКА ЗАВИСИМОСТЕЙ
+PROD
 pip3 install -r requirements/prod.txt
-Для test-режима:
+TEST
 pip3 install -r requirements/test.txt
-Для dev-режима:
+DEV
 pip3 install -r requirements/dev.txt
 
-Перед запуском проекта откройте файл .env через блокнот и замените значения переменных на свои
-Команды для запуска проекта:
+ЗАДАНИЕ ПЕРЕМЕННЫХ ОКРУЖЕНИЯ
+cd lyceum
+cd lyceum
+cat .env.template >> example.env
+
+ЗАПУСК СЕРВЕРА
 cd lyceum
 python3 manage.py runserver
 
-Показ статуса пайплайна последнего коммита(это не команды):
+ЗАПУСК ТЕСТОВ
+cd lyceum
+python3 manage.py test
+
+СТАТУС ПАЙПЛАЙНА ПОСЛЕДНЕГО КОММИТА
 [![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/pipelines)
