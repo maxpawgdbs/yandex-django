@@ -2,16 +2,20 @@ from http import HTTPStatus
 
 from django.test import Client, TestCase
 
+from parametrize import parametrize
+
 
 class StaticUrlHomepageTest(TestCase):
     def test_homepage(self):
         response = Client().get("/")
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
-    def test_coffee_status(self):
-        response = Client().get("/coffee/")
-        self.assertEqual(response.status_code, HTTPStatus.IM_A_TEAPOT)
-
-    def test_coffee_text(self):
-        response = Client().get("/coffee/")
-        self.assertEqual(response.content.decode("utf8"), "Я чайник")
+    @parametrize(
+        "test_input,expected",
+        [
+            (HTTPStatus.IM_A_TEAPOT, Client().get("/coffee/").status_code),
+            ("Я чайник", Client().get("/coffee/").content.decode("utf8")),
+        ],
+    )
+    def test_coffee(self, test_input, expected):
+        self.assertEqual(expected, test_input)
