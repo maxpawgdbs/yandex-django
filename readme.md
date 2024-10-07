@@ -1,42 +1,38 @@
-УСТАНОВКА И ЗАПУСК ВИРТУАЛЬНОГО ОКРУЖЕНИЯ
+### Установка и запуск виртуального окружение
 ```
 python3 -m venv venv
 source venv/bin/activate
 ```
 
-УСТАНОВКА ЗАВИСИМОСТЕЙ
+### Установка зависимостей
 
-PROD
+#### PROD
 ```
 pip3 install -r requirements/prod.txt
 ```
-TEST
+#### TEST
 ```
 pip3 install -r requirements/test.txt
 ```
-DEV
+#### DEV
 ```
 pip3 install -r requirements/dev.txt
 ```
 
-ЗАДАНИЕ ПЕРЕМЕННЫХ ОКРУЖЕНИЯ
+### Задание переменных окружения
 ```
-cd lyceum
-cd lyceum
-cat .env.template >> example.env
+cat .env.template >> lyceum/lyceum/example.env
 ```
 
-ЗАПУСК СЕРВЕРА
+### Запуск сервера
 ```
-cd lyceum
-python3 manage.py runserver
-```
-
-ЗАПУСК ТЕСТОВ
-```
-cd lyceum
-python3 manage.py test
+python3 lyceum/manage.py runserver
 ```
 
-СТАТУС ПАЙПЛАЙНА ПОСЛЕДНЕГО КОММИТА
+### Запуск тестов
+```
+python3 lyceum/manage.py test
+```
+
+##### Статус пайплайна последнего коммита
 [![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/pipelines)
