@@ -2,7 +2,16 @@ import re
 
 from django.conf import settings
 
-n = 0
+
+def n():
+    if not hasattr(n, "counter"):
+        n.counter = 0
+    n.counter += 1
+    if n.counter == 10:
+        n.counter = 0
+        return True
+    else:
+        return False
 
 
 class MyMiddleware:
@@ -13,10 +22,7 @@ class MyMiddleware:
     def __call__(self, request):
         response = self.get_response(request)
         if settings.ALLOW_REVERSE:
-            global n
-            n += 1
-            if n == 10:
-                n = 0
+            if n():
                 response.content = re.sub(
                     r"\w+[а-яА-ЯёЁ]",
                     lambda m: f"{m.group(0)[::-1]}",

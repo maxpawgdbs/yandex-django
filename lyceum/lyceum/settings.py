@@ -29,10 +29,7 @@ ALLOW_REVERSE = os.environ.get(
     "",
 }
 
-if not DEBUG:
-    ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
-else:
-    ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
 
 INSTALLED_APPS = [
     "django.contrib.admin",
