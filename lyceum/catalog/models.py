@@ -1,5 +1,3 @@
-from core import models
-
 import django.core.exceptions
 import django.core.validators
 import django.db
@@ -15,7 +13,41 @@ def custom_validator_zero(value):
         raise django.core.exceptions.ValidationError("error")
 
 
-class Tag(models.Core):
+def custom_validator_probeli(value):
+    if len(value.split()) == 0:
+        raise django.core.exceptions.ValidationError("error")
+
+
+class Core(django.db.models.Model):
+    name = django.db.models.CharField(
+        verbose_name="название",
+        default="Название",
+        help_text="Название",
+        max_length=150,
+        unique=True,
+        validators=[
+            django.core.validators.MinLengthValidator(2),
+            custom_validator_probeli,
+        ],
+    )
+
+    is_published = django.db.models.BooleanField(
+        verbose_name="опубликовано",
+        default=True,
+        help_text="Статус публикации",
+    )
+
+    class Meta:
+        abstract = True
+
+    def clean(self):
+        if isinstance(self.id, str) or self.id is not None and self.id < 1:
+            raise django.core.exceptions.ValidationError(
+                "ID не может быть отрицательным.",
+            )
+
+
+class Tag(Core):
     slug = django.db.models.SlugField(
         verbose_name="слаг",
         default="Slag",
@@ -31,7 +63,7 @@ class Tag(models.Core):
         return self.name[:15]
 
 
-class Category(models.Core):
+class Category(Core):
     slug = django.db.models.SlugField(
         verbose_name="слаг",
         default="Slag",
@@ -55,7 +87,7 @@ class Category(models.Core):
         return self.name[:15]
 
 
-class Item(models.Core):
+class Item(Core):
     text = django.db.models.TextField(
         verbose_name="текст",
         default="Превосходно",

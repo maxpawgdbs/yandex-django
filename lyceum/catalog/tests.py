@@ -2,7 +2,7 @@ from http import HTTPStatus
 
 from django.test import Client, TestCase
 
-import parametrize
+from parametrize import parametrize
 
 
 class StaticUrlCatalogTests(TestCase):
@@ -10,7 +10,7 @@ class StaticUrlCatalogTests(TestCase):
         response = Client().get("/catalog/")
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
-    @parametrize.parametrize(
+    @parametrize(
         "test_input,expected",
         [
             (HTTPStatus.OK, Client().get("/catalog/123/").status_code),
@@ -20,7 +20,7 @@ class StaticUrlCatalogTests(TestCase):
     def test_catalog_index(self, test_input, expected):
         self.assertEqual(expected, test_input)
 
-    @parametrize.parametrize(
+    @parametrize(
         "test_input,expected",
         [
             (HTTPStatus.OK, Client().get("/catalog/re/123/").status_code),
@@ -42,7 +42,7 @@ class StaticUrlCatalogTests(TestCase):
     def test_catalog_re(self, test_input, expected):
         self.assertEqual(expected, test_input)
 
-    @parametrize.parametrize(
+    @parametrize(
         "test_input,expected",
         [
             (
