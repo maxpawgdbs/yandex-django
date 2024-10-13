@@ -203,7 +203,7 @@ class ModelsTest(TestCase):
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.item = catalog.models.Item(
                 id=1,
-                name=" ",
+                name="   ",
                 category=self.category,
                 text="Роскошно",
             )

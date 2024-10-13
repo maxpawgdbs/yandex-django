@@ -1,5 +1,11 @@
+import django.core.exceptions
 import django.core.validators
 import django.db
+
+
+def custom_validator_probeli(value):
+    if len(value.split()) == 0:
+        raise django.core.exceptions.ValidationError("error")
 
 
 class Core(django.db.models.Model):
@@ -11,6 +17,7 @@ class Core(django.db.models.Model):
         unique=True,
         validators=[
             django.core.validators.MinLengthValidator(2),
+            custom_validator_probeli,
         ],
     )
 
