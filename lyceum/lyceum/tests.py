@@ -202,8 +202,8 @@ class ModelsTest(TestCase):
         count = catalog.models.Item.objects.count()
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.item = catalog.models.Item(
-                id=1,
-                name="   ",
+                id=-123,
+                name="name",
                 category=self.category,
                 text="Роскошно",
             )
@@ -219,7 +219,7 @@ class ModelsTest(TestCase):
         count = catalog.models.Item.objects.count()
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.item = catalog.models.Item(
-                id=1,
+                id="qwwqrrq",
                 name="имя",
                 category=self.category,
                 text="Превосходно",
@@ -227,10 +227,7 @@ class ModelsTest(TestCase):
             self.item.full_clean()
             self.item.save()
             self.item.tags.add(ModelsTest.tag)
-            self.item.text = "qwerty"
-            self.item.full_clean()
-            self.item.save()
         self.assertEqual(
             catalog.models.Item.objects.count(),
-            count + 1,
+            count,
         )

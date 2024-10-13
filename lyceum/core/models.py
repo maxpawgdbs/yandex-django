@@ -29,3 +29,9 @@ class Core(django.db.models.Model):
 
     class Meta:
         abstract = True
+
+    def clean(self):
+        if isinstance(self.id, str) or self.id is not None and self.id < 1:
+            raise django.core.exceptions.ValidationError(
+                "ID не может быть отрицательным.",
+            )
