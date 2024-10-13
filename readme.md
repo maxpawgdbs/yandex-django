@@ -37,5 +37,5 @@ python3 lyceum/manage.py test
 
 ##### Статус пайплайна последнего коммита
 [![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/pipelines)
-![alt-text](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-118
+![alt text](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-118
 7/-/blob/main/ER.jpg?ref_type=heads)
