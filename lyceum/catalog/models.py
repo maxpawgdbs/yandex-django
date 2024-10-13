@@ -1,42 +1,25 @@
+import re
+
 from core import models
 
 import django.core.exceptions
 import django.core.validators
 import django.db
 
+regex = re.compile(r"[^\w]")
+
 
 def custom_validator_words(value):
-    text = value.lower().split()
-    a = True
-    words = [
-        "роскошно",
-        "роскошное",
-        "роскошный",
-        "роскошная",
-        "роскошные",
-        "превосходно",
-        "превосходный",
-        "превосходная",
-        "превосходное",
-        "превосходные",
-    ]
-    chars = "()!?,."
-    for i in range(len(text)):
-        word = text[i]
-        for el in words:
-            if el in word:
-                index = word.find(el)
-                i0 = index - 1
-                i1 = index + len(el)
-                if (i0 == -1 or word[i0] in chars) and (
-                    i1 == len(word) or word[i1] in chars
-                ):
-                    a = False
-                    break
-        if not a:
-            break
-    if a:
-        raise django.core.exceptions.ValidationError("error")
+    lower_values = [re.sub(regex, "", i) for i in value.lower().split()]
+    for i in lower_values:
+        for j in ["превосходно", "роскошно"]:
+            if i == j:
+                return
+    else:
+        raise django.core.exceptions.ValidationError(
+            "Текст должен содержать хотя бы одно из слов: 'превосходно' или"
+            " 'роскошно'.",
+        )
 
 
 def custom_validator_zero(value):

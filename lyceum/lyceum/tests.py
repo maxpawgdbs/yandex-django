@@ -78,7 +78,7 @@ class ModelsTest(TestCase):
                 id=1,
                 name="name",
                 category=self.category,
-                text="роскошно1213",
+                text=",роскошный1",
             )
             self.item.full_clean()
             self.item.save()
