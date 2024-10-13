@@ -1,25 +1,19 @@
 import re
 
-from core import models
-
 import django.core.exceptions
 import django.core.validators
 import django.db
 
-regex = re.compile(r"[^\w]")
+import core.models
 
 
 def custom_validator_words(value):
-    lower_values = [re.sub(regex, "", i) for i in value.lower().split()]
-    for i in lower_values:
-        for j in ["превосходно", "роскошно"]:
-            if i == j:
-                return
-    else:
-        raise django.core.exceptions.ValidationError(
-            "Текст должен содержать хотя бы одно из слов: 'превосходно' или"
-            " 'роскошно'.",
-        )
+    text = value.lower().split()
+    for w in text:
+        w = re.sub(r"[^\w]", "", w)
+        if w in ["превосходно", "роскошно"]:
+            return
+    raise django.core.exceptions.ValidationError("error")
 
 
 def custom_validator_zero(value):
@@ -27,7 +21,7 @@ def custom_validator_zero(value):
         raise django.core.exceptions.ValidationError("error")
 
 
-class Tag(models.Core):
+class Tag(core.models.Core):
     slug = django.db.models.SlugField(
         verbose_name="слаг",
         default="Slag",
@@ -43,7 +37,7 @@ class Tag(models.Core):
         return self.name[:15]
 
 
-class Category(models.Core):
+class Category(core.models.Core):
     slug = django.db.models.SlugField(
         verbose_name="слаг",
         default="Slag",
@@ -67,7 +61,7 @@ class Category(models.Core):
         return self.name[:15]
 
 
-class Item(models.Core):
+class Item(core.models.Core):
     text = django.db.models.TextField(
         verbose_name="текст",
         default="Превосходно",
