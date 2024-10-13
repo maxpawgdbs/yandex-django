@@ -1,11 +1,76 @@
+import re
+
+from core import models
+
 import django.core.exceptions
 import django.core.validators
 import django.db
 
 
 def custom_validator_words(value):
-    if "превосходно" not in value.lower() and "роскошно" not in value.lower():
-        raise django.core.exceptions.ValidationError("error")
+    words = [
+        "роскошный",
+        "роскошного",
+        "роскошному",
+        "роскошный",
+        "роскошного",
+        "роскошным",
+        "роскошном",
+        "роскошная",
+        "роскошной",
+        "роскошную",
+        "роскошной",
+        "роскошной",
+        "роскошное",
+        "роскошного",
+        "роскошному",
+        "роскошное",
+        "роскошным",
+        "роскошном",
+        "роскошные",
+        "роскошных",
+        "роскошным",
+        "роскошные",
+        "роскошных",
+        "роскошными",
+        "роскошных",
+        "роскошно",
+    ]
+    for el in words:
+        if re.match(r"(?<!\w){}(?!\w)".format(el), value.lower()):
+            return
+    words = [
+        "превосходный",
+        "превосходного",
+        "превосходному",
+        "превосходный",
+        "превосходного",
+        "превосходным",
+        "превосходном",
+        "превосходная",
+        "превосходной",
+        "превосходную",
+        "превосходной",
+        "превосходной",
+        "превосходное",
+        "превосходного",
+        "превосходному",
+        "превосходное",
+        "превосходным",
+        "превосходном",
+        "превосходные",
+        "превосходных",
+        "превосходным",
+        "превосходные",
+        "превосходных",
+        "превосходными",
+        "превосходных",
+        "превосходно",
+    ]
+    for el in words:
+        if re.match(r"(?<!\w){}(?!\w)".format(el), value.lower()):
+            return
+    raise django.core.exceptions.ValidationError("error")
 
 
 def custom_validator_zero(value):
@@ -13,41 +78,7 @@ def custom_validator_zero(value):
         raise django.core.exceptions.ValidationError("error")
 
 
-def custom_validator_probeli(value):
-    if len(value.split()) == 0:
-        raise django.core.exceptions.ValidationError("error")
-
-
-class Core(django.db.models.Model):
-    name = django.db.models.CharField(
-        verbose_name="название",
-        default="Название",
-        help_text="Название",
-        max_length=150,
-        unique=True,
-        validators=[
-            django.core.validators.MinLengthValidator(2),
-            custom_validator_probeli,
-        ],
-    )
-
-    is_published = django.db.models.BooleanField(
-        verbose_name="опубликовано",
-        default=True,
-        help_text="Статус публикации",
-    )
-
-    class Meta:
-        abstract = True
-
-    def clean(self):
-        if isinstance(self.id, str) or self.id is not None and self.id < 1:
-            raise django.core.exceptions.ValidationError(
-                "ID не может быть отрицательным.",
-            )
-
-
-class Tag(Core):
+class Tag(models.Core):
     slug = django.db.models.SlugField(
         verbose_name="слаг",
         default="Slag",
@@ -63,7 +94,7 @@ class Tag(Core):
         return self.name[:15]
 
 
-class Category(Core):
+class Category(models.Core):
     slug = django.db.models.SlugField(
         verbose_name="слаг",
         default="Slag",
@@ -87,7 +118,7 @@ class Category(Core):
         return self.name[:15]
 
 
-class Item(Core):
+class Item(models.Core):
     text = django.db.models.TextField(
         verbose_name="текст",
         default="Превосходно",
