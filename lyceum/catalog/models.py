@@ -1,5 +1,3 @@
-import re
-
 from core import models
 
 import django.core.exceptions
@@ -8,69 +6,37 @@ import django.db
 
 
 def custom_validator_words(value):
+    text = value.lower().split()
+    a = True
     words = [
-        "роскошный",
-        "роскошного",
-        "роскошному",
-        "роскошный",
-        "роскошного",
-        "роскошным",
-        "роскошном",
-        "роскошная",
-        "роскошной",
-        "роскошную",
-        "роскошной",
-        "роскошной",
-        "роскошное",
-        "роскошного",
-        "роскошному",
-        "роскошное",
-        "роскошным",
-        "роскошном",
-        "роскошные",
-        "роскошных",
-        "роскошным",
-        "роскошные",
-        "роскошных",
-        "роскошными",
-        "роскошных",
         "роскошно",
-    ]
-    for el in words:
-        if re.match(r"(?<!\w){}(?!\w)".format(el), value.lower()):
-            return
-    words = [
-        "превосходный",
-        "превосходного",
-        "превосходному",
-        "превосходный",
-        "превосходного",
-        "превосходным",
-        "превосходном",
-        "превосходная",
-        "превосходной",
-        "превосходную",
-        "превосходной",
-        "превосходной",
-        "превосходное",
-        "превосходного",
-        "превосходному",
-        "превосходное",
-        "превосходным",
-        "превосходном",
-        "превосходные",
-        "превосходных",
-        "превосходным",
-        "превосходные",
-        "превосходных",
-        "превосходными",
-        "превосходных",
+        "роскошное",
+        "роскошный",
+        "роскошная",
+        "роскошные",
         "превосходно",
+        "превосходный",
+        "превосходная",
+        "превосходное",
+        "превосходные",
     ]
-    for el in words:
-        if re.match(r"(?<!\w){}(?!\w)".format(el), value.lower()):
-            return
-    raise django.core.exceptions.ValidationError("error")
+    chars = "()!?,."
+    for i in range(len(text)):
+        word = text[i]
+        for el in words:
+            if el in word:
+                index = word.find(el)
+                i0 = index - 1
+                i1 = index + len(el)
+                if (i0 == -1 or word[i0] in chars) and (
+                    i1 == len(word) or word[i1] in chars
+                ):
+                    a = False
+                    break
+        if not a:
+            break
+    if a:
+        raise django.core.exceptions.ValidationError("error")
 
 
 def custom_validator_zero(value):
