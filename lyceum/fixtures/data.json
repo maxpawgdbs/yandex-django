@@ -7,7 +7,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "1",
-    "object_repr": "Название",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -20,7 +20,7 @@
     "user": 1,
     "content_type": 8,
     "object_id": "1",
-    "object_repr": "Название",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -33,7 +33,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "1",
-    "object_repr": "Название",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -46,7 +46,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "2",
-    "object_repr": "Название1",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ1",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -59,7 +59,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "2",
-    "object_repr": "еинавзаН1",
+    "object_repr": "РµРёРЅР°РІР·Р°Рќ1",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
   }
@@ -72,7 +72,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "1",
-    "object_repr": "еинавзаН",
+    "object_repr": "РµРёРЅР°РІР·Р°Рќ",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
   }
@@ -85,7 +85,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "3",
-    "object_repr": "Название2",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ2",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -98,7 +98,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "4",
-    "object_repr": "еинавзаН3",
+    "object_repr": "РµРёРЅР°РІР·Р°Рќ3",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -111,7 +111,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "4",
-    "object_repr": "еинавзаН3",
+    "object_repr": "РµРёРЅР°РІР·Р°Рќ3",
     "action_flag": 3,
     "change_message": ""
   }
@@ -124,7 +124,7 @@
     "user": 1,
     "content_type": 9,
     "object_id": "3",
-    "object_repr": "Название2",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ2",
     "action_flag": 3,
     "change_message": ""
   }
@@ -137,7 +137,7 @@
     "user": 1,
     "content_type": 8,
     "object_id": "2",
-    "object_repr": "Название1",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ1",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -150,7 +150,7 @@
     "user": 1,
     "content_type": 8,
     "object_id": "3",
-    "object_repr": "Название2",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ2",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -163,7 +163,7 @@
     "user": 1,
     "content_type": 8,
     "object_id": "4",
-    "object_repr": "Название3",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ3",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -176,7 +176,7 @@
     "user": 1,
     "content_type": 8,
     "object_id": "5",
-    "object_repr": "Название4",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ4",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -189,7 +189,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "2",
-    "object_repr": "Название1",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ1",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -202,7 +202,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "3",
-    "object_repr": "Название2",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ2",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -215,7 +215,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "4",
-    "object_repr": "еинавзаН3",
+    "object_repr": "РµРёРЅР°РІР·Р°Рќ3",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -228,7 +228,7 @@
     "user": 1,
     "content_type": 7,
     "object_id": "5",
-    "object_repr": "Название4",
+    "object_repr": "РќР°Р·РІР°РЅРёРµ4",
     "action_flag": 1,
     "change_message": "[{\"added\": {}}]"
   }
@@ -453,7 +453,7 @@
   "model": "auth.permission",
   "pk": 25,
   "fields": {
-    "name": "Can add Товар",
+    "name": "Can add РўРѕРІР°СЂ",
     "content_type": 7,
     "codename": "add_item"
   }
@@ -462,7 +462,7 @@
   "model": "auth.permission",
   "pk": 26,
   "fields": {
-    "name": "Can change Товар",
+    "name": "Can change РўРѕРІР°СЂ",
     "content_type": 7,
     "codename": "change_item"
   }
@@ -471,7 +471,7 @@
   "model": "auth.permission",
   "pk": 27,
   "fields": {
-    "name": "Can delete Товар",
+    "name": "Can delete РўРѕРІР°СЂ",
     "content_type": 7,
     "codename": "delete_item"
   }
@@ -480,7 +480,7 @@
   "model": "auth.permission",
   "pk": 28,
   "fields": {
-    "name": "Can view Товар",
+    "name": "Can view РўРѕРІР°СЂ",
     "content_type": 7,
     "codename": "view_item"
   }
@@ -489,7 +489,7 @@
   "model": "auth.permission",
   "pk": 29,
   "fields": {
-    "name": "Can add Тег",
+    "name": "Can add РўРµРі",
     "content_type": 8,
     "codename": "add_tag"
   }
@@ -498,7 +498,7 @@
   "model": "auth.permission",
   "pk": 30,
   "fields": {
-    "name": "Can change Тег",
+    "name": "Can change РўРµРі",
     "content_type": 8,
     "codename": "change_tag"
   }
@@ -507,7 +507,7 @@
   "model": "auth.permission",
   "pk": 31,
   "fields": {
-    "name": "Can delete Тег",
+    "name": "Can delete РўРµРі",
     "content_type": 8,
     "codename": "delete_tag"
   }
@@ -516,7 +516,7 @@
   "model": "auth.permission",
   "pk": 32,
   "fields": {
-    "name": "Can view Тег",
+    "name": "Can view РўРµРі",
     "content_type": 8,
     "codename": "view_tag"
   }
@@ -525,7 +525,7 @@
   "model": "auth.permission",
   "pk": 33,
   "fields": {
-    "name": "Can add Категория",
+    "name": "Can add РљР°С‚РµРіРѕСЂРёСЏ",
     "content_type": 9,
     "codename": "add_category"
   }
@@ -534,7 +534,7 @@
   "model": "auth.permission",
   "pk": 34,
   "fields": {
-    "name": "Can change Категория",
+    "name": "Can change РљР°С‚РµРіРѕСЂРёСЏ",
     "content_type": 9,
     "codename": "change_category"
   }
@@ -543,7 +543,7 @@
   "model": "auth.permission",
   "pk": 35,
   "fields": {
-    "name": "Can delete Категория",
+    "name": "Can delete РљР°С‚РµРіРѕСЂРёСЏ",
     "content_type": 9,
     "codename": "delete_category"
   }
@@ -552,7 +552,7 @@
   "model": "auth.permission",
   "pk": 36,
   "fields": {
-    "name": "Can view Категория",
+    "name": "Can view РљР°С‚РµРіРѕСЂРёСЏ",
     "content_type": 9,
     "codename": "view_category"
   }
@@ -659,7 +659,7 @@
   "model": "catalog.tag",
   "pk": 1,
   "fields": {
-    "name": "Название",
+    "name": "РќР°Р·РІР°РЅРёРµ",
     "is_published": true,
     "slug": "Slag"
   }
@@ -668,7 +668,7 @@
   "model": "catalog.tag",
   "pk": 2,
   "fields": {
-    "name": "Название1",
+    "name": "РќР°Р·РІР°РЅРёРµ1",
     "is_published": true,
     "slug": "Slag"
   }
@@ -677,7 +677,7 @@
   "model": "catalog.tag",
   "pk": 3,
   "fields": {
-    "name": "Название2",
+    "name": "РќР°Р·РІР°РЅРёРµ2",
     "is_published": true,
     "slug": "Slag"
   }
@@ -686,7 +686,7 @@
   "model": "catalog.tag",
   "pk": 4,
   "fields": {
-    "name": "Название3",
+    "name": "РќР°Р·РІР°РЅРёРµ3",
     "is_published": true,
     "slug": "Slag"
   }
@@ -695,7 +695,7 @@
   "model": "catalog.tag",
   "pk": 5,
   "fields": {
-    "name": "Название4",
+    "name": "РќР°Р·РІР°РЅРёРµ4",
     "is_published": true,
     "slug": "Slag"
   }
@@ -704,7 +704,7 @@
   "model": "catalog.category",
   "pk": 1,
   "fields": {
-    "name": "еинавзаН",
+    "name": "РµРёРЅР°РІР·Р°Рќ",
     "is_published": true,
     "slug": "Slag",
     "weight": 100
@@ -714,7 +714,7 @@
   "model": "catalog.category",
   "pk": 2,
   "fields": {
-    "name": "еинавзаН1",
+    "name": "РµРёРЅР°РІР·Р°Рќ1",
     "is_published": true,
     "slug": "Slag",
     "weight": 100
@@ -724,9 +724,9 @@
   "model": "catalog.item",
   "pk": 1,
   "fields": {
-    "name": "Название",
+    "name": "РќР°Р·РІР°РЅРёРµ",
     "is_published": true,
-    "text": "Превосходно",
+    "text": "РџСЂРµРІРѕСЃС…РѕРґРЅРѕ",
     "category": 1,
     "tags": [
       1
@@ -737,9 +737,9 @@
   "model": "catalog.item",
   "pk": 2,
   "fields": {
-    "name": "Название1",
+    "name": "РќР°Р·РІР°РЅРёРµ1",
     "is_published": true,
-    "text": "Превосходно",
+    "text": "РџСЂРµРІРѕСЃС…РѕРґРЅРѕ",
     "category": 2,
     "tags": [
       1,
@@ -751,9 +751,9 @@
   "model": "catalog.item",
   "pk": 3,
   "fields": {
-    "name": "Название2",
+    "name": "РќР°Р·РІР°РЅРёРµ2",
     "is_published": true,
-    "text": "Превосходно",
+    "text": "РџСЂРµРІРѕСЃС…РѕРґРЅРѕ",
     "category": 1,
     "tags": [
       1,
@@ -766,9 +766,9 @@
   "model": "catalog.item",
   "pk": 4,
   "fields": {
-    "name": "еинавзаН3",
+    "name": "РµРёРЅР°РІР·Р°Рќ3",
     "is_published": true,
-    "text": "Превосходно",
+    "text": "РџСЂРµРІРѕСЃС…РѕРґРЅРѕ",
     "category": 2,
     "tags": [
       1,
@@ -781,9 +781,9 @@
   "model": "catalog.item",
   "pk": 5,
   "fields": {
-    "name": "Название4",
+    "name": "РќР°Р·РІР°РЅРёРµ4",
     "is_published": true,
-    "text": "Превосходно",
+    "text": "РџСЂРµРІРѕСЃС…РѕРґРЅРѕ",
     "category": 2,
     "tags": [
       2,
