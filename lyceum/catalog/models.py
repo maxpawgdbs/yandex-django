@@ -7,13 +7,16 @@ import django.db
 import core.models
 
 
-def custom_validator_words(value):
-    text = value.lower().split()
-    for w in text:
-        w = re.sub(r"^\W+|\W+$", "", w)
-        if w in ["превосходно", "роскошно"]:
-            return
-    raise django.core.exceptions.ValidationError("error")
+def custom_validator_words(*params):
+    def my_validator(value):
+        text = value.lower().split()
+        for w in text:
+            w = re.sub(r"^\W+|\W+$", "", w)
+            if w in params:
+                return
+        raise django.core.exceptions.ValidationError("error")
+
+    return my_validator
 
 
 def custom_validator_zero(value):
@@ -67,7 +70,7 @@ class Item(core.models.Core):
         default="Превосходно",
         help_text="Описание товара",
         validators=[
-            custom_validator_words,
+            custom_validator_words("роскошно", "превосходно"),
         ],
     )
     tags = django.db.models.ManyToManyField(Tag)
