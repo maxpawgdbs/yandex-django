@@ -11,7 +11,7 @@ def custom_validator_words(value):
 
 
 def custom_validator_zero(value):
-    if value <= 0:
+    if value <= 0 or value > 32767:
         raise django.core.exceptions.ValidationError("error")
 
 
