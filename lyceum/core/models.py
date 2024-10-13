@@ -1,3 +1,4 @@
+import django.core.validators
 import django.db
 
 
@@ -8,6 +9,9 @@ class Core(django.db.models.Model):
         help_text="Название",
         max_length=150,
         unique=True,
+        validators=[
+            django.core.validators.MinLengthValidator(2),
+        ],
     )
 
     is_published = django.db.models.BooleanField(

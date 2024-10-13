@@ -1,8 +1,8 @@
-import catalog.models
-
 import django.core.exceptions
 from django.test import Client, TestCase
 from django.test import override_settings
+
+import catalog.models
 
 
 class MiddlewareOnLyceumTest(TestCase):
@@ -72,11 +72,27 @@ class ModelsTest(TestCase):
             count,
         )
 
+    def test_text_validator2(self):
+        count = catalog.models.Item.objects.count()
+        with self.assertRaises(django.core.exceptions.ValidationError):
+            self.item = catalog.models.Item(
+                id=1,
+                name="name",
+                category=self.category,
+                text=12324134,
+            )
+            self.item.full_clean()
+            self.item.save()
+            self.item.tags.add(ModelsTest.tag)
+        self.assertEqual(
+            catalog.models.Item.objects.count(),
+            count,
+        )
+
     def test_slug_validator(self):
         count = catalog.models.Category.objects.count()
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.category_test = catalog.models.Category(
-                id=1,
                 is_published=True,
                 name="name",
                 slug="фигня",
@@ -87,6 +103,37 @@ class ModelsTest(TestCase):
         self.assertEqual(
             catalog.models.Category.objects.count(),
             count,
+        )
+
+    def test_slug_validator2(self):
+        count = catalog.models.Category.objects.count()
+        with self.assertRaises(django.core.exceptions.ValidationError):
+            self.category_test = catalog.models.Category(
+                is_published=True,
+                name="name",
+                slug="123ф",
+                weight=123,
+            )
+            self.category_test.full_clean()
+            self.category_test.save()
+        self.assertEqual(
+            catalog.models.Category.objects.count(),
+            count,
+        )
+
+    def test_right_slug_validator(self):
+        count = catalog.models.Category.objects.count()
+        self.category_test = catalog.models.Category(
+            is_published=True,
+            name="name",
+            slug="slug123",
+            weight=123,
+        )
+        self.category_test.full_clean()
+        self.category_test.save()
+        self.assertEqual(
+            catalog.models.Category.objects.count(),
+            count + 1,
         )
 
     def test_create_category(self):
