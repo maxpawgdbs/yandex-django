@@ -2,19 +2,16 @@ import django.db
 
 
 class Core(django.db.models.Model):
-    name = django.db.models.TextField(
-        "Название",
+    name = django.db.models.CharField(
+        verbose_name="название",
         default="Название",
         help_text="Название",
-        validators=[
-            django.core.validators.MaxLengthValidator(150),
-        ],
         max_length=150,
         unique=True,
     )
 
     is_published = django.db.models.BooleanField(
-        "Опубликовано",
+        verbose_name="опубликовано",
         default=True,
         help_text="Статус публикации",
     )

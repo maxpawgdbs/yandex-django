@@ -1,6 +1,6 @@
 import re
 
-import core.models
+from core import models
 
 import django.core.exceptions
 import django.core.validators
@@ -22,14 +22,11 @@ def custom_validator_zero(value):
         raise django.core.exceptions.ValidationError("error")
 
 
-class Tag(core.models.Core):
-    slug = django.db.models.TextField(
-        "Слаг",
+class Tag(models.Core):
+    slug = django.db.models.SlugField(
+        verbose_name="слаг",
         default="Slag",
         help_text="Слаг",
-        validators=[
-            custom_validator_right_string,
-        ],
         max_length=200,
     )
 
@@ -41,18 +38,15 @@ class Tag(core.models.Core):
         return self.name[:15]
 
 
-class Category(core.models.Core):
-    slug = django.db.models.TextField(
-        "Слаг",
+class Category(models.Core):
+    slug = django.db.models.SlugField(
+        verbose_name="слаг",
         default="Slag",
         help_text="Слаг",
-        validators=[
-            custom_validator_right_string,
-        ],
         max_length=200,
     )
     weight = django.db.models.PositiveSmallIntegerField(
-        "Вес",
+        verbose_name="вес",
         default=100,
         help_text="Вес",
         validators=[
@@ -68,9 +62,9 @@ class Category(core.models.Core):
         return self.name[:15]
 
 
-class Item(core.models.Core):
+class Item(models.Core):
     text = django.db.models.TextField(
-        "Текст",
+        verbose_name="текст",
         default="Превосходно",
         help_text="Описание товара",
         validators=[

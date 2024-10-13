@@ -26,7 +26,8 @@ cat .env.template >> lyceum/lyceum/example.env
 
 ### Запуск сервера
 ```
-python3 lyceum/manage.py runserver
+cd lyceum
+python3 manage.py runserver
 ```
 
 ### Запуск тестов
