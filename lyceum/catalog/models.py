@@ -10,7 +10,7 @@ import core.models
 def custom_validator_words(value):
     text = value.lower().split()
     for w in text:
-        w = re.sub(r"[^\w]", "", w)
+        w = re.sub(r"^\W+|\W+$", "", w)
         if w in ["превосходно", "роскошно"]:
             return
     raise django.core.exceptions.ValidationError("error")
