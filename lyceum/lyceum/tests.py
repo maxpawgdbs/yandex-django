@@ -42,14 +42,13 @@ class ModelsTest(TestCase):
     def test_create_item(self):
         count = catalog.models.Item.objects.count()
         self.item = catalog.models.Item(
-            id=1,
             name="name",
             category=self.category,
             text="Превосходно",
         )
-        self.item.tags.add(ModelsTest.tag)
         self.item.full_clean()
         self.item.save()
+        self.item.tags.add(ModelsTest.tag)
         self.assertEqual(
             catalog.models.Item.objects.count(),
             count + 1,
@@ -197,4 +196,41 @@ class ModelsTest(TestCase):
         self.assertEqual(
             catalog.models.Category.objects.count(),
             count,
+        )
+
+    def test_danila_nuchtoblyazatesti1(self):
+        count = catalog.models.Item.objects.count()
+        with self.assertRaises(django.core.exceptions.ValidationError):
+            self.item = catalog.models.Item(
+                id=1,
+                name=" ",
+                category=self.category,
+                text="Роскошно",
+            )
+            self.item.full_clean()
+            self.item.save()
+            self.item.tags.add(ModelsTest.tag)
+        self.assertEqual(
+            catalog.models.Item.objects.count(),
+            count,
+        )
+
+    def test_danila_nuchtoblyazatesti2(self):
+        count = catalog.models.Item.objects.count()
+        with self.assertRaises(django.core.exceptions.ValidationError):
+            self.item = catalog.models.Item(
+                id=1,
+                name="имя",
+                category=self.category,
+                text="Превосходно",
+            )
+            self.item.full_clean()
+            self.item.save()
+            self.item.tags.add(ModelsTest.tag)
+            self.item.text = "qwerty"
+            self.item.full_clean()
+            self.item.save()
+        self.assertEqual(
+            catalog.models.Item.objects.count(),
+            count + 1,
         )
