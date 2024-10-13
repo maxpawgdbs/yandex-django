@@ -108,11 +108,42 @@ class ModelsTest(TestCase):
         count = catalog.models.Category.objects.count()
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.category_test = catalog.models.Category(
-                id=1,
                 is_published=True,
                 name="name",
                 slug="slugg123",
                 weight=0,
+            )
+            self.category_test.full_clean()
+            self.category_test.save()
+        self.assertEqual(
+            catalog.models.Category.objects.count(),
+            count,
+        )
+
+    def test_weight_validator(self):
+        count = catalog.models.Category.objects.count()
+        with self.assertRaises(django.core.exceptions.ValidationError):
+            self.category_test = catalog.models.Category(
+                is_published=True,
+                name="name",
+                slug="slugg123",
+                weight=-123,
+            )
+            self.category_test.full_clean()
+            self.category_test.save()
+        self.assertEqual(
+            catalog.models.Category.objects.count(),
+            count,
+        )
+
+    def test_wieght_text_validator(self):
+        count = catalog.models.Category.objects.count()
+        with self.assertRaises(django.core.exceptions.ValidationError):
+            self.category_test = catalog.models.Category(
+                is_published=True,
+                name="name",
+                slug="slugg123",
+                weight="lol",
             )
             self.category_test.full_clean()
             self.category_test.save()

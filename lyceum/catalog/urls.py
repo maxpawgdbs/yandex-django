@@ -1,6 +1,6 @@
-from catalog import converter, views
-
 from django.urls import path, re_path, register_converter
+
+from . import converter, views
 
 register_converter(converter.Converter, "converter")
 

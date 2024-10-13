@@ -1,5 +1,3 @@
-import re
-
 from core import models
 
 import django.core.exceptions
@@ -12,13 +10,8 @@ def custom_validator_words(value):
         raise django.core.exceptions.ValidationError("error")
 
 
-def custom_validator_right_string(value):
-    if not re.match(r"^[a-zA-Z0-9\-_]+$", value):
-        raise django.core.exceptions.ValidationError("error")
-
-
 def custom_validator_zero(value):
-    if value == 0:
+    if value <= 0:
         raise django.core.exceptions.ValidationError("error")
 
 
@@ -31,8 +24,8 @@ class Tag(models.Core):
     )
 
     class Meta:
-        verbose_name = "Тег"
-        verbose_name_plural = "Теги"
+        verbose_name = "тег"
+        verbose_name_plural = "теги"
 
     def __str__(self):
         return self.name[:15]
@@ -55,8 +48,8 @@ class Category(models.Core):
     )
 
     class Meta:
-        verbose_name = "Категория"
-        verbose_name_plural = "Категории"
+        verbose_name = "категория"
+        verbose_name_plural = "категории"
 
     def __str__(self):
         return self.name[:15]
@@ -78,8 +71,8 @@ class Item(models.Core):
     )
 
     class Meta:
-        verbose_name = "Товар"
-        verbose_name_plural = "Товары"
+        verbose_name = "товар"
+        verbose_name_plural = "товары"
 
     def __str__(self):
         return self.name[:15]
