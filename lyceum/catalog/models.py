@@ -1,7 +1,6 @@
 import django.db
 
 import catalog.validators
-
 import core.models
 
 
