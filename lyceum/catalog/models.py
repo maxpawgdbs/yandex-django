@@ -51,7 +51,7 @@ class Item(core.models.Core):
         default="Превосходно",
         help_text="Описание товара",
         validators=[
-            catalog.validators.custom_validator_words(
+            catalog.validators.ValidateMustContain(
                 "роскошно",
                 "превосходно",
             ),

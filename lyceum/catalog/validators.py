@@ -4,21 +4,24 @@ import django.core.exceptions
 import django.core.validators
 
 
-def custom_validator_words(*params):
-    def my_validator(value):
+class ValidateMustContain:
+    def __init__(self, *params):
+        self.params = params
+
+    def __call__(self, value):
         text = value.lower().split()
         for w in text:
             w = re.sub(r"^\W+|\W+$", "", w)
-            if w in params:
+            if w in self.params:
                 return
         raise django.core.exceptions.ValidationError("error")
 
-    my_validator.deconstruct = lambda: (
-        "catalog.validators.custom_validator_words",
-        params,
-        {},
-    )
-    return my_validator
+    def deconstruct(self):
+        return (
+            "catalog.validators.ValidateMustContain",
+            self.params,
+            {},
+        )
 
 
 def custom_validator_zero(value):
