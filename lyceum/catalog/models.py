@@ -12,7 +12,8 @@ class Tag(core.models.Core):
         max_length=200,
     )
 
-    normal_name = django.db.models.CharField(
+    normalized_name = django.db.models.CharField(
+        default="ну пж пусть сейв вызовет",
         verbose_name="нормализованные данные",
         help_text="Нормализованные данные",
         max_length=150,
@@ -21,7 +22,7 @@ class Tag(core.models.Core):
     )
 
     def save(self, *args, **kwargs):
-        self.normal_name = catalog.validators.normalizaciya(self.name)
+        self.normalized_name = catalog.validators.normalizaciya(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
@@ -48,7 +49,8 @@ class Category(core.models.Core):
         ],
     )
 
-    normal_name = django.db.models.CharField(
+    normalized_name = django.db.models.CharField(
+        default="ну пж пусть сейв вызовет",
         verbose_name="нормализованные данные",
         help_text="Нормализованные данные",
         max_length=150,
@@ -57,7 +59,7 @@ class Category(core.models.Core):
     )
 
     def save(self, *args, **kwargs):
-        self.normal_name = catalog.validators.normalizaciya(self.name)
+        self.normalized_name = catalog.validators.normalizaciya(self.name)
         super().save(*args, **kwargs)
 
     class Meta:
