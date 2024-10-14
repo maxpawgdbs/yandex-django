@@ -12,6 +12,18 @@ class Tag(core.models.Core):
         max_length=200,
     )
 
+    normal_name = django.db.models.CharField(
+        verbose_name="нормализованные данные",
+        help_text="Нормализованные данные",
+        max_length=150,
+        unique=True,
+        editable=False,
+    )
+
+    def save(self, *args, **kwargs):
+        self.normal_name = catalog.validators.normalizaciya(self.name)
+        super().save(*args, **kwargs)
+
     class Meta:
         verbose_name = "тег"
         verbose_name_plural = "теги"
@@ -35,6 +47,18 @@ class Category(core.models.Core):
             catalog.validators.custom_validator_zero,
         ],
     )
+
+    normal_name = django.db.models.CharField(
+        verbose_name="нормализованные данные",
+        help_text="Нормализованные данные",
+        max_length=150,
+        unique=True,
+        editable=False,
+    )
+
+    def save(self, *args, **kwargs):
+        self.normal_name = catalog.validators.normalizaciya(self.name)
+        super().save(*args, **kwargs)
 
     class Meta:
         verbose_name = "категория"

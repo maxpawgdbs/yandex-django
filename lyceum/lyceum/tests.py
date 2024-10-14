@@ -231,3 +231,99 @@ class ModelsTest(TestCase):
             catalog.models.Item.objects.count(),
             count,
         )
+
+
+class UniqueNormalizeTest(TestCase):
+    def test_tag_right_validator(self):
+        count = catalog.models.Tag.objects.count()
+        self.tag = catalog.models.Tag(
+            is_published=True,
+            name="name",
+            slug="slugg123",
+        )
+        self.tag.full_clean()
+        self.tag.save()
+
+        self.tag1 = catalog.models.Tag(
+            is_published=True,
+            name="name1",
+            slug="slugg123",
+        )
+        self.tag1.full_clean()
+        self.tag1.save()
+
+        self.assertEqual(
+            catalog.models.Tag.objects.count(),
+            count + 2,
+        )
+
+    def test_tag_wrong_validator(self):
+        count = catalog.models.Tag.objects.count()
+        with self.assertRaises(django.core.exceptions.ValidationError):
+            self.tag = catalog.models.Tag(
+                is_published=True,
+                name="name",
+                slug="slugg123",
+            )
+            self.tag.full_clean()
+            self.tag.save()
+
+            self.tag1 = catalog.models.Tag(
+                is_published=True,
+                name="name",
+                slug="slugg123",
+            )
+            self.tag1.full_clean()
+            self.tag1.save()
+
+        self.assertEqual(
+            catalog.models.Tag.objects.count(),
+            count + 1,
+        )
+
+    def test_category_right_validator(self):
+        count = catalog.models.Category.objects.count()
+        self.category = catalog.models.Category(
+            is_published=True,
+            name="name",
+            slug="slugg123",
+        )
+        self.category.full_clean()
+        self.category.save()
+
+        self.category1 = catalog.models.Category(
+            is_published=True,
+            name="name1",
+            slug="slugg123",
+        )
+        self.category1.full_clean()
+        self.category1.save()
+
+        self.assertEqual(
+            catalog.models.Category.objects.count(),
+            count + 2,
+        )
+
+    def test_category_wrong_validator(self):
+        count = catalog.models.Category.objects.count()
+        with self.assertRaises(django.core.exceptions.ValidationError):
+            self.category = catalog.models.Category(
+                is_published=True,
+                name="name",
+                slug="slugg123",
+            )
+            self.category.full_clean()
+            self.category.save()
+
+            self.category1 = catalog.models.Category(
+                is_published=True,
+                name="name",
+                slug="slugg123",
+            )
+            self.category1.full_clean()
+            self.category1.save()
+
+        self.assertEqual(
+            catalog.models.Category.objects.count(),
+            count + 1,
+        )
