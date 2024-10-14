@@ -1,27 +1,8 @@
-import re
-
-import django.core.exceptions
-import django.core.validators
 import django.db
 
+import catalog.validators
+
 import core.models
-
-
-def custom_validator_words(*params):
-    def my_validator(value):
-        text = value.lower().split()
-        for w in text:
-            w = re.sub(r"^\W+|\W+$", "", w)
-            if w in params:
-                return
-        raise django.core.exceptions.ValidationError("error")
-
-    return my_validator
-
-
-def custom_validator_zero(value):
-    if value <= 0 or value > 32767:
-        raise django.core.exceptions.ValidationError("error")
 
 
 class Tag(core.models.Core):
@@ -52,7 +33,7 @@ class Category(core.models.Core):
         default=100,
         help_text="Вес",
         validators=[
-            custom_validator_zero,
+            catalog.validators.custom_validator_zero,
         ],
     )
 
@@ -70,7 +51,10 @@ class Item(core.models.Core):
         default="Превосходно",
         help_text="Описание товара",
         validators=[
-            custom_validator_words("роскошно", "превосходно"),
+            catalog.validators.custom_validator_words(
+                "роскошно",
+                "превосходно",
+            ),
         ],
     )
     tags = django.db.models.ManyToManyField(Tag)
