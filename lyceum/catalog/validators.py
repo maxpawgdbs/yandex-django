@@ -39,6 +39,7 @@ def normalizaciya(word):
         "B": "В",
         "M": "М",
         "H": "Н",
+        "K": "К",
     }
     low_chars = {
         "a": "а",

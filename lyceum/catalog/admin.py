@@ -1,5 +1,4 @@
-import django.db.transaction
-from django.contrib import admin, messages
+from django.contrib import admin
 
 import catalog.models
 
@@ -38,18 +37,6 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(catalog.models.Tag)
 class TagAdmin(admin.ModelAdmin):
-    def save_model(self, request, *args, **kwargs):
-        with django.db.transaction.atomic():
-            try:
-                return super(TagAdmin, self).save_model(
-                    request,
-                    *args,
-                    **kwargs,
-                )
-            except Exception as e:
-                django.db.transaction.set_rollback(True)
-                self.message_user(request, e, messages.ERROR)
-
     list_display = (
         catalog.models.Tag.id.field.name,
         catalog.models.Tag.name.field.name,
