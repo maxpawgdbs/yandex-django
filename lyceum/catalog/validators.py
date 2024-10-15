@@ -39,7 +39,6 @@ def normalizaciya(word):
         "B": "В",
         "M": "М",
         "H": "Н",
-        "K": "К",
     }
     low_chars = {
         "a": "а",
@@ -48,6 +47,7 @@ def normalizaciya(word):
         "o": "о",
         "p": "р",
         "x": "х",
+        "k": "к",
     }
     word = re.sub(r"[^\w\s]", "", word)
     word = " ".join(word.split())
