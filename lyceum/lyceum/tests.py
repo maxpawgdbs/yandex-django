@@ -199,7 +199,7 @@ class ModelsTest(TestCase):
             count,
         )
 
-    def test_danila_nuchtoblyazatesti1(self):
+    def test_danila_nuchtozatesti1(self):
         count = catalog.models.Item.objects.count()
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.item = catalog.models.Item(
@@ -216,7 +216,7 @@ class ModelsTest(TestCase):
             count,
         )
 
-    def test_danila_nuchtoblyazatesti2(self):
+    def test_danila_nuchtozatesti2(self):
         count = catalog.models.Item.objects.count()
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.item = catalog.models.Item(
