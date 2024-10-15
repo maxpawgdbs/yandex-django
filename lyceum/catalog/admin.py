@@ -19,18 +19,6 @@ class ItemAdmin(admin.ModelAdmin):
 
 @admin.register(catalog.models.Category)
 class CategoryAdmin(admin.ModelAdmin):
-    def save_model(self, request, *args, **kwargs):
-        with django.db.transaction.atomic():
-            try:
-                return super(CategoryAdmin, self).save_model(
-                    request,
-                    *args,
-                    **kwargs,
-                )
-            except Exception as e:
-                django.db.transaction.set_rollback(True)
-                self.message_user(request, e, messages.ERROR)
-
     list_display = (
         catalog.models.Category.id.field.name,
         catalog.models.Category.name.field.name,

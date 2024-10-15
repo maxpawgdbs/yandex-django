@@ -1,3 +1,4 @@
+import django.core
 import django.db
 
 import catalog.validators
@@ -13,7 +14,7 @@ class Tag(core.models.Core):
     )
 
     normalized_name = django.db.models.CharField(
-        default="ну пж пусть сейв вызовет",
+        default="нормализуйся",
         verbose_name="нормализованные данные",
         help_text="Нормализованные данные",
         max_length=150,
@@ -21,9 +22,16 @@ class Tag(core.models.Core):
         editable=False,
     )
 
-    def save(self, *args, **kwargs):
+    def clean(self):
         self.normalized_name = catalog.validators.normalizaciya(self.name)
-        super().save(*args, **kwargs)
+        if Tag.objects.count() > 1:
+            qs = Tag.objects.exclude(pk=self.pk).filter(
+                normalized_name=self.normalized_name,
+            )
+            if qs.exists():
+                raise django.core.exceptions.ValidationError(
+                    "нормализация имён",
+                )
 
     class Meta:
         verbose_name = "тег"
@@ -50,7 +58,7 @@ class Category(core.models.Core):
     )
 
     normalized_name = django.db.models.CharField(
-        default="ну пж пусть сейв вызовет",
+        default="нормализуйся",
         verbose_name="нормализованные данные",
         help_text="Нормализованные данные",
         max_length=150,
@@ -58,9 +66,16 @@ class Category(core.models.Core):
         editable=False,
     )
 
-    def save(self, *args, **kwargs):
+    def clean(self):
         self.normalized_name = catalog.validators.normalizaciya(self.name)
-        super().save(*args, **kwargs)
+        if Category.objects.count() > 1:
+            qs = Category.objects.exclude(pk=self.pk).filter(
+                normalized_name=self.normalized_name,
+            )
+            if qs.exists():
+                raise django.core.exceptions.ValidationError(
+                    "нормализация имён",
+                )
 
     class Meta:
         verbose_name = "категория"

@@ -1,4 +1,5 @@
 import django.core.exceptions
+import django.db.utils
 from django.test import Client, TestCase
 from django.test import override_settings
 
@@ -29,13 +30,13 @@ class ModelsTest(TestCase):
         super().setUpClass()
         cls.category = catalog.models.Category.objects.create(
             is_published=True,
-            name="имя",
+            name="имя123",
             slug="sluggg",
             weight=123,
         )
         cls.tag = catalog.models.Tag.objects.create(
             is_published=True,
-            name="имя",
+            name="имя123",
             slug="sluggg",
         )
 
@@ -93,7 +94,7 @@ class ModelsTest(TestCase):
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.category_test = catalog.models.Category(
                 is_published=True,
-                name="name",
+                name="name1",
                 slug="фигня",
                 weight=123,
             )
@@ -109,7 +110,7 @@ class ModelsTest(TestCase):
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.category_test = catalog.models.Category(
                 is_published=True,
-                name="name",
+                name="name2",
                 slug="123ф",
                 weight=123,
             )
@@ -124,7 +125,7 @@ class ModelsTest(TestCase):
         count = catalog.models.Category.objects.count()
         self.category_test = catalog.models.Category(
             is_published=True,
-            name="name",
+            name="name3",
             slug="slug123",
             weight=123,
         )
@@ -139,7 +140,7 @@ class ModelsTest(TestCase):
         count = catalog.models.Category.objects.count()
         self.category_test = catalog.models.Category(
             is_published=True,
-            name="name",
+            name="name4lol",
             slug="slug123",
             weight=123,
         )
@@ -155,7 +156,7 @@ class ModelsTest(TestCase):
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.category_test = catalog.models.Category(
                 is_published=True,
-                name="name",
+                name="name5",
                 slug="slugg123",
                 weight=0,
             )
@@ -171,7 +172,7 @@ class ModelsTest(TestCase):
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.category_test = catalog.models.Category(
                 is_published=True,
-                name="name",
+                name="name6",
                 slug="slugg123",
                 weight=-123,
             )
@@ -187,7 +188,7 @@ class ModelsTest(TestCase):
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.category_test = catalog.models.Category(
                 is_published=True,
-                name="name",
+                name="name7",
                 slug="slugg123",
                 weight="lol",
             )
@@ -203,7 +204,7 @@ class ModelsTest(TestCase):
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.item = catalog.models.Item(
                 id=-123,
-                name="name",
+                name="name8",
                 category=self.category,
                 text="Роскошно",
             )
@@ -220,7 +221,7 @@ class ModelsTest(TestCase):
         with self.assertRaises(django.core.exceptions.ValidationError):
             self.item = catalog.models.Item(
                 id="qwwqrrq",
-                name="имя",
+                name="имя10",
                 category=self.category,
                 text="Превосходно",
             )
@@ -234,11 +235,26 @@ class ModelsTest(TestCase):
 
 
 class UniqueNormalizeTest(TestCase):
+    @classmethod
+    def setUpClass(cls):
+        super().setUpClass()
+        cls.category = catalog.models.Category.objects.create(
+            is_published=True,
+            name="имя123",
+            slug="sluggg",
+            weight=123,
+        )
+        cls.tag = catalog.models.Tag.objects.create(
+            is_published=True,
+            name="имя123",
+            slug="sluggg",
+        )
+
     def test_tag_right_validator(self):
         count = catalog.models.Tag.objects.count()
         self.tag = catalog.models.Tag(
             is_published=True,
-            name="name",
+            name="name123",
             slug="slugg123",
         )
         self.tag.full_clean()
@@ -246,7 +262,7 @@ class UniqueNormalizeTest(TestCase):
 
         self.tag1 = catalog.models.Tag(
             is_published=True,
-            name="name1",
+            name="name1lest",
             slug="slugg123",
         )
         self.tag1.full_clean()
@@ -259,19 +275,18 @@ class UniqueNormalizeTest(TestCase):
 
     def test_tag_wrong_validator(self):
         count = catalog.models.Tag.objects.count()
+        self.tag = catalog.models.Tag(
+            is_published=True,
+            name="рoka",
+            slug="slugg123",
+        )
+        self.tag.full_clean()
+        self.tag.save()
         with self.assertRaises(django.core.exceptions.ValidationError):
-            self.tag = catalog.models.Tag(
-                is_published=True,
-                name="name",
-                slug="slugg123",
-            )
-            self.tag.full_clean()
-            self.tag.save()
-
             self.tag1 = catalog.models.Tag(
                 is_published=True,
-                name="name",
-                slug="slugg123",
+                name="poka..",
+                slug="ahihlga",
             )
             self.tag1.full_clean()
             self.tag1.save()
@@ -285,7 +300,7 @@ class UniqueNormalizeTest(TestCase):
         count = catalog.models.Category.objects.count()
         self.category = catalog.models.Category(
             is_published=True,
-            name="name",
+            name="name123",
             slug="slugg123",
         )
         self.category.full_clean()
@@ -306,15 +321,14 @@ class UniqueNormalizeTest(TestCase):
 
     def test_category_wrong_validator(self):
         count = catalog.models.Category.objects.count()
+        self.category = catalog.models.Category(
+            is_published=True,
+            name="name",
+            slug="slugg123",
+        )
+        self.category.full_clean()
+        self.category.save()
         with self.assertRaises(django.core.exceptions.ValidationError):
-            self.category = catalog.models.Category(
-                is_published=True,
-                name="name",
-                slug="slugg123",
-            )
-            self.category.full_clean()
-            self.category.save()
-
             self.category1 = catalog.models.Category(
                 is_published=True,
                 name="name",

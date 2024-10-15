@@ -14,7 +14,9 @@ class ValidateMustContain:
             w = re.sub(r"^\W+|\W+$", "", w)
             if w in self.params:
                 return
-        raise django.core.exceptions.ValidationError("error")
+        raise django.core.exceptions.ValidationError(
+            "текст должен содержать {}".format(value),
+        )
 
     def deconstruct(self):
         return (
@@ -26,7 +28,9 @@ class ValidateMustContain:
 
 def custom_validator_zero(value):
     if value <= 0 or value > 32767:
-        raise django.core.exceptions.ValidationError("error")
+        raise django.core.exceptions.ValidationError(
+            "вес меньше 0 или больше 32767",
+        )
 
 
 def normalizaciya(word):
@@ -48,7 +52,7 @@ def normalizaciya(word):
     word = " ".join(word.split())
     for i in cap_chars:
         word = word.replace(i, cap_chars[i])
+    word = word.lower()
     for i in low_chars:
         word = word.replace(i, low_chars[i])
-    word = word.lower()
     return word

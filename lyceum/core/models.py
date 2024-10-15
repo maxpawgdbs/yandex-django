@@ -5,7 +5,7 @@ import django.db
 
 def custom_validator_probeli(value):
     if len(value.split()) == 0:
-        raise django.core.exceptions.ValidationError("error")
+        raise django.core.exceptions.ValidationError("имя из пробелов")
 
 
 class Core(django.db.models.Model):
