@@ -9,7 +9,7 @@ class BaseModel(django.db.models.Model):
     name = django.db.models.CharField(
         verbose_name="название",
         default="Название",
-        help_text="Название",
+        help_text="Введите название обьекта",
         max_length=150,
         unique=True,
         validators=[
@@ -21,13 +21,13 @@ class BaseModel(django.db.models.Model):
     is_published = django.db.models.BooleanField(
         verbose_name="опубликовано",
         default=True,
-        help_text="Статус публикации",
+        help_text="Отображать статус публикации",
     )
 
     def clean(self):
         if isinstance(self.id, str) or self.id is not None and self.id < 1:
             raise django.core.exceptions.ValidationError(
-                "ID не может быть отрицательным.",
+                "ID не соответсвует правильному формату",
             )
 
     class Meta:
@@ -38,14 +38,14 @@ class ModelNormalizedNames(BaseModel):
     slug = django.db.models.SlugField(
         verbose_name="слаг",
         default="Slag",
-        help_text="Слаг",
+        help_text="Введите строку формата Slug",
         max_length=200,
     )
 
     normalized_name = django.db.models.CharField(
         default="нормализуйся",
-        verbose_name="нормализованные данные",
-        help_text="Нормализованные данные",
+        verbose_name="нормализованные имена",
+        help_text="Тут сохраняются нормализованные имена",
         max_length=150,
         unique=True,
         editable=False,
@@ -67,7 +67,7 @@ class ModelNormalizedNames(BaseModel):
             )
             if qs.exists():
                 raise django.core.exceptions.ValidationError(
-                    "нормализация имён",
+                    "После нормализации имя не уникально",
                 )
 
     class Meta:

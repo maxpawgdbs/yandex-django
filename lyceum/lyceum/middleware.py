@@ -4,7 +4,7 @@ from django.conf import settings
 
 
 class MyMiddleware:
-    n = 0
+    count = 0
 
     def __init__(self, get_response):
         self.get_response = get_response
@@ -12,9 +12,9 @@ class MyMiddleware:
     def __call__(self, request):
         response = self.get_response(request)
         if settings.ALLOW_REVERSE:
-            MyMiddleware.n += 1
-            if MyMiddleware.n == 10:
-                MyMiddleware.n = 0
+            MyMiddleware.count += 1
+            if MyMiddleware.count == 10:
+                MyMiddleware.count = 0
                 response.content = re.sub(
                     r"\w+[а-яА-ЯёЁ]",
                     lambda m: f"{m.group(0)[::-1]}",

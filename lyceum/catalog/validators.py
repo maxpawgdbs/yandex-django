@@ -29,5 +29,5 @@ class ValidateMustContain:
 def custom_validator_zero(value):
     if value <= 0 or value > 32767:
         raise django.core.exceptions.ValidationError(
-            "вес меньше 0 или больше 32767",
+            "Вес не соотвествует стандартам",
         )

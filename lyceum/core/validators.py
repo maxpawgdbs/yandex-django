@@ -5,7 +5,9 @@ import django.core.exceptions
 
 def custom_validator_spaces(value):
     if len(value.split()) == 0:
-        raise django.core.exceptions.ValidationError("имя из пробелов")
+        raise django.core.exceptions.ValidationError(
+            "Имя не должно состоять из одних пробелов",
+        )
 
 
 def normalization(word):
@@ -23,6 +25,10 @@ def normalization(word):
         "p": "р",
         "x": "х",
         "k": "к",
+        "@": "а",
+        "r": "г",
+        "n": "п",
+        "b": "ь",
     }
     word = re.sub(r"[^\w\s]", "", word)
     word = " ".join(word.split())
