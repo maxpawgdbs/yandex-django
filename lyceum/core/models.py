@@ -1,14 +1,11 @@
+import core.validators
+
 import django.core.exceptions
 import django.core.validators
 import django.db
 
 
-def custom_validator_probeli(value):
-    if len(value.split()) == 0:
-        raise django.core.exceptions.ValidationError("имя из пробелов")
-
-
-class Core(django.db.models.Model):
+class BaseModel(django.db.models.Model):
     name = django.db.models.CharField(
         verbose_name="название",
         default="Название",
@@ -17,7 +14,7 @@ class Core(django.db.models.Model):
         unique=True,
         validators=[
             django.core.validators.MinLengthValidator(2),
-            custom_validator_probeli,
+            core.validators.custom_validator_spaces,
         ],
     )
 
@@ -27,11 +24,51 @@ class Core(django.db.models.Model):
         help_text="Статус публикации",
     )
 
-    class Meta:
-        abstract = True
-
     def clean(self):
         if isinstance(self.id, str) or self.id is not None and self.id < 1:
             raise django.core.exceptions.ValidationError(
                 "ID не может быть отрицательным.",
             )
+
+    class Meta:
+        abstract = True
+
+
+class ModelNormalizedNames(BaseModel):
+    slug = django.db.models.SlugField(
+        verbose_name="слаг",
+        default="Slag",
+        help_text="Слаг",
+        max_length=200,
+    )
+
+    normalized_name = django.db.models.CharField(
+        default="нормализуйся",
+        verbose_name="нормализованные данные",
+        help_text="Нормализованные данные",
+        max_length=150,
+        unique=True,
+        editable=False,
+    )
+
+    @classmethod
+    def get_objects(cls):
+        return cls.objects
+
+    def clean(self):
+        self.normalized_name = core.validators.normalization(self.name)
+        if self.get_objects().count() > 1:
+            qs = (
+                self.get_objects()
+                .exclude(pk=self.pk)
+                .filter(
+                    normalized_name=self.normalized_name,
+                )
+            )
+            if qs.exists():
+                raise django.core.exceptions.ValidationError(
+                    "нормализация имён",
+                )
+
+    class Meta:
+        abstract = True
