@@ -1,0 +1,21 @@
+<div class="container">
+    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+        {% load static %}
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+            <svg class="bi me-2" width="40" height="32">
+                <img src="{% static 'img/favicon.png' %}">
+            </svg>
+            <span class="fs-4"><h2>Django Project</h2></span>
+        </a>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a href="{% if request.path != '/' %}/{% else %}#{% endif %}"
+                                    class="nav-link {% if request.path == '/' %}active{% endif %}">Главная</a></li>
+            <li class="nav-item"><a href="{% if request.path != '/about/' %}/about{% else %}#{% endif %}"
+                                    class="nav-link {% if request.path == '/about/' %}active{% endif %}">О проекте</a>
+            </li>
+            <li class="nav-item"><a href="{% if request.path != '/catalog/' %}/catalog{% else %}#{% endif %}"
+                                    class="nav-link {% if request.path == '/catalog/' %}active{% endif %}">Каталог</a>
+            </li>
+        </ul>
+    </header>
+</div>

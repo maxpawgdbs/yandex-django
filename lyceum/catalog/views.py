@@ -1,8 +1,35 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def item_list(request):
-    return HttpResponse("<body>Список элементов</body>")
+    template = "catalog/item_list.html"
+    context = {
+        "out": [
+            {
+                "id": 1,
+                "name": "Предмет 1",
+                "is_published": True,
+                "text": "Роскошно",
+                "img": "thing1.jpg",
+            },
+            {
+                "id": 2,
+                "name": "Предмет 2",
+                "is_published": False,
+                "text": "Превосходно",
+                "img": "thing2.jpg",
+            },
+            {
+                "id": 3,
+                "name": "Предмет 3",
+                "is_published": True,
+                "text": "Роскошно Превосходно",
+                "img": "thing3.jpg",
+            },
+        ],
+    }
+    return render(request, template, context)
 
 
 def item_detail(request, index):

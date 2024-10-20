@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Главная {% endblock %}
+{% block content %}
+    <h1>Главная</h1>
+    <div>
+        <img src="{% static 'img/cat_base_page.jpg' %}">
+        <p>Проект сделанный на курсе Яндекс Лицея по веб-разработке на Django</p>
+    </div>
+{% endblock %}

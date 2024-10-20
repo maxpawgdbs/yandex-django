@@ -1,4 +1,6 @@
 import django.db
+from django.utils.safestring import mark_safe
+from sorl.thumbnail import get_thumbnail
 
 import catalog.validators
 import core.models
@@ -48,6 +50,29 @@ class Item(core.models.BaseModel):
         Category,
         on_delete=django.db.models.CASCADE,
     )
+    main_image = django.db.models.ImageField(
+        verbose_name="Главная картинка",
+        upload_to="items/main_image/",
+        null=True,
+        blank=True,
+    )
+
+    def get_image_300x300(self):
+        return get_thumbnail(
+            self.main_image,
+            "300x300",
+            crop="center",
+            quality=51,
+        )
+
+    def image_tmb(self):
+        if self.main_image:
+            return mark_safe(
+                f"<img src='{self.main_image.url}' width='50' height='50'>",
+            )
+
+    image_tmb.short_description = "превью"
+    image_tmb.allow_tags = True
 
     class Meta:
         verbose_name = "товар"
@@ -55,3 +80,17 @@ class Item(core.models.BaseModel):
 
     def __str__(self):
         return self.name[:15]
+
+
+class ItemGalery(django.db.models.Model):
+    images = django.db.models.ImageField(
+        verbose_name="галерея",
+        upload_to="items/galery/",
+        null=True,
+        blank=True,
+    )
+    item = django.db.models.ForeignKey(
+        Item,
+        related_name="photos",
+        on_delete=django.db.models.CASCADE,
+    )
