@@ -24,6 +24,6 @@ test:
     - pip3 install django-debug-toolbar==4.3.0
     - pip3 install parametrize==0.1.1
     - pip3 install python-dotenv==1.0.1
-    - pip3 sorl-thumbnail==12.11.0
+    - pip3 install sorl-thumbnail==12.11.0
     - cd lyceum
     - python3 manage.py test
