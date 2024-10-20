@@ -26,5 +26,6 @@ test:
     - pip3 install python-dotenv==1.0.1
     - pip3 install sorl-thumbnail==12.11.0
     - pip3 install django-cleanup==9.0.0
+    - pip3 install Pillow==11.0.0
     - cd lyceum
     - python3 manage.py test
