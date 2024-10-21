@@ -4,5 +4,48 @@
     <h1>О проекте</h1>
     <div>
         <p>Проект сделанный на курсе Яндекс Лицея по веб-разработке на Django</p>
+        <p>Пока тут мало, что можно рассказать, поэтому тут будет моя фотогалерея</p>
     </div>
+    <hr>
+    {% load static %}
+    <div style="display: flex">
+        <img src="{% static 'img/me/футболка_итшкола.jpg' %}" style="height: 10%; width:10%">
+        <img src="{% static 'img/me/сертификат.jpg' %}" style="height: 10%; width:10%">
+        <img src="{% static 'img/me/2023.jpg' %}" style="height: 10%; width:10%">
+        <img src="{% static 'img/me/2024.jpg' %}" style="height: 10%; width:10%">
+        <img src="{% static 'img/me/маска_снепчат.jpg' %}" style="height: 10%; width:10%">
+    </div>
+    <p>Любимая Летняя ИТ-Школа Белгородская область</p>
+    <hr>
+    <div style="display: flex">
+        <img src="{% static 'img/me/черные_очки_школа.jpg' %}" style="height: 10%; width:10%">
+        <img src="{% static 'img/me/черные_очки_и.jpg' %}" style="height: 10%; width:10%">
+        <img src="{% static 'img/me/черные_очки_панама.jpg' %}" style="height: 10%; width:10%">
+    </div>
+    <p>Я аноним в черных очках</p>
+    <hr>
+     <div style="display: flex">
+        <img src="{% static 'img/me/алгоритмика.jpg' %}" style="height: 10%; width:10%">
+        <img src="{% static 'img/me/минцифры.jpg' %}" style="height: 10%; width:10%">
+        <img src="{% static 'img/me/криптомилиардер.jpg' %}" style="height: 10%; width:10%">
+    </div>
+    <ul>Известные личности, а конкретно:
+        <li>Генеральный директор международной школы математики и программирования "Алгоритмика"
+            <br>
+            (Интересный факт, в белгородской области в школах есть предмет связанный с алгоритмикой,
+            <br>
+            а в 10-11 классах за него даже ставят оценки!)
+        </li>
+        <li>
+            Министр цифрового развития Белгородской области
+            <br>
+            (Обещал Зимнюю ИТ-Школу. Ждёмс)
+        </li>
+        <li>
+            Криптомилиардер Валерий Пазюк
+            <br>
+            (состояние 17 милиардов евро в лопухоинах)
+        </li>
+    </ul>
+
 {% endblock %}
