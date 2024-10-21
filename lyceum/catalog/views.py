@@ -42,3 +42,11 @@ def item_detail_re(request, index):
 
 def converter(request, index):
     return HttpResponse("<body>" + str(index) + "</body>")
+
+
+__all__ = [
+    item_detail,
+    item_detail_re,
+    item_list,
+    converter,
+]

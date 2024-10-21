@@ -38,3 +38,9 @@ def normalization(word):
     for i in low_chars:
         word = word.replace(i, low_chars[i])
     return word
+
+
+__all__ = [
+    custom_validator_spaces,
+    normalization,
+]

@@ -94,3 +94,11 @@ class ItemGalery(django.db.models.Model):
         related_name="photos",
         on_delete=django.db.models.CASCADE,
     )
+
+
+__all__ = [
+    Tag,
+    Category,
+    Item,
+    ItemGalery,
+]

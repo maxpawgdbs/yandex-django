@@ -341,3 +341,10 @@ class UniqueNormalizeTest(TestCase):
             catalog.models.Category.objects.count(),
             count + 1,
         )
+
+
+__all__ = [
+    ModelsTest,
+    MiddlewareOnLyceumTest,
+    UniqueNormalizeTest,
+]

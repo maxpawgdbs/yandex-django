@@ -18,3 +18,8 @@ class StaticUrlHomepageTest(TestCase):
     )
     def test_coffee(self, test_input, expected):
         self.assertEqual(expected, test_input)
+
+
+__all__ = [
+    StaticUrlHomepageTest,
+]

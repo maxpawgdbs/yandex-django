@@ -21,3 +21,8 @@ class MyMiddleware:
                     response.content.decode("utf8"),
                 ).encode("utf8")
         return response
+
+
+__all__ = [
+    MyMiddleware,
+]

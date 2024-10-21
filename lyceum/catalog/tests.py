@@ -64,3 +64,8 @@ class StaticUrlCatalogTests(TestCase):
     )
     def test_converter(self, test_input, expected):
         self.assertEqual(expected, test_input)
+
+
+__all__ = [
+    StaticUrlCatalogTests,
+]

@@ -56,3 +56,10 @@ class TagAdmin(admin.ModelAdmin):
     )
     list_display_links = (catalog.models.Tag.id.field.name,)
     exclude = (catalog.models.Tag.normalized_name.field.name,)
+
+
+__all__ = [
+    ItemAdmin,
+    TagAdmin,
+    CategoryAdmin,
+]
