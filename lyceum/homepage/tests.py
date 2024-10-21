@@ -1,6 +1,6 @@
 from http import HTTPStatus
 
-from django.shortcuts import reverse
+from django.urls import reverse
 from django.test import Client, TestCase
 from parametrize import parametrize
 
@@ -23,6 +23,8 @@ class StaticUrlHomepageTest(TestCase):
     def test_reverse(self):
         url = reverse("homepage:home")
         self.assertEqual(url, "/")
+        response = Client().get(url)
+        self.asserEqual(response.status_code, HTTPStatus.OK)
 
 
 __all__ = [
