@@ -100,5 +100,5 @@ __all__ = [
     Tag,
     Category,
     Item,
-    #ItemGalery,
+    ItemGalery,
 ]
