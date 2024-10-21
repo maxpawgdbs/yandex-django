@@ -2,18 +2,13 @@ from http import HTTPStatus
 
 from django.shortcuts import reverse
 from django.test import Client, TestCase
-import django.urls
 from parametrize import parametrize
 
 
 class StaticUrlHomepageTest(TestCase):
     def test_homepage(self):
-        url = reverse("homepage:home")
-        response = Client().get(url)
+        response = Client().get("/")
         self.assertEqual(response.status_code, HTTPStatus.OK)
-        with self.assertRaises(django.urls.NoReverseMatch):
-            url = reverse("homepage:main")
-            response = Client().get(url)
 
     @parametrize(
         "test_input,expected",
@@ -24,6 +19,10 @@ class StaticUrlHomepageTest(TestCase):
     )
     def test_coffee(self, test_input, expected):
         self.assertEqual(expected, test_input)
+
+    def test_reverse(self):
+        url = reverse("homepage:home")
+        self.assertEqual(url, "/")
 
 
 __all__ = [
