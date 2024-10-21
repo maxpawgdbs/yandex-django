@@ -885,30 +885,7 @@
     "model": "category"
   }
 },
-{
-  "model": "contenttypes.contenttype",
-  "pk": 9,
-  "fields": {
-    "app_label": "catalog",
-    "model": "item"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 10,
-  "fields": {
-    "app_label": "thumbnail",
-    "model": "kvstore"
-  }
-},
-{
-  "model": "contenttypes.contenttype",
-  "pk": 11,
-  "fields": {
-    "app_label": "catalog",
-    "model": "itemgalery"
-  }
-},
+\
 {
   "model": "sessions.session",
   "pk": "28fhytjyxum58ka1x89ppx4u292x49gx",
