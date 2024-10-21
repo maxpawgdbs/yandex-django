@@ -1,9 +1,9 @@
+from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 
-import lyceum.settings
 
-if lyceum.settings.DEBUG:
+if settings.DEBUG:
     import debug_toolbar
 
 urlpatterns = [
@@ -13,5 +13,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
 ]
 
-if lyceum.settings.DEBUG:
+if settings.DEBUG:
     urlpatterns += (path("_debug_/", include(debug_toolbar.urls)),)
