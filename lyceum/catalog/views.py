@@ -33,7 +33,10 @@ def item_list(request):
 
 
 def item_detail(request, index):
-    return HttpResponse("<body>Подробно элемент</body>")
+    # return HttpResponse("<body>Подробно элемент</body>")
+    template = "catalog/item.html"
+    context = {}
+    return render(request, template, context)
 
 
 def item_detail_re(request, index):

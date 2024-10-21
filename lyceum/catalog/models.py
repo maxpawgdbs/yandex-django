@@ -50,7 +50,7 @@ class Item(core.models.BaseModel):
         Category,
         on_delete=django.db.models.CASCADE,
     )
-    main_image = django.db.models.ImageField(
+    MainImage = django.db.models.ImageField(
         verbose_name="Главная картинка",
         upload_to="items/main_image/",
         null=True,
@@ -59,16 +59,16 @@ class Item(core.models.BaseModel):
 
     def get_image_300x300(self):
         return get_thumbnail(
-            self.main_image,
+            self.MainImage,
             "300x300",
             crop="center",
             quality=51,
         )
 
     def image_tmb(self):
-        if self.main_image:
+        if self.MainImage:
             return mark_safe(
-                f"<img src='{self.main_image.url}' width='50' height='50'>",
+                f"<img src='{self.MainImage.url}' width='50' height='50'>",
             )
 
     image_tmb.short_description = "превью"
