@@ -24,7 +24,7 @@ class StaticUrlHomepageTest(TestCase):
         url = reverse("homepage:home")
         self.assertEqual(url, "/")
         response = Client().get(url)
-        self.asserEqual(response.status_code, HTTPStatus.OK)
+        self.assertEqual(response.status_code, HTTPStatus.OK)
 
 
 __all__ = [
