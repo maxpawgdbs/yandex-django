@@ -8,17 +8,29 @@
             <span class="fs-4"><h2>Django Project</h2></span>
         </a>
         <ul class="nav nav-pills">
-            <li class="nav-item"><a
-                    href="{% if request.path != '/' %}{% url 'homepage:home' %}{% else %}#{% endif %}"
-                    class="nav-link {% if request.path == '/' %}active{% endif %}">Главная</a></li>
-            <li class="nav-item"><a
-                    href="{% if request.path != '/about/' %}{% url 'about:description' %}{% else %}#{% endif %}"
-                    class="nav-link {% if request.path == '/about/' %}active{% endif %}">О проекте</a>
+            <li class="nav-item">
+                <a href="{% if request.resolver_match.view_name != 'homepage:home' %}
+                {% url 'homepage:home' %}
+                {% else %}#{% endif %}"
+                   class="nav-link {% if request.resolver_match.view_name == 'homepage:home' %}active{% endif %}">
+                    Главная
+                </a>
             </li>
-            <li class="nav-item"><a href="{% if request.path != '/catalog/' %}{% url 'catalog:item_list' %}{% else %}#{% endif %}"
-                                    class="nav-link {% if request.path == '/catalog/' %}active{% endif %}">
-                Список товаров
-            </a>
+            <li class="nav-item">
+                <a href="{% if request.resolver_match.view_name != 'about:description' %}
+                    {% url 'about:description' %}
+                    {% else %}#{% endif %}"
+                   class="nav-link {% if request.resolver_match.view_name == 'about:description' %}active{% endif %}">
+                    О проекте
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{% if request.resolver_match.view_name != 'catalog:item_list' %}
+                    {% url 'catalog:item_list' %}
+                    {% else %}#{% endif %}"
+                   class="nav-link {% if request.resolver_match.view_name == 'catalog:item_list' %}active{% endif %}">
+                    Список товаров
+                </a>
             </li>
         </ul>
     </header>
