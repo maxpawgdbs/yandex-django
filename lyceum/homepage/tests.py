@@ -1,8 +1,8 @@
 from http import HTTPStatus
 
-import django.urls
 from django.shortcuts import reverse
 from django.test import Client, TestCase
+import django.urls
 from parametrize import parametrize
 
 
