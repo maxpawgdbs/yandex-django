@@ -1,5 +1,6 @@
 from http import HTTPStatus
 
+import django.urls
 from django.shortcuts import reverse
 from django.test import Client, TestCase
 from parametrize import parametrize
@@ -10,6 +11,9 @@ class StaticUrlHomepageTest(TestCase):
         url = reverse("homepage:home")
         response = Client().get(url)
         self.assertEqual(response.status_code, HTTPStatus.OK)
+        with self.assertRaises(django.urls.NoReverseMatch):
+            url = reverse("homepage:main")
+            response = Client().get(url)
 
     @parametrize(
         "test_input,expected",
