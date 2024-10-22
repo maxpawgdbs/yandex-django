@@ -2,6 +2,7 @@ import re
 
 import django.core.exceptions
 import django.core.validators
+from django.utils.html import strip_tags
 
 
 class ValidateMustContain:
@@ -9,7 +10,8 @@ class ValidateMustContain:
         self.params = params
 
     def __call__(self, value):
-        text = value.lower().split()
+        text_without_tags = strip_tags(value)
+        text = text_without_tags.lower().split()
         for w in text:
             w = re.sub(r"^\W+|\W+$", "", w)
             if w in self.params:

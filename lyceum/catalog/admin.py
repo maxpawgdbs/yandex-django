@@ -1,3 +1,5 @@
+from ckeditor.widgets import CKEditorWidget
+from django import forms
 from django.contrib import admin
 
 import catalog.models
@@ -8,8 +10,17 @@ class GaleryInline(admin.TabularInline):
     extra = 1
 
 
+class ItemAdminForm(forms.ModelForm):
+    text = forms.CharField(widget=CKEditorWidget())
+
+    class Meta:
+        model = catalog.models.Item
+        fields = ["text"]
+
+
 @admin.register(catalog.models.Item)
 class ItemAdmin(admin.ModelAdmin):
+    form = ItemAdminForm
     list_display = (
         catalog.models.Item.id.field.name,
         catalog.models.Item.name.field.name,

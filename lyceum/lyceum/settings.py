@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "homepage.apps.HomepageConfig",
     "sorl.thumbnail",
     "django_cleanup.apps.CleanupConfig",
+    "ckeditor",
 ]
 
 MIDDLEWARE = [
@@ -132,3 +133,13 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
+
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+
+CKEDITOR_CONFIGS = {
+    "default": {
+        "toolbar": "full",
+        "height": 300,
+        "width": 300,
+    },
+}
