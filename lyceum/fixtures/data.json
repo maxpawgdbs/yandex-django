@@ -156,6 +156,71 @@
   }
 },
 {
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2024-10-22T15:09:06.108Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Название5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"text\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2024-10-22T15:09:11.862Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Название5",
+    "action_flag": 2,
+    "change_message": "[]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2024-10-22T15:09:22.417Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Название5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"text\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2024-10-22T15:10:40.136Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Название2",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"text\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2024-10-22T16:31:30.665Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Название5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043a\\u0441\\u0442\"]}}]"
+  }
+},
+{
   "model": "auth.permission",
   "pk": 1,
   "fields": {
@@ -771,7 +836,7 @@
   "fields": {
     "name": "Название2",
     "is_published": true,
-    "text": "Превосходно",
+    "text": "<p><s>Превосходно</s></p>",
     "category": 1,
     "MainImage": "items/main_image/icons8-django-a-high-level-python-web-framework-that-encourages-rapid-d_HapeK61.png",
     "tags": [
@@ -799,7 +864,7 @@
   "fields": {
     "name": "Название5",
     "is_published": true,
-    "text": "Превосходно",
+    "text": "<p style=\"text-align:center\">Превосходно</p>",
     "category": 2,
     "MainImage": "items/main_image/icons8-django-a-high-level-python-web-framework-that-encourages-rapid-d_zjDxJYb.png",
     "tags": [
