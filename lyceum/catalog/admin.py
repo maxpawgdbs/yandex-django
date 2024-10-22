@@ -1,4 +1,4 @@
-from ckeditor.widgets import CKEditorWidget
+from ckeditor import fields
 from django import forms
 from django.contrib import admin
 
@@ -11,7 +11,7 @@ class GaleryInline(admin.TabularInline):
 
 
 class ItemAdminForm(forms.ModelForm):
-    text = forms.CharField(widget=CKEditorWidget())
+    text = fields.RichTextField()
 
     class Meta:
         model = catalog.models.Item

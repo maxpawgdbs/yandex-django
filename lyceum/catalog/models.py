@@ -1,3 +1,4 @@
+import ckeditor.fields
 import django.db
 from django.utils.safestring import mark_safe
 from sorl.thumbnail import get_thumbnail
@@ -34,7 +35,7 @@ class Category(core.models.ModelNormalizedNames):
 
 
 class Item(core.models.BaseModel):
-    text = django.db.models.TextField(
+    text = ckeditor.fields.RichTextField(
         verbose_name="текст",
         default="Превосходно",
         help_text="Описание товара",
