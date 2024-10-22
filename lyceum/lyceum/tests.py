@@ -2,6 +2,7 @@ import django.core.exceptions
 import django.db.utils
 from django.test import Client, TestCase
 from django.test import override_settings
+from django.urls import reverse
 
 import catalog.models
 
@@ -10,8 +11,9 @@ class MiddlewareOnLyceumTest(TestCase):
     @override_settings(ALLOW_REVERSE=True)
     def test_middleware(self):
         content = []
+        url = reverse("homepage:teapot")
         for i in range(10):
-            response = Client().get("/coffee/")
+            response = Client().get(url)
             content.append(response.content.decode("utf8"))
         self.assertEqual(content.count("Я кинйач"), 1)
 

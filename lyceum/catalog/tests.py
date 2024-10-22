@@ -1,18 +1,25 @@
 from http import HTTPStatus
 
 from django.test import Client, TestCase
+from django.urls import reverse
 from parametrize import parametrize
 
 
 class StaticUrlCatalogTests(TestCase):
     def test_catalog(self):
-        response = Client().get("/catalog/")
+        url = reverse("catalog:item_list")
+        response = Client().get(url)
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
     @parametrize(
         "test_input,expected",
         [
-            (HTTPStatus.OK, Client().get("/catalog/123/").status_code),
+            (
+                HTTPStatus.OK,
+                Client()
+                .get(reverse("catalog:item_detail", args=[123]))
+                .status_code,
+            ),
             (HTTPStatus.NOT_FOUND, Client().get("/catalog/qwe/").status_code),
         ],
     )
@@ -22,7 +29,12 @@ class StaticUrlCatalogTests(TestCase):
     @parametrize(
         "test_input,expected",
         [
-            (HTTPStatus.OK, Client().get("/catalog/re/123/").status_code),
+            (
+                HTTPStatus.OK,
+                Client()
+                .get(reverse("catalog:item_detail_re", args=[123]))
+                .status_code,
+            ),
             (
                 HTTPStatus.NOT_FOUND,
                 Client().get("/catalog/re/-123/").status_code,
@@ -46,7 +58,9 @@ class StaticUrlCatalogTests(TestCase):
         [
             (
                 HTTPStatus.OK,
-                Client().get("/catalog/converter/123/").status_code,
+                Client()
+                .get(reverse("catalog:converter", args=[123]))
+                .status_code,
             ),
             (
                 HTTPStatus.NOT_FOUND,
