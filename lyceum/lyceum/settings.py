@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     "homepage.apps.HomepageConfig",
     "sorl.thumbnail",
     "django_cleanup.apps.CleanupConfig",
-    "ckeditor",
+    "homepage.templatetags.server_time",
+    "tinymce",
 ]
 
 MIDDLEWARE = [

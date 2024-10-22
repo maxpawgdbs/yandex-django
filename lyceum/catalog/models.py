@@ -1,7 +1,7 @@
-import ckeditor.fields
 import django.db
 from django.utils.safestring import mark_safe
 from sorl.thumbnail import get_thumbnail
+from tinymce.models import HTMLField
 
 import catalog.validators
 import core.models
@@ -35,7 +35,7 @@ class Category(core.models.ModelNormalizedNames):
 
 
 class Item(core.models.BaseModel):
-    text = ckeditor.fields.RichTextField(
+    text = HTMLField(
         verbose_name="текст",
         default="Превосходно",
         help_text="Описание товара",

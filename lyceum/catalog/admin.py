@@ -1,6 +1,6 @@
-from ckeditor import fields
 from django import forms
 from django.contrib import admin
+from tinymce.models import HTMLField
 
 import catalog.models
 
@@ -11,7 +11,7 @@ class GaleryInline(admin.TabularInline):
 
 
 class ItemAdminForm(forms.ModelForm):
-    text = fields.RichTextField()
+    text = HTMLField()
 
     class Meta:
         model = catalog.models.Item

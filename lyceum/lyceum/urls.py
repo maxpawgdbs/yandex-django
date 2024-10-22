@@ -2,7 +2,6 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import include, path
 
-
 if settings.DEBUG:
     import debug_toolbar
 
@@ -11,6 +10,7 @@ urlpatterns = [
     path("catalog/", include("catalog.urls")),
     path("about/", include("about.urls")),
     path("admin/", admin.site.urls),
+    path("tinymce/", include("tinymce.urls")),
 ]
 
 if settings.DEBUG:
