@@ -1,3 +1,20 @@
+{% load server_time %}
 <footer>
-    <p>© MaxPawGDBS 2024</p>
+    <p>© MaxPawGDBS <b id="year">{% year_from_server %}</b></p>
+    <script>
+        let serverTime = {% time_from_server %};
+        let realTime = Date.now() / 1000;
+        let difference = Math.abs(realTime - serverTime);
+
+        let myDate = new Date(realTime * 1000);
+        myDate = myDate.getFullYear();
+        let serverDate = new Date(serverTime * 1000);
+        serverDate = serverDate.getFullYear();
+
+        difference = difference / 60 / 60 / 24;
+        if (difference < 1){
+            const yearTag = document.getElementById("year");
+            yearTag.innerHTML = serverDate;
+        }
+    </script>
 </footer>
