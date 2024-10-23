@@ -4,11 +4,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
-msgid "Английский"
+msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-23 14:34+0300\n"
+"POT-Creation-Date: 2024-10-23 19:01+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\lyceum\settings.py:151
+msgid "English"
+msgstr "English"
+
+#: .\lyceum\settings.py:155
+msgid "Русский"
+msgstr "Russian"
+
+#: .\lyceum\settings.py:159
+#, fuzzy
+#| msgid "Deutch"
+msgid "Deutsch"
+msgstr "German"
+
+#: .\lyceum\settings.py:163
+msgid "Espanol"
+msgstr "Spanish"
+
 #: .\templates\includes\header.html:17
 msgid "Homepage"
 msgstr "Homepage"
