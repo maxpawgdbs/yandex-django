@@ -116,7 +116,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = "ru-ru"
+LANGUAGE_CODE = "de"
 
 TIME_ZONE = "UTC"
 
@@ -144,13 +144,11 @@ CKEDITOR_CONFIGS = {
         "width": 300,
     },
 }
-# from django.utils.translation import gettext as _
-# LANGUAGES = [
-#     ("ru", _("Russian")),
-#     #('en', _('English')),
-#     ('es', _('Spanish')),
-#     ('de', _('German')),
-# ]
+LANGUAGES=(
+    ('ru', 'Русский'),  # Код языка, Человекочитаемое название
+    ('de', 'Deutsch'),
+    ('es', 'Español'),
+)
 
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, "locale"),
