@@ -147,11 +147,11 @@ CKEDITOR_CONFIGS = {
 }
 LANGUAGES = (
     (
-        "en",
+        "ru-en",
         gettext_lazy("Английский"),
     ),
     (
-        "ru",
+        "ru-ru",
         gettext_lazy("Русский"),
     ),
     (
