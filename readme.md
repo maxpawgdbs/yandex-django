@@ -42,7 +42,7 @@ sudo apt install gettext
 ```
 ##### Создаём перевод
 ```
-python3 lyceum/manage.py compilemessages
+django-admin compilemessages
 ```
 
 ##### Статус пайплайна последнего коммита
