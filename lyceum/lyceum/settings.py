@@ -43,7 +43,6 @@ INSTALLED_APPS = [
     "homepage.apps.HomepageConfig",
     "sorl.thumbnail",
     "django_cleanup.apps.CleanupConfig",
-    # "homepage.templatetags.server_time",
     "tinymce",
 ]
 
@@ -56,6 +55,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "lyceum.middleware.MyMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
 ]
 if DEBUG:
     MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
@@ -144,3 +144,14 @@ CKEDITOR_CONFIGS = {
         "width": 300,
     },
 }
+# from django.utils.translation import gettext as _
+# LANGUAGES = [
+#     ("ru", _("Russian")),
+#     #('en', _('English')),
+#     ('es', _('Spanish')),
+#     ('de', _('German')),
+# ]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, "locale"),
+]

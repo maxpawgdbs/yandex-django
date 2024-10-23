@@ -35,6 +35,16 @@ python3 manage.py runserver
 python3 lyceum/manage.py test
 ```
 
+### Локализация
+##### Установка gettext
+```
+sudo apt install gettext
+```
+##### В settings.py ставим свой язык
+```
+LANGUAGE_CODE = "ru-ru"
+```
+
 ##### Статус пайплайна последнего коммита
 [![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/pipelines)
 

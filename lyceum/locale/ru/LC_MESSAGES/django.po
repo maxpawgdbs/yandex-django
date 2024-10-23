@@ -1,0 +1,8 @@
+msgid "Homepage"
+msgstr "Главная"
+
+msgid "About"
+msgstr "О проекте"
+
+msgid "Catalog"
+msgstr "Список товаров"

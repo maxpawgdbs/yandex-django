@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         {% load static %}
@@ -13,7 +14,7 @@
                 {% url 'homepage:home' %}
                 {% else %}#{% endif %}"
                    class="nav-link {% if request.resolver_match.view_name == 'homepage:home' %}active{% endif %}">
-                    Главная
+                    {% trans 'Homepage' %}
                 </a>
             </li>
             <li class="nav-item">
@@ -21,7 +22,7 @@
                     {% url 'about:description' %}
                     {% else %}#{% endif %}"
                    class="nav-link {% if request.resolver_match.view_name == 'about:description' %}active{% endif %}">
-                    О проекте
+                    {% trans 'About' %}
                 </a>
             </li>
             <li class="nav-item">
@@ -29,7 +30,7 @@
                     {% url 'catalog:item_list' %}
                     {% else %}#{% endif %}"
                    class="nav-link {% if request.resolver_match.view_name == 'catalog:item_list' %}active{% endif %}">
-                    Список товаров
+                    {% trans 'Catalog' %}
                 </a>
             </li>
         </ul>

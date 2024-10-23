@@ -1,0 +1,8 @@
+msgid "Homepage"
+msgstr "Startseite"
+
+msgid "About"
+msgstr "Über"
+
+msgid "Catalog"
+msgstr "Katalog"
