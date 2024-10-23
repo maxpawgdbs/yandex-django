@@ -40,9 +40,9 @@ python3 lyceum/manage.py test
 ```
 sudo apt install gettext
 ```
-##### Компилируем перевод
+##### Создаём перевод
 ```
-cd lyceum/manage.py compilemessages
+python3 lyceum/manage.py compilemessages
 ```
 
 ##### Статус пайплайна последнего коммита

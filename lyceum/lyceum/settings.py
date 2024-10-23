@@ -1,6 +1,7 @@
 import os
 from pathlib import Path
 
+from django.utils.translation import gettext_lazy
 from dotenv import load_dotenv
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -145,9 +146,22 @@ CKEDITOR_CONFIGS = {
     },
 }
 LANGUAGES = (
-    ("ru", "Русский"),  # Код языка, Человекочитаемое название
-    ("de", "Deutsch"),
-    ("es", "Español"),
+    (
+        "en",
+        gettext_lazy("English"),
+    ),
+    (
+        "ru",
+        gettext_lazy("Russian"),
+    ),
+    (
+        "de",
+        gettext_lazy("German"),
+    ),
+    (
+        "es",
+        gettext_lazy("Spanish"),
+    ),
 )
 
 LOCALE_PATHS = [
