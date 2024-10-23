@@ -19,12 +19,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 #: .\templates\includes\header.html:17
 msgid "Homepage"
-msgstr "Pagina principal"
+msgstr "Homepage"
 
 #: .\templates\includes\header.html:25
 msgid "About"
-msgstr "Sobre"
+msgstr "About"
 
 #: .\templates\includes\header.html:33
 msgid "Catalog"
-msgstr "Catalogar"
+msgstr "Catalog"

@@ -10,6 +10,7 @@ flake8:
     - pip3 install flake8-import-order==0.18.2
     - pip3 install flake8-commas==4.0.0
     - pip3 install flake8-dunder-all==0.4.1
+    - pip3 install flake8-forbidden-func==0.1.0
     - flake8 --verbose .
 
 black:

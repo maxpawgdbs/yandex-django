@@ -40,9 +40,9 @@ python3 lyceum/manage.py test
 ```
 sudo apt install gettext
 ```
-##### В settings.py ставим свой язык
+##### Компилируем перевод
 ```
-LANGUAGE_CODE = "ru-ru"
+cd lyceum/manage.py compilemessages
 ```
 
 ##### Статус пайплайна последнего коммита

@@ -3,6 +3,7 @@ django-debug-toolbar==4.3.0
 flake8==7.1.1
 flake8-commas==4.0.0
 flake8-dunder-all==0.4.1
+flake8-forbidden-func==0.1.0
 flake8-import-order==0.18.2
 flake8-quotes==3.4.0
 parametrize==0.1.1
