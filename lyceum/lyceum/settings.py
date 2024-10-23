@@ -144,10 +144,10 @@ CKEDITOR_CONFIGS = {
         "width": 300,
     },
 }
-LANGUAGES=(
-    ('ru', 'Русский'),  # Код языка, Человекочитаемое название
-    ('de', 'Deutsch'),
-    ('es', 'Español'),
+LANGUAGES = (
+    ("ru", "Русский"),  # Код языка, Человекочитаемое название
+    ("de", "Deutsch"),
+    ("es", "Español"),
 )
 
 LOCALE_PATHS = [
