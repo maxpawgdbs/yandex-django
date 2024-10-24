@@ -85,7 +85,7 @@ class MainImage(django.db.models.Model):
         if self.main_image:
             return mark_safe(
                 "<img src='{}' width='50' height='50'>".format(
-                    self.main_image.image.url
+                    self.main_image.image.url,
                 ),
             )
 
