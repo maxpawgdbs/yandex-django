@@ -10,6 +10,11 @@ class GaleryInline(admin.TabularInline):
     extra = 1
 
 
+class MainImageInline(admin.TabularInline):
+    model = catalog.models.MainImage
+    extra = 1
+
+
 class ItemAdminForm(forms.ModelForm):
     text = HTMLField()
 
@@ -25,9 +30,9 @@ class ItemAdmin(admin.ModelAdmin):
         catalog.models.Item.id.field.name,
         catalog.models.Item.name.field.name,
         catalog.models.Item.is_published.field.name,
-        catalog.models.Item.image_tmb,
+        catalog.models.MainImage.image_tmb,
     )
-    inlines = [GaleryInline]
+    inlines = [MainImageInline, GaleryInline]
     list_display_links = (catalog.models.Item.name.field.name,)
     list_editable = (catalog.models.Item.is_published.field.name,)
     filter_horizontal = (catalog.models.Item.tags.field.name,)

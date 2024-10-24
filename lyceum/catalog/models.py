@@ -51,29 +51,6 @@ class Item(core.models.BaseModel):
         Category,
         on_delete=django.db.models.CASCADE,
     )
-    MainImage = django.db.models.ImageField(
-        verbose_name="Главная картинка",
-        upload_to="items/main_image/",
-        null=True,
-        blank=True,
-    )
-
-    def get_image_300x300(self):
-        return get_thumbnail(
-            self.MainImage,
-            "300x300",
-            crop="center",
-            quality=51,
-        )
-
-    def image_tmb(self):
-        if self.MainImage:
-            return mark_safe(
-                f"<img src='{self.MainImage.url}' width='50' height='50'>",
-            )
-
-    image_tmb.short_description = "превью"
-    image_tmb.allow_tags = True
 
     class Meta:
         verbose_name = "товар"
@@ -81,6 +58,39 @@ class Item(core.models.BaseModel):
 
     def __str__(self):
         return self.name[:15]
+
+
+class MainImage(django.db.models.Model):
+    image = django.db.models.ImageField(
+        verbose_name="галерея",
+        upload_to="items/main_image/",
+        null=True,
+        blank=True,
+    )
+    item = django.db.models.OneToOneField(
+        Item,
+        related_name="main_image",
+        on_delete=django.db.models.CASCADE,
+    )
+
+    def get_image_300x300(self):
+        return get_thumbnail(
+            self.main_image.image,
+            "300x300",
+            crop="center",
+            quality=51,
+        )
+
+    def image_tmb(self):
+        if self.main_image:
+            return mark_safe(
+                "<img src='{}' width='50' height='50'>".format(
+                    self.main_image.image.url
+                ),
+            )
+
+    image_tmb.short_description = "превью"
+    image_tmb.allow_tags = True
 
 
 class ItemGalery(django.db.models.Model):
