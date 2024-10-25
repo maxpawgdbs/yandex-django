@@ -1,3 +1,8 @@
+[![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/pipelines)
+
+![image](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/raw/main/ER.jpg)
+
+Проект разработан под Python 3.11
 ### Установка и запуск виртуального окружение
 ```
 python3 -m venv venv
@@ -20,8 +25,17 @@ pip3 install -r requirements/dev.txt
 ```
 
 ### Задание переменных окружения
+Перед запуском измените в файле settings.py
 ```
-cat .env.template >> lyceum/lyceum/example.env
+8. dotenv_path = BASE_DIR.joinpath("lyceum/example.env")
+```
+↓
+```
+8. dotenv_path = BASE_DIR.joinpath("lyceum/.env")
+```
+##### Перенос шаблона .env
+```
+cat .env.template >> lyceum/lyceum/.env
 ```
 
 ### Запуск сервера
@@ -44,8 +58,3 @@ sudo apt install gettext
 ```
 django-admin compilemessages
 ```
-
-##### Статус пайплайна последнего коммита
-[![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/pipelines)
-
-![image](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/raw/main/ER.jpg)
