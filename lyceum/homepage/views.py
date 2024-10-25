@@ -1,20 +1,19 @@
-from http import HTTPStatus
+import http
 
-from django.http import HttpResponse
-from django.shortcuts import render
+import django.http
+import django.shortcuts
 
 
 def home(request):
     template = "homepage/main.html"
-    context = {}
-    return render(request, template, context)
+    return django.shortcuts.render(request, template)
 
 
 def teapot(request):
-    return HttpResponse("Я чайник", status=HTTPStatus.IM_A_TEAPOT)
+    return django.http.HttpResponse("Я чайник", status=http.HTTPStatus.IM_A_TEAPOT)
 
 
-__all__ = [
+__all__ = (
     home,
     teapot,
-]
+)

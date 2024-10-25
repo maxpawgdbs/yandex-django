@@ -1,9 +1,14 @@
-from django.urls import path
+import django.urls
 
-from homepage import views
+import homepage.views
 
 app_name = "homepage"
 urlpatterns = [
-    path("", views.home, name="home"),
-    path("coffee/", views.teapot, name="teapot"),
+    django.urls.path("", homepage.views.home, name="home"),
+    django.urls.path("coffee/", homepage.views.teapot, name="teapot"),
 ]
+
+__all__ = (
+    app_name,
+    urlpatterns,
+)

@@ -1,12 +1,12 @@
 import os
-from pathlib import Path
+import pathlib
 
-from django.utils.translation import gettext_lazy
-from dotenv import load_dotenv
+import django.utils.translation
+import dotenv
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
 dotenv_path = BASE_DIR.joinpath("lyceum/example.env")
-load_dotenv(dotenv_path=dotenv_path)
+dotenv.load_dotenv(dotenv_path=dotenv_path)
 
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", default="very_secret_data")
 
@@ -33,17 +33,17 @@ ALLOW_REVERSE = os.environ.get(
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
 
 INSTALLED_APPS = [
+    "about.apps.AboutConfig",
+    "homepage.apps.HomepageConfig",
+    "catalog.apps.CatalogConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "about.apps.AboutConfig",
-    "catalog.apps.CatalogConfig",
-    "homepage.apps.HomepageConfig",
-    "sorl.thumbnail",
     "django_cleanup.apps.CleanupConfig",
+    "sorl.thumbnail",
     "tinymce",
 ]
 
@@ -55,14 +55,14 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "lyceum.middleware.MyMiddleware",
     "django.middleware.locale.LocaleMiddleware",
+    "lyceum.middleware.MyMiddleware",
 ]
 if DEBUG:
     MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
     INSTALLED_APPS.append("debug_toolbar")
 
-INTERNAL_IPS = ["127.0.0.1", "localhost"]
+INTERNAL_IPS = ["127.0.0.1"]
 
 ROOT_URLCONF = "lyceum.urls"
 
@@ -100,7 +100,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         "NAME": (
-            "django.contrib.auth.password_validation." "MinimumLengthValidator"
+            "django.contrib.auth.password_validation.MinimumLengthValidator"
         ),
     },
     {
@@ -148,19 +148,19 @@ CKEDITOR_CONFIGS = {
 LANGUAGES = (
     (
         "en",
-        gettext_lazy("English"),
+        django.utils.translation.gettext_lazy("English"),
     ),
     (
         "ru",
-        gettext_lazy("Русский"),
+        django.utils.translation.gettext_lazy("Русский"),
     ),
     (
         "de",
-        gettext_lazy("Deutsch"),
+        django.utils.translation.gettext_lazy("Deutsch"),
     ),
     (
         "es",
-        gettext_lazy("Espanol"),
+        django.utils.translation.gettext_lazy("Espanol"),
     ),
 )
 

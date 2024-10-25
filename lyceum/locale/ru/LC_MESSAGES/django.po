@@ -22,7 +22,7 @@ msgstr ""
 
 #: .\lyceum\settings.py:151
 msgid "English"
-msgstr "Английский"
+msgstr "English"
 
 #: .\lyceum\settings.py:155
 msgid "Русский"
@@ -32,11 +32,11 @@ msgstr "Русский"
 #, fuzzy
 #| msgid "Deutch"
 msgid "Deutsch"
-msgstr "Немецкий"
+msgstr "Deutsch"
 
 #: .\lyceum\settings.py:163
 msgid "Espanol"
-msgstr "Испанский"
+msgstr "Espanol"
 
 #: .\templates\includes\header.html:17
 msgid "Homepage"

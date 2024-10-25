@@ -28,6 +28,11 @@ class ValidateMustContain:
         )
 
 
+# Функцию уже не изменить. Она уже часть корабля.
+# File "C:\Users\79040\PycharmProjects\196470-maxpawgdbs-course-1187\lyceum\catalog\migrations\0001_initial.py", line 65, in Migration
+#  validators=[catalog.validators.custom_validator_zero],
+#              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+# AttributeError: module 'catalog.validators' has no attribute 'custom_validator_zero'
 def custom_validator_zero(value):
     if value <= 0 or value > 32767:
         raise django.core.exceptions.ValidationError(
@@ -35,7 +40,7 @@ def custom_validator_zero(value):
         )
 
 
-__all__ = [
+__all__ = (
     ValidateMustContain,
     custom_validator_zero,
-]
+)

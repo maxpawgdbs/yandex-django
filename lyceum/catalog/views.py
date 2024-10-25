@@ -1,5 +1,5 @@
-from django.http import HttpResponse
-from django.shortcuts import render
+import django.http
+import django.shortcuts
 
 
 def item_list(request):
@@ -31,26 +31,25 @@ def item_list(request):
     for el in items:
         if el["is_published"]:
             context["items"].append(el)
-    return render(request, template, context)
+    return django.shortcuts.render(request, template, context)
 
 
 def item_detail(request, index):
     template = "catalog/item.html"
-    context = {}
-    return render(request, template, context)
+    return django.shortcuts.render(request, template)
 
 
 def item_detail_re(request, index):
-    return HttpResponse("<body>" + index + "</body>")
+    return django.http.HttpResponse("<body>" + index + "</body>")
 
 
 def converter(request, index):
-    return HttpResponse("<body>" + str(index) + "</body>")
+    return django.http.HttpResponse("<body>" + str(index) + "</body>")
 
 
-__all__ = [
+__all__ = (
     item_detail,
     item_detail_re,
     item_list,
     converter,
-]
+)

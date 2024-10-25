@@ -24,17 +24,17 @@ msgstr "English"
 
 #: .\lyceum\settings.py:155
 msgid "Русский"
-msgstr "Russian"
+msgstr "Русский"
 
 #: .\lyceum\settings.py:159
 #, fuzzy
 #| msgid "Deutch"
 msgid "Deutsch"
-msgstr "German"
+msgstr "Deutsch"
 
 #: .\lyceum\settings.py:163
 msgid "Espanol"
-msgstr "Spanish"
+msgstr "Espanol"
 
 #: .\templates\includes\header.html:17
 msgid "Homepage"

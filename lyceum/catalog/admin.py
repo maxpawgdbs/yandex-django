@@ -1,30 +1,30 @@
-from django import forms
-from django.contrib import admin
-from tinymce.models import HTMLField
+import django.forms
+import django.contrib
+import tinymce.models
 
 import catalog.models
 
 
-class GaleryInline(admin.TabularInline):
+class GaleryInline(django.contrib.admin.TabularInline):
     model = catalog.models.ItemGalery
     extra = 1
 
 
-class MainImageInline(admin.TabularInline):
+class MainImageInline(django.contrib.admin.TabularInline):
     model = catalog.models.MainImage
     extra = 1
 
 
-class ItemAdminForm(forms.ModelForm):
-    text = HTMLField()
+class ItemAdminForm(django.forms.ModelForm):
+    text = tinymce.models.HTMLField()
 
     class Meta:
         model = catalog.models.Item
         fields = ["text"]
 
 
-@admin.register(catalog.models.Item)
-class ItemAdmin(admin.ModelAdmin):
+@django.contrib.admin.register(catalog.models.Item)
+class ItemAdmin(django.contrib.admin.ModelAdmin):
     form = ItemAdminForm
     list_display = (
         catalog.models.Item.id.field.name,
@@ -38,8 +38,8 @@ class ItemAdmin(admin.ModelAdmin):
     filter_horizontal = (catalog.models.Item.tags.field.name,)
 
 
-@admin.register(catalog.models.Category)
-class CategoryAdmin(admin.ModelAdmin):
+@django.contrib.admin.register(catalog.models.Category)
+class CategoryAdmin(django.contrib.admin.ModelAdmin):
     list_display = (
         catalog.models.Category.id.field.name,
         catalog.models.Category.name.field.name,
@@ -57,8 +57,8 @@ class CategoryAdmin(admin.ModelAdmin):
     exclude = (catalog.models.Category.normalized_name.field.name,)
 
 
-@admin.register(catalog.models.Tag)
-class TagAdmin(admin.ModelAdmin):
+@django.contrib.admin.register(catalog.models.Tag)
+class TagAdmin(django.contrib.admin.ModelAdmin):
     list_display = (
         catalog.models.Tag.id.field.name,
         catalog.models.Tag.name.field.name,
@@ -74,8 +74,8 @@ class TagAdmin(admin.ModelAdmin):
     exclude = (catalog.models.Tag.normalized_name.field.name,)
 
 
-__all__ = [
+__all__ = (
     ItemAdmin,
     TagAdmin,
     CategoryAdmin,
-]
+)

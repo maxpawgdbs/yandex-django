@@ -40,7 +40,7 @@ def normalization(word):
     return word
 
 
-__all__ = [
+__all__ = (
     custom_validator_spaces,
     normalization,
-]
+)

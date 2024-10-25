@@ -74,7 +74,7 @@ class ModelNormalizedNames(BaseModel):
         abstract = True
 
 
-__all__ = [
+__all__ = (
     BaseModel,
     ModelNormalizedNames,
-]
+)

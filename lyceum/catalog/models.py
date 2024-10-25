@@ -1,7 +1,8 @@
 import django.db
-from django.utils.safestring import mark_safe
-from sorl.thumbnail import get_thumbnail
-from tinymce.models import HTMLField
+import django.core
+import django.utils.safestring
+import sorl.thumbnail
+import tinymce.models
 
 import catalog.validators
 import core.models
@@ -22,7 +23,8 @@ class Category(core.models.ModelNormalizedNames):
         default=100,
         help_text="Вес",
         validators=[
-            catalog.validators.custom_validator_zero,
+            django.core.validators.MinValueValidator(1),
+            django.core.validators.MaxValueValidator(32767),
         ],
     )
 
@@ -35,7 +37,7 @@ class Category(core.models.ModelNormalizedNames):
 
 
 class Item(core.models.BaseModel):
-    text = HTMLField(
+    text = tinymce.models.HTMLField(
         verbose_name="текст",
         default="Превосходно",
         help_text="Описание товара",
@@ -74,7 +76,7 @@ class MainImage(django.db.models.Model):
     )
 
     def get_image_300x300(self):
-        return get_thumbnail(
+        return sorl.thumbnail.get_thumbnail(
             self.main_image.image,
             "300x300",
             crop="center",
@@ -83,7 +85,7 @@ class MainImage(django.db.models.Model):
 
     def image_tmb(self):
         if self.main_image:
-            return mark_safe(
+            return django.utils.safestring.mark_safe(
                 "<img src='{}' width='50' height='50'>".format(
                     self.main_image.image.url,
                 ),
@@ -106,10 +108,30 @@ class ItemGalery(django.db.models.Model):
         on_delete=django.db.models.CASCADE,
     )
 
+    def get_image_300x300(self):
+        return sorl.thumbnail.get_thumbnail(
+            self.photos.images,
+            "300x300",
+            crop="center",
+            quality=51,
+        )
 
-__all__ = [
+    def image_tmb(self):
+        if self.photos:
+            return django.utils.safestring.mark_safe(
+                "<img src='{}' width='50' height='50'>".format(
+                    self.photos.images.url,
+                ),
+            )
+
+    image_tmb.short_description = "превью"
+    image_tmb.allow_tags = True
+
+
+__all__ = (
     Tag,
     Category,
     Item,
+    MainImage,
     ItemGalery,
-]
+)

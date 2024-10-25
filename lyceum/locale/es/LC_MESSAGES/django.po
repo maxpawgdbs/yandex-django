@@ -20,15 +20,15 @@ msgstr ""
 
 #: .\lyceum\settings.py:151
 msgid "English"
-msgstr "Ingles"
+msgstr "English"
 
 #: .\lyceum\settings.py:155
 msgid "Русский"
-msgstr "Ruso"
+msgstr "Русский"
 
 #: .\lyceum\settings.py:159
 msgid "Deutsch"
-msgstr "Aleman"
+msgstr "Deutsch"
 
 #: .\lyceum\settings.py:163
 msgid "Espanol"

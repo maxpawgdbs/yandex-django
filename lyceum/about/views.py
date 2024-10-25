@@ -1,12 +1,9 @@
-from django.shortcuts import render
+import django.shortcuts
 
 
 def description(request):
     template = "about/about.html"
-    context = {}
-    return render(request, template, context)
+    return django.shortcuts.render(request, template)
 
 
-__all__ = [
-    description,
-]
+__all__ = (description,)
