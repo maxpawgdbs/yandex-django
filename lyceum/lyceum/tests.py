@@ -1,5 +1,4 @@
 import django.test
-import django.test
 import django.urls
 
 
@@ -23,6 +22,4 @@ class MiddlewareOnLyceumTest(django.test.TestCase):
         self.assertEqual(content.count("Я кинйач"), 0)
 
 
-__all__ = (
-    MiddlewareOnLyceumTest,
-)
+__all__ = (MiddlewareOnLyceumTest,)

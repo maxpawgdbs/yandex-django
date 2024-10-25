@@ -10,7 +10,10 @@ def home(request):
 
 
 def teapot(request):
-    return django.http.HttpResponse("Я чайник", status=http.HTTPStatus.IM_A_TEAPOT)
+    return django.http.HttpResponse(
+        "Я чайник",
+        status=http.HTTPStatus.IM_A_TEAPOT,
+    )
 
 
 __all__ = (

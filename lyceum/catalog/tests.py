@@ -2,7 +2,6 @@ import http
 
 import django.core.exceptions
 import django.db.utils
-import django.urls.exceptions
 import django.test
 import django.urls
 import parametrize
@@ -33,12 +32,12 @@ class StaticUrlCatalogTests(django.test.TestCase):
         "expected, test_input",
         [
             (
-                    http.HTTPStatus.NOT_FOUND,
-                    ("catalog:item_detail", ["qwe"]),
+                http.HTTPStatus.NOT_FOUND,
+                ("catalog:item_detail", ["qwe"]),
             ),
             (
-                    http.HTTPStatus.NOT_FOUND,
-                    ("catalog:item_detail", [-1]),
+                http.HTTPStatus.NOT_FOUND,
+                ("catalog:item_detail", [-1]),
             ),
         ],
     )
@@ -52,8 +51,8 @@ class StaticUrlCatalogTests(django.test.TestCase):
         "expected, test_input",
         [
             (
-                    http.HTTPStatus.OK,
-                    ("catalog:item_detail_re", [123]),
+                http.HTTPStatus.OK,
+                ("catalog:item_detail_re", [123]),
             ),
         ],
     )
@@ -66,16 +65,16 @@ class StaticUrlCatalogTests(django.test.TestCase):
         "expected, test_input",
         [
             (
-                    http.HTTPStatus.NOT_FOUND,
-                    ("catalog:item_detail_re", [-123]),
+                http.HTTPStatus.NOT_FOUND,
+                ("catalog:item_detail_re", [-123]),
             ),
             (
-                    http.HTTPStatus.NOT_FOUND,
-                    ("catalog:item_detail_re", [0]),
+                http.HTTPStatus.NOT_FOUND,
+                ("catalog:item_detail_re", [0]),
             ),
             (
-                    http.HTTPStatus.NOT_FOUND,
-                    ("catalog:item_detail_re", ["qwe"]),
+                http.HTTPStatus.NOT_FOUND,
+                ("catalog:item_detail_re", ["qwe"]),
             ),
         ],
     )
@@ -89,8 +88,8 @@ class StaticUrlCatalogTests(django.test.TestCase):
         "expected, test_input",
         [
             (
-                    http.HTTPStatus.OK,
-                    ("catalog:converter", [123]),
+                http.HTTPStatus.OK,
+                ("catalog:converter", [123]),
             ),
         ],
     )
@@ -103,16 +102,16 @@ class StaticUrlCatalogTests(django.test.TestCase):
         "expected, test_input",
         [
             (
-                    http.HTTPStatus.NOT_FOUND,
-                    ("catalog:converter", [0]),
+                http.HTTPStatus.NOT_FOUND,
+                ("catalog:converter", [0]),
             ),
             (
-                    http.HTTPStatus.NOT_FOUND,
-                    ("catalog:converter", [-123]),
+                http.HTTPStatus.NOT_FOUND,
+                ("catalog:converter", [-123]),
             ),
             (
-                    http.HTTPStatus.NOT_FOUND,
-                    ("catalog:converter", ["qwe"]),
+                http.HTTPStatus.NOT_FOUND,
+                ("catalog:converter", ["qwe"]),
             ),
         ],
     )

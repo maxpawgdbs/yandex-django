@@ -1,5 +1,5 @@
-import django.forms
 import django.contrib
+import django.forms
 import tinymce.models
 
 import catalog.models
