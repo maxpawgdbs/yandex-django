@@ -1,42 +1,32 @@
 import django.http
 import django.shortcuts
 
+import catalog.models
+
 
 def item_list(request):
     template = "catalog/item_list.html"
-    items = [
-        {
-            "id": 1,
-            "name": "Предмет 1",
-            "is_published": True,
-            "text": "Роскошно",
-            "img": "thing1.jpg",
-        },
-        {
-            "id": 2,
-            "name": "Предмет 2",
-            "is_published": False,
-            "text": "Превосходно",
-            "img": "thing2.jpg",
-        },
-        {
-            "id": 3,
-            "name": "Предмет 3",
-            "is_published": True,
-            "text": "Роскошно Превосходно",
-            "img": "thing3.jpg",
-        },
-    ]
-    context = {"items": []}
-    for el in items:
-        if el["is_published"]:
-            context["items"].append(el)
+    items = catalog.models.Item.objects.filter(is_published=True).order_by(
+        "category__name",
+    )
+    context = {
+        "items": items,
+    }
     return django.shortcuts.render(request, template, context)
 
 
 def item_detail(request, index):
+    item = django.shortcuts.get_object_or_404(
+        catalog.models.Item,
+        pk=index,
+    )
+    if (not item.is_published) and (not item.is_on_main):
+        raise django.http.Http404
+    context = {
+        "item": item,
+    }
     template = "catalog/item.html"
-    return django.shortcuts.render(request, template)
+    return django.shortcuts.render(request, template, context)
 
 
 def item_detail_re(request, index):

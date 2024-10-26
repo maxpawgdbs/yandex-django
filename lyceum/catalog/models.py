@@ -48,13 +48,25 @@ class Item(core.models.BaseModel):
             ),
         ],
     )
+    is_on_main = django.db.models.BooleanField(
+        verbose_name="на главной",
+        default=False,
+        help_text="Статус показа на главной странице",
+    )
     tags = django.db.models.ManyToManyField(Tag)
     category = django.db.models.ForeignKey(
         Category,
         on_delete=django.db.models.CASCADE,
     )
 
+    def compression_text(self):
+        t = self.text.split()
+        if len(t) > 10:
+            return "".join(t[:10]) + "..."
+        return "".join(t)
+
     class Meta:
+        ordering = ("name", "text", "id")
         verbose_name = "товар"
         verbose_name_plural = "товары"
 

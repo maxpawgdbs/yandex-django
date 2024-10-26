@@ -1,5 +1,587 @@
 [
 {
+  "model": "catalog.tag",
+  "pk": 6,
+  "fields": {
+    "name": "Нейрокот",
+    "is_published": true,
+    "slug": "neirocat",
+    "normalized_name": "нейрокот"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 7,
+  "fields": {
+    "name": "Чёрный",
+    "is_published": true,
+    "slug": "black",
+    "normalized_name": "чёрный"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 8,
+  "fields": {
+    "name": "Рыжий",
+    "is_published": true,
+    "slug": "ginger",
+    "normalized_name": "рыжий"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 9,
+  "fields": {
+    "name": "Белый",
+    "is_published": true,
+    "slug": "white",
+    "normalized_name": "белый"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 10,
+  "fields": {
+    "name": "Серый",
+    "is_published": true,
+    "slug": "grey",
+    "normalized_name": "серый"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 11,
+  "fields": {
+    "name": "Котёнок",
+    "is_published": true,
+    "slug": "pussy",
+    "normalized_name": "котёнок"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 12,
+  "fields": {
+    "name": "Трёхцветный",
+    "is_published": true,
+    "slug": "three_colors",
+    "normalized_name": "трёхцветный"
+  }
+},
+{
+  "model": "catalog.tag",
+  "pk": 13,
+  "fields": {
+    "name": "Полосатый",
+    "is_published": true,
+    "slug": "striped",
+    "normalized_name": "полосатый"
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 3,
+  "fields": {
+    "name": "Любимый питомец",
+    "is_published": true,
+    "slug": "love_pet",
+    "normalized_name": "любимый питомец",
+    "weight": 100
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 4,
+  "fields": {
+    "name": "Друг и товарищ",
+    "is_published": true,
+    "slug": "friend",
+    "normalized_name": "друг и товарищ",
+    "weight": 100
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 5,
+  "fields": {
+    "name": "Опасный охотник",
+    "is_published": true,
+    "slug": "dangerous_hunter",
+    "normalized_name": "опасный охотник",
+    "weight": 100
+  }
+},
+{
+  "model": "catalog.category",
+  "pk": 6,
+  "fields": {
+    "name": "Милый котёнок",
+    "is_published": true,
+    "slug": "cute_pussy",
+    "normalized_name": "милый котёнок",
+    "weight": 100
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 6,
+  "fields": {
+    "name": "Серый сидячий котёнок",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": true,
+    "category": 6,
+    "tags": [
+      6,
+      10,
+      11
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 7,
+  "fields": {
+    "name": "Трёхцветный ушастый кот",
+    "is_published": true,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 4,
+    "tags": [
+      12
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 8,
+  "fields": {
+    "name": "Серый милашка",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": true,
+    "category": 6,
+    "tags": [
+      6,
+      10,
+      11,
+      13
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 9,
+  "fields": {
+    "name": "Чёрный величественный кот",
+    "is_published": true,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 4,
+    "tags": [
+      6,
+      7
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 10,
+  "fields": {
+    "name": "Рысь-Охотник",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 5,
+    "tags": [
+      10,
+      13
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 11,
+  "fields": {
+    "name": "Рыжик",
+    "is_published": true,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 3,
+    "tags": [
+      8
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 12,
+  "fields": {
+    "name": "Полосатый лежачий кот",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": true,
+    "category": 4,
+    "tags": [
+      10,
+      13
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 13,
+  "fields": {
+    "name": "Рыжий котёнок",
+    "is_published": true,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 6,
+    "tags": [
+      6,
+      8
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 14,
+  "fields": {
+    "name": "Полосатый брезгливый кот",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": true,
+    "category": 3,
+    "tags": [
+      10,
+      13
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 15,
+  "fields": {
+    "name": "Полосатый охотник",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 5,
+    "tags": [
+      10,
+      13
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 16,
+  "fields": {
+    "name": "Рыжий милашка",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": true,
+    "category": 6,
+    "tags": [
+      8,
+      11
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 17,
+  "fields": {
+    "name": "Серый красавчик",
+    "is_published": true,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 4,
+    "tags": [
+      10
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 18,
+  "fields": {
+    "name": "Полосатый презрительный кот",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": true,
+    "category": 3,
+    "tags": [
+      12,
+      13
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 19,
+  "fields": {
+    "name": "Задумчивый трехцветный кот",
+    "is_published": true,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 4,
+    "tags": [
+      12
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 20,
+  "fields": {
+    "name": "Спокойный полосатик",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 3,
+    "tags": [
+      10,
+      13
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 21,
+  "fields": {
+    "name": "Рыжий шалун",
+    "is_published": true,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 3,
+    "tags": [
+      8
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 22,
+  "fields": {
+    "name": "Чёрный милашка",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": true,
+    "category": 6,
+    "tags": [
+      6,
+      7,
+      11
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 23,
+  "fields": {
+    "name": "Белый пушистик",
+    "is_published": true,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 3,
+    "tags": [
+      6,
+      9
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 24,
+  "fields": {
+    "name": "Эрмитажный кот",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": true,
+    "category": 4,
+    "tags": [
+      12,
+      13
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 25,
+  "fields": {
+    "name": "Задумчивый пушистик",
+    "is_published": false,
+    "text": "Превосходно",
+    "is_on_main": false,
+    "category": 3,
+    "tags": [
+      12
+    ]
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 2,
+  "fields": {
+    "image": "items/main_image/серый_сидячий.jpg",
+    "item": 6
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 3,
+  "fields": {
+    "image": "items/main_image/трехцветный_ушастый.jpg",
+    "item": 7
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 4,
+  "fields": {
+    "image": "items/main_image/серый_милашка.jpg",
+    "item": 8
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 5,
+  "fields": {
+    "image": "items/main_image/черный_величественный.jpg",
+    "item": 9
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 6,
+  "fields": {
+    "image": "items/main_image/рысь_охотник.jpg",
+    "item": 10
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 7,
+  "fields": {
+    "image": "items/main_image/рыжий_просто_рыжий.jpg",
+    "item": 11
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 8,
+  "fields": {
+    "image": "items/main_image/полосатый_лежачий.jpg",
+    "item": 12
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 9,
+  "fields": {
+    "image": "items/main_image/рыжий_котенок.jpg",
+    "item": 13
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 10,
+  "fields": {
+    "image": "items/main_image/полосатый_брезгливый.jpg",
+    "item": 14
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 11,
+  "fields": {
+    "image": "items/main_image/полосатый_охотник.jpg",
+    "item": 15
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 12,
+  "fields": {
+    "image": "items/main_image/рыжий_милашка.jpg",
+    "item": 16
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 13,
+  "fields": {
+    "image": "items/main_image/серый_красавчик.jpg",
+    "item": 17
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 14,
+  "fields": {
+    "image": "items/main_image/полосатый_презрительный_взгляд.jpg",
+    "item": 18
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 15,
+  "fields": {
+    "image": "items/main_image/внимательный_трехцветный.jpg",
+    "item": 19
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 16,
+  "fields": {
+    "image": "items/main_image/спокойный_полосатик.jpg",
+    "item": 20
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 17,
+  "fields": {
+    "image": "items/main_image/рыжий_шалун.jpg",
+    "item": 21
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 18,
+  "fields": {
+    "image": "items/main_image/черный_милашка.jpg",
+    "item": 22
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 19,
+  "fields": {
+    "image": "items/main_image/белый_пушистик.jpg",
+    "item": 23
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 20,
+  "fields": {
+    "image": "items/main_image/эрмитажный_кот.jpg",
+    "item": 24
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 21,
+  "fields": {
+    "image": "items/main_image/задумчивый_пушистик.jpg",
+    "item": 25
+  }
+},
+{
   "model": "admin.logentry",
   "pk": 1,
   "fields": {
@@ -218,6 +800,838 @@
     "object_repr": "Название5",
     "action_flag": 2,
     "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043a\\u0441\\u0442\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2024-10-22T18:00:20.497Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Название5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u0422\\u0435\\u043a\\u0441\\u0442\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 19,
+  "fields": {
+    "action_time": "2024-10-24T18:52:48.854Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Название5",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"item galery\", \"object\": \"ItemGalery object (1)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 20,
+  "fields": {
+    "action_time": "2024-10-24T18:53:27.984Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Название5",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (1)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 21,
+  "fields": {
+    "action_time": "2024-10-26T15:06:59.542Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "5",
+    "object_repr": "Название5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 22,
+  "fields": {
+    "action_time": "2024-10-26T15:06:59.567Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "4",
+    "object_repr": "Название3",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 23,
+  "fields": {
+    "action_time": "2024-10-26T15:06:59.574Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "3",
+    "object_repr": "Название2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 24,
+  "fields": {
+    "action_time": "2024-10-26T15:06:59.581Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "2",
+    "object_repr": "Название1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 25,
+  "fields": {
+    "action_time": "2024-10-26T15:06:59.589Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "1",
+    "object_repr": "Название",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 26,
+  "fields": {
+    "action_time": "2024-10-26T15:07:05.696Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Название5",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 27,
+  "fields": {
+    "action_time": "2024-10-26T15:07:05.735Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Название4",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 28,
+  "fields": {
+    "action_time": "2024-10-26T15:07:05.745Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "Название3",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 29,
+  "fields": {
+    "action_time": "2024-10-26T15:07:05.754Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "Название2",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 30,
+  "fields": {
+    "action_time": "2024-10-26T15:07:05.761Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "Название1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 31,
+  "fields": {
+    "action_time": "2024-10-26T15:07:11.473Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "Название1",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 32,
+  "fields": {
+    "action_time": "2024-10-26T15:07:11.480Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Название",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 33,
+  "fields": {
+    "action_time": "2024-10-26T15:12:19.052Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Любимыйпитомец",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 34,
+  "fields": {
+    "action_time": "2024-10-26T15:12:43.490Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "Друг и товарищ",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 35,
+  "fields": {
+    "action_time": "2024-10-26T15:13:18.432Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Опасный охотник",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 36,
+  "fields": {
+    "action_time": "2024-10-26T15:13:42.398Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "6",
+    "object_repr": "Милый котёнок",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 37,
+  "fields": {
+    "action_time": "2024-10-26T15:13:53.312Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Нейрокот",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 38,
+  "fields": {
+    "action_time": "2024-10-26T15:14:04.176Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Чёрный",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 39,
+  "fields": {
+    "action_time": "2024-10-26T15:14:21.896Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "8",
+    "object_repr": "Рыжий",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 40,
+  "fields": {
+    "action_time": "2024-10-26T15:14:40.276Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "9",
+    "object_repr": "Белый",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 41,
+  "fields": {
+    "action_time": "2024-10-26T15:15:13.281Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "10",
+    "object_repr": "Серый",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 42,
+  "fields": {
+    "action_time": "2024-10-26T15:15:23.236Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "11",
+    "object_repr": "Котёнок",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 43,
+  "fields": {
+    "action_time": "2024-10-26T15:24:59.047Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "Серый сидячий к",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (2)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 44,
+  "fields": {
+    "action_time": "2024-10-26T15:25:17.992Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Любимый питомец",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u0435\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 45,
+  "fields": {
+    "action_time": "2024-10-26T15:25:41.871Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "12",
+    "object_repr": "Трёхцветный",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 46,
+  "fields": {
+    "action_time": "2024-10-26T15:26:03.765Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "7",
+    "object_repr": "Трёхцветный уша",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (3)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 47,
+  "fields": {
+    "action_time": "2024-10-26T15:26:09.828Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "Серый сидячий к",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Category\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 48,
+  "fields": {
+    "action_time": "2024-10-26T15:26:37.932Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "8",
+    "object_repr": "Серый милашка",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (4)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 49,
+  "fields": {
+    "action_time": "2024-10-26T15:26:59.629Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "9",
+    "object_repr": "Чёрный величест",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 50,
+  "fields": {
+    "action_time": "2024-10-26T15:27:07.771Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "9",
+    "object_repr": "Чёрный величест",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (5)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 51,
+  "fields": {
+    "action_time": "2024-10-26T15:27:55.671Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "13",
+    "object_repr": "Полосатый",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 52,
+  "fields": {
+    "action_time": "2024-10-26T15:28:21.856Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "10",
+    "object_repr": "Рысь-Охотник",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (6)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 53,
+  "fields": {
+    "action_time": "2024-10-26T15:28:26.486Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "8",
+    "object_repr": "Серый милашка",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Tags\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 54,
+  "fields": {
+    "action_time": "2024-10-26T15:28:50.011Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "11",
+    "object_repr": "Рыжик",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (7)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 55,
+  "fields": {
+    "action_time": "2024-10-26T15:29:31.624Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "12",
+    "object_repr": "Полосатый лежач",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (8)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 56,
+  "fields": {
+    "action_time": "2024-10-26T15:30:12.005Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "13",
+    "object_repr": "Рыжий котёнок",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (9)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 57,
+  "fields": {
+    "action_time": "2024-10-26T15:30:38.004Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "14",
+    "object_repr": "Полосатый брезг",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (10)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 58,
+  "fields": {
+    "action_time": "2024-10-26T15:31:10.195Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "15",
+    "object_repr": "Полосатый охотн",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (11)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 59,
+  "fields": {
+    "action_time": "2024-10-26T15:31:28.854Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "16",
+    "object_repr": "Рыжий милашка",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (12)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 60,
+  "fields": {
+    "action_time": "2024-10-26T15:31:51.312Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "17",
+    "object_repr": "Серый красавчик",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (13)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 61,
+  "fields": {
+    "action_time": "2024-10-26T15:32:37.073Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "18",
+    "object_repr": "Полосатый презр",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (14)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 62,
+  "fields": {
+    "action_time": "2024-10-26T15:33:02.772Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "19",
+    "object_repr": "Задумчивый трех",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (15)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 63,
+  "fields": {
+    "action_time": "2024-10-26T15:33:26.542Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "20",
+    "object_repr": "Спокойный полос",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (16)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 64,
+  "fields": {
+    "action_time": "2024-10-26T15:34:02.013Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "21",
+    "object_repr": "Рыжий шалун",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (17)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 65,
+  "fields": {
+    "action_time": "2024-10-26T15:34:28.950Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "22",
+    "object_repr": "Чёрный милашка",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (18)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 66,
+  "fields": {
+    "action_time": "2024-10-26T15:34:49.693Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "23",
+    "object_repr": "Белый пушистик",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (19)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 67,
+  "fields": {
+    "action_time": "2024-10-26T15:35:13.685Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "24",
+    "object_repr": "Эрмитажный кот",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}, {\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (20)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 68,
+  "fields": {
+    "action_time": "2024-10-26T15:35:34.283Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "25",
+    "object_repr": "Задумчивый пуши",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 69,
+  "fields": {
+    "action_time": "2024-10-26T15:35:42.985Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "25",
+    "object_repr": "Задумчивый пуши",
+    "action_flag": 2,
+    "change_message": "[{\"added\": {\"name\": \"main image\", \"object\": \"MainImage object (21)\"}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 70,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.417Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "25",
+    "object_repr": "Задумчивый пуши",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 71,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.419Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "24",
+    "object_repr": "Эрмитажный кот",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\", \"\\u041d\\u0430 \\u0433\\u043b\\u0430\\u0432\\u043d\\u043e\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 72,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.420Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "22",
+    "object_repr": "Чёрный милашка",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\", \"\\u041d\\u0430 \\u0433\\u043b\\u0430\\u0432\\u043d\\u043e\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 73,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.421Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "20",
+    "object_repr": "Спокойный полос",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 74,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.422Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "18",
+    "object_repr": "Полосатый презр",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\", \"\\u041d\\u0430 \\u0433\\u043b\\u0430\\u0432\\u043d\\u043e\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 75,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.422Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "16",
+    "object_repr": "Рыжий милашка",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\", \"\\u041d\\u0430 \\u0433\\u043b\\u0430\\u0432\\u043d\\u043e\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 76,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.423Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "15",
+    "object_repr": "Полосатый охотн",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 77,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.424Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "14",
+    "object_repr": "Полосатый брезг",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\", \"\\u041d\\u0430 \\u0433\\u043b\\u0430\\u0432\\u043d\\u043e\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 78,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.425Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "12",
+    "object_repr": "Полосатый лежач",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\", \"\\u041d\\u0430 \\u0433\\u043b\\u0430\\u0432\\u043d\\u043e\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 79,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.426Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "10",
+    "object_repr": "Рысь-Охотник",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 80,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.427Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "8",
+    "object_repr": "Серый милашка",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\", \"\\u041d\\u0430 \\u0433\\u043b\\u0430\\u0432\\u043d\\u043e\\u0439\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 81,
+  "fields": {
+    "action_time": "2024-10-26T15:36:31.427Z",
+    "user": 1,
+    "content_type": 9,
+    "object_id": "6",
+    "object_repr": "Серый сидячий к",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"\\u041e\\u043f\\u0443\\u0431\\u043b\\u0438\\u043a\\u043e\\u0432\\u0430\\u043d\\u043e\", \"\\u041d\\u0430 \\u0433\\u043b\\u0430\\u0432\\u043d\\u043e\\u0439\"]}}]"
   }
 },
 {
@@ -617,6 +2031,42 @@
   }
 },
 {
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add main image",
+    "content_type": 12,
+    "codename": "add_mainimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change main image",
+    "content_type": 12,
+    "codename": "change_mainimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete main image",
+    "content_type": 12,
+    "codename": "delete_mainimage"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view main image",
+    "content_type": 12,
+    "codename": "view_mainimage"
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
@@ -723,153 +2173,19 @@
   }
 },
 {
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "catalog",
+    "model": "mainimage"
+  }
+},
+{
   "model": "sessions.session",
   "pk": "m6x9x6dweqfpt1d4iyogpa4ril53s1um",
   "fields": {
     "session_data": ".eJxVjMsOwiAQRf-FtSF0YARcuu83kGEYpGrapI-V8d-1SRe6veec-1KJtrWlbZE5DUVdVKdOv1smfsi4g3Kn8TZpnsZ1HrLeFX3QRfdTkef1cP8OGi3tW5Or7Kvh6EQgkPUdAnYG0BCQFIbgJPqzIY4EIUdLyFDReqxFLAb1_gDkIDfP:1t2w4a:2aogX5q4ySo6zylyZWDpRp0EaXHrrkgkiJj7WyZUPTs",
     "expire_date": "2024-11-04T17:20:04.001Z"
-  }
-},
-{
-  "model": "catalog.tag",
-  "pk": 1,
-  "fields": {
-    "name": "Название1",
-    "is_published": true,
-    "slug": "Slag",
-    "normalized_name": "название1"
-  }
-},
-{
-  "model": "catalog.tag",
-  "pk": 2,
-  "fields": {
-    "name": "Название2",
-    "is_published": true,
-    "slug": "Slag",
-    "normalized_name": "название2"
-  }
-},
-{
-  "model": "catalog.tag",
-  "pk": 3,
-  "fields": {
-    "name": "Название3",
-    "is_published": true,
-    "slug": "Slag",
-    "normalized_name": "название3"
-  }
-},
-{
-  "model": "catalog.tag",
-  "pk": 4,
-  "fields": {
-    "name": "Название4",
-    "is_published": true,
-    "slug": "Slag",
-    "normalized_name": "название4"
-  }
-},
-{
-  "model": "catalog.tag",
-  "pk": 5,
-  "fields": {
-    "name": "Название5",
-    "is_published": true,
-    "slug": "Slag",
-    "normalized_name": "название5"
-  }
-},
-{
-  "model": "catalog.category",
-  "pk": 1,
-  "fields": {
-    "name": "Название",
-    "is_published": true,
-    "slug": "Slag",
-    "normalized_name": "название",
-    "weight": 100
-  }
-},
-{
-  "model": "catalog.category",
-  "pk": 2,
-  "fields": {
-    "name": "Название1",
-    "is_published": true,
-    "slug": "Slag",
-    "normalized_name": "название1",
-    "weight": 100
-  }
-},
-{
-  "model": "catalog.item",
-  "pk": 1,
-  "fields": {
-    "name": "Название",
-    "is_published": true,
-    "text": "Превосходно",
-    "category": 1,
-    "MainImage": "items/main_image/icons8-django-a-high-level-python-web-framework-that-encourages-rapid-d_5M3UUCP.png",
-    "tags": [
-      1
-    ]
-  }
-},
-{
-  "model": "catalog.item",
-  "pk": 2,
-  "fields": {
-    "name": "Название1",
-    "is_published": true,
-    "text": "Превосходно",
-    "category": 1,
-    "MainImage": "items/main_image/icons8-django-a-high-level-python-web-framework-that-encourages-rapid-d_GSgLda3.png",
-    "tags": [
-      1
-    ]
-  }
-},
-{
-  "model": "catalog.item",
-  "pk": 3,
-  "fields": {
-    "name": "Название2",
-    "is_published": true,
-    "text": "<p><s>Превосходно</s></p>",
-    "category": 1,
-    "MainImage": "items/main_image/icons8-django-a-high-level-python-web-framework-that-encourages-rapid-d_HapeK61.png",
-    "tags": [
-      2
-    ]
-  }
-},
-{
-  "model": "catalog.item",
-  "pk": 4,
-  "fields": {
-    "name": "Название3",
-    "is_published": true,
-    "text": "Превосходно",
-    "category": 2,
-    "MainImage": "items/main_image/icons8-django-a-high-level-python-web-framework-that-encourages-rapid-d_4xGnXD3.png",
-    "tags": [
-      2
-    ]
-  }
-},
-{
-  "model": "catalog.item",
-  "pk": 5,
-  "fields": {
-    "name": "Название5",
-    "is_published": true,
-    "text": "<p style=\"text-align:center\">Превосходно</p>",
-    "category": 2,
-    "MainImage": "items/main_image/icons8-django-a-high-level-python-web-framework-that-encourages-rapid-d_zjDxJYb.png",
-    "tags": [
-      4
-    ]
   }
 }
 ]

@@ -2,9 +2,14 @@
 {% load static %}
 {% block title %} Главная {% endblock %}
 {% block content %}
-    <h1>Главная</h1>
-    <div>
-        <img src="{% static 'img/cat_base_page.jpg' %}">
-        <p>Проект сделанный на курсе Яндекс Лицея по веб-разработке на Django</p>
+<h1>Главная</h1>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for item in items %}
+                {% include "includes/item_card.html" %}
+            {% endfor %}
+        </div>
     </div>
+</div>
 {% endblock %}

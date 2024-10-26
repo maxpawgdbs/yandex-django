@@ -1,3 +1,9 @@
 {% extends "base.html" %}
-{% block title %}Товар{% endblock %}
-{% block content %}Пока пусто{% endblock %}
+{% block title %} {{ item.name }} {% endblock %}
+{% block content %}
+<img src="{{ item.main_image.image.url }}">
+<p>{{ item.name }}</p>
+<p>{{ item.category }}</p>
+<p>{{ item.compression_text }}</p>
+<p>{% for tag in item.tags.all %}{{ tag.name }} {% endfor %}</p>
+{% endblock %}

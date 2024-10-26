@@ -1,0 +1,19 @@
+{% load static %}
+<a href="/catalog/{{ item.id }}" style="text-decoration: none; color: inherit">
+    <div class="col">
+        <div class="card shadow-sm">
+            <svg class="bd-placeholder-img card-img-top" width="100%" height="225">
+                <image href="{{ item.main_image.image.url }}" width="100%" height="100%"
+                       preserveAspectRatio="xMidYMid slice"/>
+            </svg>
+            <b style="text-align: center;">{{ item.name }}</b>
+            <p style="text-align: center;">{{ item.category.name }}</p>
+            <hr>
+            <div class="card-body">
+                <p class="card-text">{{ item.compression_text }}</p>
+            </div>
+            <hr>
+            <p style="text-align: center;">{% for tag in item.tags.all %}{{ tag.name }} {% endfor %}</p>
+        </div>
+    </div>
+</a>
