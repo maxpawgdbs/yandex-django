@@ -46,6 +46,7 @@ class StaticUrlCatalogTests(django.test.TestCase):
             "имя123",
             response.context["item"].name,
         )
+
     @parametrize.parametrize(
         "expected, test_input",
         [
