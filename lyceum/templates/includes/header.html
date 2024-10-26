@@ -8,7 +8,7 @@
             </svg>
             <span class="fs-4"><h2>Django Project</h2></span>
         </a>
-        <ul class="nav nav-pills">
+        <ul class="nav nav-pills" style="margin-top: auto; margin-bottom: auto;">
             <li class="nav-item">
                 <a href="{% if request.resolver_match.view_name != 'homepage:home' %}
                 {% url 'homepage:home' %}

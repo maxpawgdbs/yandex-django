@@ -102,6 +102,7 @@ class MainImage(django.db.models.Model):
                     self.main_image.image.url,
                 ),
             )
+        return None
 
     image_tmb.short_description = "превью"
     image_tmb.allow_tags = True
@@ -135,6 +136,7 @@ class ItemGalery(django.db.models.Model):
                     self.photos.images.url,
                 ),
             )
+        return None
 
     image_tmb.short_description = "превью"
     image_tmb.allow_tags = True

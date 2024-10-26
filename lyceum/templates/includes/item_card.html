@@ -7,10 +7,10 @@
                        preserveAspectRatio="xMidYMid slice"/>
             </svg>
             <b style="text-align: center;">{{ item.name }}</b>
-            <p style="text-align: center;">{{ item.category.name }}</p>
+            <p style="text-align: center;">{{ item.category }}</p>
             <hr>
             <div class="card-body">
-                <p class="card-text">{{ item.compression_text }}</p>
+                <p class="card-text">{{ item.text | truncatewords:10 }}</p>
             </div>
             <hr>
             <p style="text-align: center;">{% for tag in item.tags.all %}{{ tag.name }} {% endfor %}</p>

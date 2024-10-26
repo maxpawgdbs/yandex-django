@@ -1,3 +1,4 @@
+import django.db
 import django.http
 import django.shortcuts
 
@@ -6,8 +7,19 @@ import catalog.models
 
 def item_list(request):
     template = "catalog/item_list.html"
-    items = catalog.models.Item.objects.filter(is_published=True).order_by(
-        "category__name",
+    items = (
+        catalog.models.Item.objects.filter(is_published=True)
+        .select_related("category", "main_image")
+        .prefetch_related(
+            django.db.models.Prefetch(
+                "tags",
+                queryset=catalog.models.Tag.objects.filter(
+                    is_published=True,
+                ).only("name"),
+            ),
+        )
+        .only("id", "name", "text", "category__name", "main_image__image")
+        .order_by("category__name")
     )
     context = {
         "items": items,
@@ -17,11 +29,25 @@ def item_list(request):
 
 def item_detail(request, index):
     item = django.shortcuts.get_object_or_404(
-        catalog.models.Item,
+        catalog.models.Item.objects.filter(is_published=True)
+        .select_related("category", "main_image")
+        .prefetch_related(
+            django.db.models.Prefetch(
+                "tags",
+                queryset=catalog.models.Tag.objects.filter(
+                    is_published=True,
+                ).only("name"),
+            ),
+            django.db.models.Prefetch(
+                "photos",
+                queryset=catalog.models.ItemGalery.objects.only("images"),
+            ),
+        )
+        .only("name", "text", "category__name"),
         pk=index,
     )
-    if (not item.is_published) and (not item.is_on_main):
-        raise django.http.Http404
+    # if (not item.is_published) and (not item.is_on_main):
+    #     raise django.http.Http404
     context = {
         "item": item,
     }

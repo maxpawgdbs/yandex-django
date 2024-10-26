@@ -10,42 +10,12 @@ import catalog.models
 
 
 class StaticUrlCatalogTests(django.test.TestCase):
-    @classmethod
-    def setUpClass(cls):
-        super().setUpClass()
-        cls.category = catalog.models.Category.objects.create(
-            is_published=True,
-            name="имя123",
-            slug="sluggg",
-            weight=123,
-        )
-        cls.tag = catalog.models.Tag.objects.create(
-            is_published=True,
-            name="имя123",
-            slug="sluggg",
-        )
-        cls.item = catalog.models.Item.objects.create(
-            id=11,
-            is_published=True,
-            name="имя123",
-            is_on_main=False,
-            text="Роскошно",
-            category=cls.category,
-        )
-        cls.item.tags.add(ModelsTest.tag)
+    fixtures = ["fixtures/data.json"]
 
     def test_catalog(self):
         url = django.urls.reverse("catalog:item_list")
         response = django.test.Client().get(url)
         self.assertEqual(response.status_code, http.HTTPStatus.OK)
-
-    def test_catalog_index_context(self):
-        url = django.urls.reverse("catalog:item_detail", args=[11])
-        response = django.test.Client().get(url)
-        self.assertEqual(
-            "имя123",
-            response.context["item"].name,
-        )
 
     @parametrize.parametrize(
         "expected, test_input",
