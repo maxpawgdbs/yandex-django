@@ -39,6 +39,13 @@ class StaticUrlCatalogTests(django.test.TestCase):
         response = django.test.Client().get(url)
         self.assertEqual(response.status_code, http.HTTPStatus.OK)
 
+    def test_catalog_index_context(self):
+        url = django.urls.reverse("catalog:item_detail", args=[11])
+        response = django.test.Client().get(url)
+        self.assertEqual(
+            "имя123",
+            response.context["item"].name,
+        )
     @parametrize.parametrize(
         "expected, test_input",
         [
