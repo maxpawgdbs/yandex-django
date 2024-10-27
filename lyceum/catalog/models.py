@@ -1,11 +1,20 @@
 import django.core
 import django.db
+import django.dispatch
 import django.utils.safestring
 import sorl.thumbnail
 import tinymce.models
 
 import catalog.validators
 import core.models
+
+
+@django.dispatch.receiver(django.db.models.signals.pre_save)
+def valid_order(sender, instance, **kwargs):
+    try:
+        instance.normalized_name = core.models.BaseModel.normalized_name(instance)
+    except Exception:
+        pass
 
 
 class Tag(core.models.ModelNormalizedNames):

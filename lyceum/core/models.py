@@ -47,7 +47,7 @@ class ModelNormalizedNames(BaseModel):
         verbose_name="нормализованные имена",
         help_text="Тут сохраняются нормализованные имена",
         max_length=150,
-        unique=False,
+        unique=True,
         editable=False,
     )
 
