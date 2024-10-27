@@ -19,7 +19,7 @@ def home(request):
                 ).only("name"),
             ),
         )
-        .only("id", "name", "text", "category__name", "main_image__image"),
+        .only("id", "name", "text", "category__name", "main_image__image")
     )
     context = {
         "items": items,

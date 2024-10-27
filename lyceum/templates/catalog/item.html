@@ -7,7 +7,7 @@
 <p>{{ item.text | truncatewords:10 }}</p>
 <p>{% for tag in item.tags.all %}{{ tag.name }} {% endfor %}</p>
 <div style="display:flex">
-{% for image in item.photos.all %}
+{% for image in item.images.all %}
     <img src="{{ image.images.url }}" style="width: 10%; height: 10%;">
 {% endfor %}
 </div>

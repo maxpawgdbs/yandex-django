@@ -59,12 +59,6 @@ class Item(core.models.BaseModel):
         on_delete=django.db.models.CASCADE,
     )
 
-    def compression_text(self):
-        t = self.text.split()
-        if len(t) > 10:
-            return "".join(t[:10]) + "..."
-        return "".join(t)
-
     class Meta:
         ordering = ("name", "text", "id")
         verbose_name = "товар"
@@ -117,23 +111,24 @@ class ItemGalery(django.db.models.Model):
     )
     item = django.db.models.ForeignKey(
         Item,
-        related_name="photos",
+        related_name="images",
         on_delete=django.db.models.CASCADE,
+        related_query_name="images",
     )
 
     def get_image_300x300(self):
         return sorl.thumbnail.get_thumbnail(
-            self.photos.images,
+            self.images.images,
             "300x300",
             crop="center",
             quality=51,
         )
 
     def image_tmb(self):
-        if self.photos:
+        if self.images:
             return django.utils.safestring.mark_safe(
                 "<img src='{}' width='50' height='50'>".format(
-                    self.photos.images.url,
+                    self.images.images.url,
                 ),
             )
         return None

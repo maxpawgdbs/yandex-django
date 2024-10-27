@@ -249,7 +249,7 @@
   "pk": 14,
   "fields": {
     "name": "Полосатый брезгливый кот",
-    "is_published": false,
+    "is_published": true,
     "text": "Превосходно",
     "is_on_main": true,
     "category": 3,

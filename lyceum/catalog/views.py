@@ -39,15 +39,13 @@ def item_detail(request, index):
                 ).only("name"),
             ),
             django.db.models.Prefetch(
-                "photos",
+                "images",
                 queryset=catalog.models.ItemGalery.objects.only("images"),
             ),
         )
         .only("name", "text", "category__name"),
         pk=index,
     )
-    # if (not item.is_published) and (not item.is_on_main):
-    #     raise django.http.Http404
     context = {
         "item": item,
     }
