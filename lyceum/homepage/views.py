@@ -9,7 +9,9 @@ import catalog.models
 
 def home(request):
     items = (
-        catalog.models.Item.objects.filter(is_on_main=True, is_published=True, category__is_published=True)
+        catalog.models.Item.objects.filter(
+            is_on_main=True, is_published=True, category__is_published=True,
+        )
         .select_related("category", "main_image")
         .prefetch_related(
             django.db.models.Prefetch(
