@@ -9,6 +9,62 @@ import catalog.validators
 import core.models
 
 
+class ItemManager(django.db.models.Manager):
+    def on_main(self):
+        return (
+            self.get_queryset()
+            .filter(
+                is_on_main=True,
+                is_published=True,
+                category__is_published=True,
+            )
+            .select_related("category", "main_image")
+            .prefetch_related(
+                django.db.models.Prefetch(
+                    "tags",
+                    queryset=catalog.models.Tag.objects.filter(
+                        is_published=True,
+                    ).only("name"),
+                ),
+            )
+            .only("id", "name", "text", "category__name", "main_image__image")
+        )
+
+    def published(self):
+        categorys = (
+            catalog.models.Category.objects.filter(is_published=True)
+            .values_list("name", flat=True)
+            .order_by("name")
+        )
+        return list(
+            (
+                category,
+                self.get_queryset()
+                .filter(
+                    is_published=True,
+                    category__name=category,
+                )
+                .select_related("category", "main_image")
+                .prefetch_related(
+                    django.db.models.Prefetch(
+                        "tags",
+                        queryset=catalog.models.Tag.objects.filter(
+                            is_published=True,
+                        ).only("name"),
+                    ),
+                )
+                .only(
+                    "id",
+                    "name",
+                    "text",
+                    "category__name",
+                    "main_image__image",
+                ),
+            )
+            for category in categorys
+        )
+
+
 class Tag(core.models.ModelNormalizedNames):
     class Meta:
         verbose_name = "тег"
@@ -38,6 +94,7 @@ class Category(core.models.ModelNormalizedNames):
 
 
 class Item(core.models.BaseModel):
+    objects = ItemManager()
     text = tinymce.models.HTMLField(
         verbose_name="текст",
         default="Превосходно",

@@ -5,10 +5,17 @@ import django.urls
 
 
 class StaticUrlHomepageTest(django.test.TestCase):
+    fixtures = ["fixtures/data.json"]
+
     def test_homepage(self):
         url = django.urls.reverse("homepage:home")
         response = django.test.Client().get(url)
         self.assertEqual(http.HTTPStatus.OK, response.status_code)
+        context = response.context
+        items = context["items"]
+        self.assertNotIn("is_published", items[0].__dict__)
+        self.assertNotIn("is_on_main", items[0].__dict__)
+        self.assertNotIn("images", items[0].__dict__)
 
     def test_coffee(self):
         url = django.urls.reverse("homepage:teapot")
