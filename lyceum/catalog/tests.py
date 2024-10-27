@@ -1,7 +1,7 @@
 import http
 
 import django.core.exceptions
-import django.db.utils
+import django.db
 import django.test
 import django.urls
 import parametrize
@@ -16,6 +16,15 @@ class StaticUrlCatalogTests(django.test.TestCase):
         url = django.urls.reverse("catalog:item_list")
         response = django.test.Client().get(url)
         self.assertEqual(response.status_code, http.HTTPStatus.OK)
+
+    def test_catalog_context(self):
+        url = django.urls.reverse("catalog:item_list")
+        response = django.test.Client().get(url)
+        context = response.context
+        self.assertIn("items", context)
+        self.assertEqual(9, context["items"].count())
+        self.assertEqual(django.db.models.QuerySet, type(context["items"]))
+        self.assertEqual(catalog.models.Item, type(context["item"]))
 
     @parametrize.parametrize(
         "expected, test_input",

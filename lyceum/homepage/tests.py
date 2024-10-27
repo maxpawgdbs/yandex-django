@@ -5,8 +5,6 @@ import django.urls
 
 
 class StaticUrlHomepageTest(django.test.TestCase):
-    #fixtures = ["fixtures/data.json"]
-
     def test_homepage(self):
         url = django.urls.reverse("homepage:home")
         response = django.test.Client().get(url)
