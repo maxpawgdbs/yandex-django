@@ -21,10 +21,12 @@ class StaticUrlCatalogTests(django.test.TestCase):
         url = django.urls.reverse("catalog:item_list")
         response = django.test.Client().get(url)
         context = response.context
+        items = context["items"]
         self.assertIn("items", context)
-        self.assertEqual(9, context["items"].count())
-        self.assertEqual(django.db.models.QuerySet, type(context["items"]))
-        self.assertEqual(catalog.models.Item, type(context["item"]))
+        self.assertEqual(items.count(), 9)
+        self.assertIs(django.db.models.QuerySet, type(context["items"]))
+        self.assertIs(catalog.models.Item, type(context["item"]))
+        self.assertEqual(len(response.context["items"]), 9)
 
     @parametrize.parametrize(
         "expected, test_input",
