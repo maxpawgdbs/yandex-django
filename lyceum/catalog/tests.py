@@ -24,8 +24,8 @@ class StaticUrlCatalogTests(django.test.TestCase):
         items = context["items"]
         self.assertIn("items", context)
         self.assertEqual(items.count(), 9)
-        self.assertIs(django.db.models.QuerySet, type(context["items"]))
-        self.assertIs(catalog.models.Item, type(context["item"]))
+        self.assertIsInstance(context["items"], django.db.models.QuerySet)
+        self.assertIsInstance(context["item"], catalog.models.Item)
         self.assertEqual(len(response.context["items"]), 9)
 
     @parametrize.parametrize(
