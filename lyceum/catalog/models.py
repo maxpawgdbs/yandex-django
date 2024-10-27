@@ -9,16 +9,6 @@ import catalog.validators
 import core.models
 
 
-@django.dispatch.receiver(django.db.models.signals.pre_save)
-def valid_order(sender, instance, **kwargs):
-    try:
-        instance.normalized_name = core.models.BaseModel.normalized_name(
-            instance,
-        )
-    except Exception:
-        pass
-
-
 class Tag(core.models.ModelNormalizedNames):
     class Meta:
         verbose_name = "тег"

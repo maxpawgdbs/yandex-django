@@ -8,7 +8,7 @@ import catalog.models
 def item_list(request):
     template = "catalog/item_list.html"
     items = (
-        catalog.models.Item.objects.filter(is_published=True)
+        catalog.models.Item.objects.filter(is_published=True, category__is_published=True)
         .select_related("category", "main_image")
         .prefetch_related(
             django.db.models.Prefetch(
