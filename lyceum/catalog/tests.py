@@ -22,15 +22,21 @@ class StaticUrlCatalogTests(django.test.TestCase):
         response = django.test.Client().get(url)
 
         context = response.context
-        items = context["items"]
         self.assertIn("items", context)
         self.assertIsInstance(context["items"], list)
         self.assertIsInstance(context["item"], catalog.models.Item)
-        self.assertEqual(len(response.context["items"]), 4)
+        self.assertEqual(len(response.context["items"]), 9)
 
-        self.assertNotIn("is_published", items[0][1][0].__dict__)
-        self.assertNotIn("is_on_main", items[0][1][0].__dict__)
-        self.assertNotIn("images", items[0][1][0].__dict__)
+    def test_catalog_context2(self):
+        url = django.urls.reverse("catalog:item_list")
+        response = django.test.Client().get(url)
+
+        context = response.context
+        items = context["items"]
+        self.assertNotIn("is_published", items[0].__dict__)
+        self.assertNotIn("is_on_main", items[1].__dict__)
+        self.assertNotIn("images", items[2].__dict__)
+        self.assertIn("tags", items[3].__dict__["_prefetched_objects_cache"])
 
     @parametrize.parametrize(
         "expected, test_input",

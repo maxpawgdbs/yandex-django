@@ -36,9 +36,9 @@ class ItemManager(django.db.models.Manager):
             .values_list("name", flat=True)
             .order_by("name")
         )
-        return list(
-            (
-                category,
+        items = []
+        for category in categorys:
+            for item in (
                 self.get_queryset()
                 .filter(
                     is_published=True,
@@ -59,10 +59,17 @@ class ItemManager(django.db.models.Manager):
                     "text",
                     "category__name",
                     "main_image__image",
-                ),
-            )
-            for category in categorys
-        )
+                )
+            ):
+                items.append(item)
+        new_categorys = []
+        check = []
+        for el in items:
+            if el.category.name not in check:
+                new_categorys.append(el.name)
+                check.append(el.category.name)
+
+        return new_categorys, items
 
 
 class Tag(core.models.ModelNormalizedNames):

@@ -5,15 +5,7 @@ flake8:
   stage: linting
   image: registry.gitlab.com/pipeline-components/flake8:latest
   script:
-    - pip3 install flake8-quotes==3.4.0
-    - pip3 install pep8-naming==0.14.1
-    - pip3 install flake8-import-order==0.18.2
-    - pip3 install flake8-commas==4.0.0
-    - pip3 install flake8-dunder-all==0.4.1
-    - pip3 install flake8-forbidden-func==0.1.0
-    - pip3 install flake8-return==1.2.0
-    - pip3 install flake8-eradicate==1.5.0
-    - pip3 install flake8-use-pathlib==0.3.0
+    - pip3 install -r flake8.txt
     - flake8 --verbose .
 
 black:
