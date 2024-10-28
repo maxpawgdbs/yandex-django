@@ -2,17 +2,19 @@
 {% block title %} Каталог {% endblock %}
 {% block content %}
 <h1 style="text-align: center;">Каталог</h1>
-{% for item in items %}
-    {% ifchanged item.category %}
-        <hr>
-        <h3 style="text-align: center;">{{ item.category }}</h3>
-    {% endifchanged %}
-    <div class="album py-5 bg-light">
-        <div class="container">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                {% include "includes/item_card.html" %}
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {% for item in items %}
+            {% ifchanged item.category %}
+            <div style="width: 100%;">
+                <hr>
+                <h3 style="text-align: center;">{{ item.category }}</h3>
             </div>
+            {% endifchanged %}
+            {% include "includes/item_card.html" %}
+            {% endfor %}
         </div>
     </div>
-{% endfor %}
+</div>
 {% endblock %}
