@@ -31,45 +31,25 @@ class ItemManager(django.db.models.Manager):
         )
 
     def published(self):
-        categorys = (
-            catalog.models.Category.objects.filter(is_published=True)
-            .values_list("name", flat=True)
-            .order_by("name")
+        return (
+            self.get_queryset()
+            .filter(
+                is_on_main=True,
+                is_published=True,
+                category__is_published=True,
+            )
+            .select_related("category", "main_image")
+            .prefetch_related(
+                django.db.models.Prefetch(
+                    "tags",
+                    queryset=catalog.models.Tag.objects.filter(
+                        is_published=True,
+                    ).only("name"),
+                ),
+            )
+            .only("id", "name", "text", "category__name", "main_image__image")
+            .order_by("category__name", "name")
         )
-        items = []
-        for category in categorys:
-            for item in (
-                self.get_queryset()
-                .filter(
-                    is_published=True,
-                    category__name=category,
-                )
-                .select_related("category", "main_image")
-                .prefetch_related(
-                    django.db.models.Prefetch(
-                        "tags",
-                        queryset=catalog.models.Tag.objects.filter(
-                            is_published=True,
-                        ).only("name"),
-                    ),
-                )
-                .only(
-                    "id",
-                    "name",
-                    "text",
-                    "category__name",
-                    "main_image__image",
-                )
-            ):
-                items.append(item)
-        new_categorys = []
-        check = []
-        for el in items:
-            if el.category.name not in check:
-                new_categorys.append(el.name)
-                check.append(el.category.name)
-
-        return new_categorys, items
 
 
 class Tag(core.models.ModelNormalizedNames):

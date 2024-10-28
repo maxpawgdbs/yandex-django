@@ -128,7 +128,7 @@
   "pk": 6,
   "fields": {
     "name": "Серый сидячий котёнок",
-    "is_published": false,
+    "is_published": true,
     "text": "Превосходно",
     "is_on_main": true,
     "category": 6,
@@ -146,7 +146,7 @@
     "name": "Трёхцветный ушастый кот",
     "is_published": true,
     "text": "Превосходно",
-    "is_on_main": false,
+    "is_on_main": true,
     "category": 4,
     "tags": [
       12
@@ -192,7 +192,7 @@
     "name": "Рысь-Охотник",
     "is_published": false,
     "text": "Превосходно",
-    "is_on_main": false,
+    "is_on_main": true,
     "category": 5,
     "tags": [
       10,
@@ -219,7 +219,7 @@
   "pk": 12,
   "fields": {
     "name": "Полосатый лежачий кот",
-    "is_published": false,
+    "is_published": true,
     "text": "Превосходно",
     "is_on_main": true,
     "category": 4,
@@ -279,7 +279,7 @@
   "pk": 16,
   "fields": {
     "name": "Рыжий милашка",
-    "is_published": false,
+    "is_published": true,
     "text": "Превосходно",
     "is_on_main": true,
     "category": 6,
@@ -308,7 +308,7 @@
   "pk": 18,
   "fields": {
     "name": "Полосатый презрительный кот",
-    "is_published": false,
+    "is_published": true,
     "text": "Превосходно",
     "is_on_main": true,
     "category": 3,
@@ -325,7 +325,7 @@
     "name": "Задумчивый трехцветный кот",
     "is_published": true,
     "text": "Превосходно",
-    "is_on_main": false,
+    "is_on_main": true,
     "category": 4,
     "tags": [
       12
@@ -366,7 +366,7 @@
   "pk": 22,
   "fields": {
     "name": "Чёрный милашка",
-    "is_published": false,
+    "is_published": true,
     "text": "Превосходно",
     "is_on_main": true,
     "category": 6,
@@ -384,7 +384,7 @@
     "name": "Белый пушистик",
     "is_published": true,
     "text": "Превосходно",
-    "is_on_main": false,
+    "is_on_main": true,
     "category": 3,
     "tags": [
       6,
