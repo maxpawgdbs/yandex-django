@@ -48,6 +48,26 @@ def converter(request, index):
     return django.http.HttpResponse("<body>" + str(index) + "</body>")
 
 
+def unverified(request):
+    template = "catalog/item_list.html"
+    items = catalog.models.Item.objects.published()
+    items = items.filter(created_at=django.db.models.F("updated_at"))
+    context = {
+        "items": items,
+    }
+    return django.shortcuts.render(request, template, context)
+
+
+def friday(request):
+    template = "catalog/item_list.html"
+    items = catalog.models.Item.objects.published()
+    items = items.filter(updated_at__week_day=6)#.order_by("updated_at")[:5]
+    context = {
+        "items": items,
+    }
+    return django.shortcuts.render(request, template, context)
+
+
 __all__ = (
     item_detail,
     item_detail_re,

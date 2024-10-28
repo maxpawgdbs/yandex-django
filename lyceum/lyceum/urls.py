@@ -14,6 +14,7 @@ urlpatterns = [
     path("tinymce/", include("tinymce.urls")),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.DOWNLOAD_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += (path("_debug_/", include(debug_toolbar.urls)),)

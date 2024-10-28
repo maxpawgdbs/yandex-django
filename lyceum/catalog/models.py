@@ -1,3 +1,5 @@
+import datetime
+
 import django.core
 import django.db
 import django.dispatch
@@ -34,7 +36,6 @@ class ItemManager(django.db.models.Manager):
         return (
             self.get_queryset()
             .filter(
-                is_on_main=True,
                 is_published=True,
                 category__is_published=True,
             )
@@ -103,6 +104,8 @@ class Item(core.models.BaseModel):
         Category,
         on_delete=django.db.models.CASCADE,
     )
+    created_at = django.db.models.DateTimeField(auto_now_add=True)
+    updated_at = django.db.models.DateTimeField(auto_now=True)
 
     class Meta:
         ordering = ("name", "text", "id")

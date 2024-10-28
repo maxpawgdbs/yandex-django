@@ -13,6 +13,8 @@
             </div>
             {% endifchanged %}
             {% include "includes/item_card.html" %}
+            {% empty %}
+            <p>Пусто</p>
             {% endfor %}
         </div>
     </div>

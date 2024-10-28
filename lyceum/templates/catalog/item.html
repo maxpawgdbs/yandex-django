@@ -2,13 +2,15 @@
 {% block title %} {{ item.name }} {% endblock %}
 {% block content %}
 <img src="{{ item.main_image.image.url }}">
+<a href="/download/{{ item.main_image.image.name }}" download>СКАЧАТЬ КАРТИНКУ КОТИКА!!!</a>
 <p>{{ item.name }}</p>
 <p>{{ item.category }}</p>
-<p>{{ item.text | truncatewords:10 }}</p>
+<p>{{ item.text | truncatewords_html:10 | safe }}</p>
 <p>{% for tag in item.tags.all %}{{ tag.name }} {% endfor %}</p>
 <div style="display:flex">
 {% for image in item.images.all %}
     <img src="{{ image.images.url }}" style="width: 10%; height: 10%;">
+    <a href="/download/{{ image.images.name }}" download>СКАЧАТЬ КАРТИНКУ КОТИКА!!!</a>
 {% endfor %}
 </div>
 {% endblock %}

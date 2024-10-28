@@ -33,6 +33,14 @@
                     {% trans 'Catalog' %}
                 </a>
             </li>
+            {% if user.is_superuser %}
+            <li class="nav-item">
+                <a href="/admin/"
+                   class="nav-link">
+                    Admin
+                </a>
+            </li>
+            {% endif %}
         </ul>
     </header>
 </div>

@@ -32,6 +32,8 @@ class ItemAdmin(django.contrib.admin.ModelAdmin):
         catalog.models.Item.is_published.field.name,
         catalog.models.Item.is_on_main.field.name,
         catalog.models.MainImage.image_tmb,
+        catalog.models.Item.created_at.field.name,
+        catalog.models.Item.updated_at.field.name
     )
     fields = (
         catalog.models.Item.name.field.name,
