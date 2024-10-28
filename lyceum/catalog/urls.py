@@ -22,8 +22,11 @@ urlpatterns = [
         catalog.views.converter,
         name="converter",
     ),
-    django.urls.path("unverified/", catalog.views.unverified, name="unverified"),
+    django.urls.path(
+        "unverified/", catalog.views.unverified, name="unverified",
+    ),
     django.urls.path("friday/", catalog.views.friday, name="friday"),
+    django.urls.path("new/", catalog.views.new, name="new"),
 ]
 
 __all__ = (

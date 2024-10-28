@@ -132,6 +132,8 @@
     "text": "Превосходно",
     "is_on_main": true,
     "category": 6,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       6,
       10,
@@ -148,6 +150,8 @@
     "text": "Превосходно",
     "is_on_main": true,
     "category": 4,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       12
     ]
@@ -162,6 +166,8 @@
     "text": "Превосходно",
     "is_on_main": true,
     "category": 6,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       6,
       10,
@@ -179,6 +185,8 @@
     "text": "Превосходно",
     "is_on_main": false,
     "category": 4,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       6,
       7
@@ -194,6 +202,8 @@
     "text": "Превосходно",
     "is_on_main": true,
     "category": 5,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       10,
       13
@@ -209,6 +219,8 @@
     "text": "Превосходно",
     "is_on_main": false,
     "category": 3,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       8
     ]
@@ -223,6 +235,8 @@
     "text": "Превосходно",
     "is_on_main": true,
     "category": 4,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       10,
       13
@@ -238,6 +252,8 @@
     "text": "Превосходно",
     "is_on_main": false,
     "category": 6,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       6,
       8
@@ -253,6 +269,8 @@
     "text": "Превосходно",
     "is_on_main": true,
     "category": 3,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       10,
       13
@@ -268,6 +286,8 @@
     "text": "Превосходно",
     "is_on_main": false,
     "category": 5,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       10,
       13
@@ -283,6 +303,8 @@
     "text": "Превосходно",
     "is_on_main": true,
     "category": 6,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       8,
       11
@@ -298,6 +320,8 @@
     "text": "Превосходно",
     "is_on_main": false,
     "category": 4,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       10
     ]
@@ -312,6 +336,8 @@
     "text": "Превосходно",
     "is_on_main": true,
     "category": 3,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       12,
       13
@@ -327,6 +353,8 @@
     "text": "Превосходно",
     "is_on_main": true,
     "category": 4,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       12
     ]
@@ -341,6 +369,8 @@
     "text": "Превосходно",
     "is_on_main": false,
     "category": 3,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       10,
       13
@@ -356,6 +386,8 @@
     "text": "Превосходно",
     "is_on_main": false,
     "category": 3,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       8
     ]
@@ -370,6 +402,8 @@
     "text": "Превосходно",
     "is_on_main": true,
     "category": 6,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       6,
       7,
@@ -383,9 +417,11 @@
   "fields": {
     "name": "Белый пушистик",
     "is_published": true,
-    "text": "Превосходно",
+    "text": "<p><span style=\"background-color: rgb(230, 126, 35);\"><em><strong>Превосходно <span style=\"background-color: rgb(255, 255, 255);\">але че ты фон оставляешь а вот получилось ну щас проврим обрезалку ха ха ха121321</span></strong></em></span></p>",
     "is_on_main": true,
     "category": 3,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T12:03:07.772Z",
     "tags": [
       6,
       9
@@ -401,6 +437,8 @@
     "text": "Превосходно",
     "is_on_main": true,
     "category": 4,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       12,
       13
@@ -416,8 +454,26 @@
     "text": "Превосходно",
     "is_on_main": false,
     "category": 3,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
     "tags": [
       12
+    ]
+  }
+},
+{
+  "model": "catalog.item",
+  "pk": 26,
+  "fields": {
+    "name": "КотВХорошемКачестве",
+    "is_published": true,
+    "text": "<p>Превосходно</p>",
+    "is_on_main": true,
+    "category": 5,
+    "created_at": "2024-10-28T00:00:00Z",
+    "updated_at": "2024-10-28T00:00:00Z",
+    "tags": [
+      11
     ]
   }
 },
@@ -579,6 +635,14 @@
   "fields": {
     "image": "items/main_image/задумчивый_пушистик.jpg",
     "item": 25
+  }
+},
+{
+  "model": "catalog.mainimage",
+  "pk": 22,
+  "fields": {
+    "image": "items/main_image/ХорошееКачество.jpg",
+    "item": 26
   }
 },
 {

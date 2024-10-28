@@ -25,7 +25,7 @@ class StaticUrlCatalogTests(django.test.TestCase):
         self.assertIn("items", context)
         self.assertIsInstance(context["items"], django.db.models.QuerySet)
         self.assertIsInstance(context["item"], catalog.models.Item)
-        self.assertEqual(len(response.context["items"]), 9)
+        self.assertEqual(len(response.context["items"]), 15)
 
     def test_catalog_context2(self):
         url = django.urls.reverse("catalog:item_list")

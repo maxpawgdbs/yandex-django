@@ -1,6 +1,7 @@
 import django.db
 import django.http
 import django.shortcuts
+import django.utils
 
 import catalog.models
 
@@ -61,7 +62,20 @@ def unverified(request):
 def friday(request):
     template = "catalog/item_list.html"
     items = catalog.models.Item.objects.published()
-    items = items.filter(updated_at__week_day=6)#.order_by("updated_at")[:5]
+    items = items.filter(updated_at__week_day=6).order_by("updated_at")[:5]
+    context = {
+        "items": items,
+    }
+    return django.shortcuts.render(request, template, context)
+
+
+def new(request):
+    template = "catalog/item_list.html"
+    items = catalog.models.Item.objects.published()
+    items = items.filter(
+        created_at__gte=django.utils.timezone.now()
+        - django.utils.timezone.timedelta(hours=168),
+    ).order_by("?")[:5]
     context = {
         "items": items,
     }

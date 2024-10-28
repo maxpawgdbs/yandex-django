@@ -1,5 +1,3 @@
-import datetime
-
 import django.core
 import django.db
 import django.dispatch

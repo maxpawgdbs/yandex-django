@@ -2,6 +2,12 @@
 {% block title %} Каталог {% endblock %}
 {% block content %}
 <h1 style="text-align: center;">Каталог</h1>
+<div style="display: flex;">
+    <a href="{% url 'catalog:item_list' %}">Каталог</a>
+    <a href="{% url 'catalog:friday' %}">Пятница</a>
+    <a href="{% url 'catalog:unverified' %}">Неменявшиеся</a>
+    <a href="{% url 'catalog:new' %}">Новинки</a>
+</div>
 <div class="album py-5 bg-light">
     <div class="container">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
