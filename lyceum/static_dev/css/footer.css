@@ -1,0 +1,27 @@
+footer {
+    background-color: #6161ff;
+    box-shadow: 1px 1px 10px black;
+    color: #f5f3f2;
+    margin-top: auto;
+    bottom: 0;
+    width: 100%;
+    min-height: 60vh;
+}
+.corporation {
+    display: flex;
+    padding: 10px;
+}
+.corporation p{
+    padding: 10px;
+}
+.contacts {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.contacts p {
+    padding: 10px;
+}
+.contacts a{
+    color: #f5f3f2;
+    padding: 10px;
+}

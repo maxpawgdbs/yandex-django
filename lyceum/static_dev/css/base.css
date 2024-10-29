@@ -1,0 +1,25 @@
+.title {
+    text-align: center;
+    padding: 10px;
+    background-color: #6161ff;
+    color: #f5f3f2;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px black;
+    width: 30%;
+    margin-left: 35%;
+}
+.catalog-hrefs {
+    display: flex;
+    justify-content: center;
+    text-aling: center;
+}
+.catalog-hrefs a{
+    padding: 10px;
+    background-color: #f5f3f2;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    box-shadow: 1px 1px 5px black;
+    text-decoration: none;
+    color: #6161ff;
+}

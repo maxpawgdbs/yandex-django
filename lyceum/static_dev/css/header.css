@@ -1,0 +1,44 @@
+header {
+    position: fixed;
+    top: 0;
+    display: flex;
+    width: 100%;
+    z-index: 1000;
+    background-color: #6161ff;
+    box-shadow: 1px 1px 10px black;
+    align-items: center;
+}
+.icon {
+    width: 72px;
+    height: 72px;
+    padding: 10px;
+}
+.header-title {
+    color: #f5f3f2;
+    flex: 1;
+}
+.header-hrefs {
+    list-style-type: none;
+    display: flex;
+    margin-left: auto;
+    text-decoration: none;
+}
+.header-hrefs li {
+    padding: 10px;
+    background-color: #f5f3f2;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    box-shadow: 1px 1px 5px black;
+}
+.header-hrefs a {
+    display: block;
+    text-decoration: none;
+    color: #6161ff;
+}
+.my-active{
+    background-color: #6161ff !important;
+}
+.my-active a {
+    color: #f5f3f2;
+}

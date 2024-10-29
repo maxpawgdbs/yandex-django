@@ -1,7 +1,12 @@
 <footer>
-    <hr>
-    <p>© MaxPawGDBS</p>
-    <p id="year">{% now 'Y' %}</p>
+    <div class="corporation">
+        <p>© MaxPawGDBS</p>
+        <p id="year">{% now 'Y' %}</p>
+    </div>
+    <div  class="contacts">
+        <p>Мои контакты:</p>
+        <a href="https://t.me/maxpawgdbs">Телеграм</a>
+    </div>
     <script>
         let serverDateTime = new Date("{% now 'n j Y h:i:s' %}");
         let clientDateTime = new Date(Date.now());

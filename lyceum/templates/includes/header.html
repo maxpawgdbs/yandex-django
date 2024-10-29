@@ -1,46 +1,22 @@
 {% load i18n %}
-<div class="container">
-    <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        {% load static %}
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
-            <svg class="bi me-2" width="40" height="32">
-                <img src="{% static 'img/icon.png' %}">
-            </svg>
-            <span class="fs-4"><h2>Django Project</h2></span>
-        </a>
-        <ul class="nav nav-pills" style="margin-top: auto; margin-bottom: auto;">
-            <li class="nav-item">
-                <a href="{% if request.resolver_match.view_name != 'homepage:home' %}
-                {% url 'homepage:home' %}
-                {% else %}#{% endif %}"
-                   class="nav-link {% if request.resolver_match.view_name == 'homepage:home' %}active{% endif %}">
-                    {% trans 'Homepage' %}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{% if request.resolver_match.view_name != 'about:description' %}
-                    {% url 'about:description' %}
-                    {% else %}#{% endif %}"
-                   class="nav-link {% if request.resolver_match.view_name == 'about:description' %}active{% endif %}">
-                    {% trans 'About' %}
-                </a>
-            </li>
-            <li class="nav-item">
-                <a href="{% if request.resolver_match.view_name != 'catalog:item_list' %}
-                    {% url 'catalog:item_list' %}
-                    {% else %}#{% endif %}"
-                   class="nav-link {% if request.resolver_match.view_name == 'catalog:item_list' %}active{% endif %}">
-                    {% trans 'Catalog' %}
-                </a>
-            </li>
-            {% if user.is_superuser %}
-            <li class="nav-item">
-                <a href="/admin/"
-                   class="nav-link">
-                    Admin
-                </a>
-            </li>
-            {% endif %}
-        </ul>
-    </header>
-</div>
+{% load static %}
+<header>
+    <img src="{% static 'img/icon.png' %}" class="icon" width="50%" height="50%">
+    <h2 class="header-title">Django Project</h2>
+    <ul class="header-hrefs">
+        <li class="{% if request.resolver_match.view_name == 'homepage:home' %}my-active{% endif %}">
+            <a href="{% url 'homepage:home' %}">{% trans 'Homepage' %}</a>
+        </li>
+        <li class="{% if request.resolver_match.view_name == 'about:description' %}my-active{% endif %}">
+            <a href="{% url 'about:description' %}">{% trans 'About' %}</a>
+        </li>
+        <li class="{% if request.resolver_match.view_name == 'catalog:item_list' %}my-active{% endif %}">
+            <a href="{% url 'catalog:item_list' %}">{% trans 'Catalog' %}</a>
+        </li>
+        {% if user.is_superuser %}
+        <li>
+            <a href="/admin/">Admin</a>
+        </li>
+        {% endif %}
+    </ul>
+</header>
