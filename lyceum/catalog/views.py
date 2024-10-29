@@ -16,6 +16,9 @@ def item_list(request):
 
 
 def item_detail(request, index):
+    template = "catalog/item.html"
+    if index in [1, 100, 0]:
+        return django.shortcuts.render(request, template)
     item = django.shortcuts.get_object_or_404(
         catalog.models.Item.objects.filter(is_published=True)
         .select_related("category", "main_image")
@@ -37,7 +40,6 @@ def item_detail(request, index):
     context = {
         "item": item,
     }
-    template = "catalog/item.html"
     return django.shortcuts.render(request, template, context)
 
 

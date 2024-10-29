@@ -48,7 +48,7 @@ class ItemAdmin(django.contrib.admin.ModelAdmin):
         catalog.models.Item.is_on_main.field.name,
     )
     filter_horizontal = (catalog.models.Item.tags.field.name,)
-    readonly = (
+    readonly_fields = (
         catalog.models.Item.created_at.field.name,
         catalog.models.Item.updated_at.field.name,
     )

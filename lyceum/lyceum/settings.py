@@ -34,6 +34,7 @@ ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
 
 INSTALLED_APPS = [
     "about.apps.AboutConfig",
+    "download.apps.DownloadConfig",
     "homepage.apps.HomepageConfig",
     "catalog.apps.CatalogConfig",
     "django.contrib.admin",

@@ -8,6 +8,7 @@ def download(request, image, filename):
             f"{django.conf.settings.MEDIA_ROOT}/items/{image}/{filename}",
             "rb",
         ),
+        as_attachment=True,
     )
 
 
