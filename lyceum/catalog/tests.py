@@ -38,6 +38,36 @@ class StaticUrlCatalogTests(django.test.TestCase):
         self.assertNotIn("images", items[2].__dict__)
         self.assertIn("tags", items[3].__dict__["_prefetched_objects_cache"])
 
+    def test_new(self):
+        url = django.urls.reverse("catalog:new")
+        response = django.test.Client().get(url)
+
+        context = response.context
+        items = context["items"]
+        self.assertNotIn("is_published", items[0].__dict__)
+        self.assertNotIn("is_on_main", items[1].__dict__)
+        self.assertNotIn("images", items[2].__dict__)
+        self.assertIn("tags", items[3].__dict__["_prefetched_objects_cache"])
+
+    def test_unverified(self):
+        url = django.urls.reverse("catalog:unverified")
+        response = django.test.Client().get(url)
+
+        context = response.context
+        items = context["items"]
+        self.assertNotIn("is_published", items[0].__dict__)
+        self.assertNotIn("is_on_main", items[1].__dict__)
+        self.assertNotIn("images", items[2].__dict__)
+        self.assertIn("tags", items[3].__dict__["_prefetched_objects_cache"])
+
+    def test_friday(self):
+        url = django.urls.reverse("catalog:friday")
+        response = django.test.Client().get(url)
+
+        context = response.context
+        items = context["items"]
+        self.assertEqual(len(items), 0)
+
     @parametrize.parametrize(
         "expected, test_input",
         [

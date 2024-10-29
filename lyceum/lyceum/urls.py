@@ -12,9 +12,9 @@ urlpatterns = [
     path("about/", include("about.urls")),
     path("admin/", admin.site.urls),
     path("tinymce/", include("tinymce.urls")),
+    path("download/", include("download.urls")),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-urlpatterns += static(settings.DOWNLOAD_URL, document_root=settings.MEDIA_ROOT)
 
 if settings.DEBUG:
     urlpatterns += (path("_debug_/", include(debug_toolbar.urls)),)
