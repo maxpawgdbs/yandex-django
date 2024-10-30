@@ -10,13 +10,13 @@ import core.models
 
 
 class ItemManager(django.db.models.Manager):
-    def on_main(self):
+    def base(self, **kwargs):
         return (
             self.get_queryset()
             .filter(
-                is_on_main=True,
                 is_published=True,
                 category__is_published=True,
+                **kwargs,
             )
             .select_related("category", "main_image")
             .prefetch_related(
@@ -29,26 +29,11 @@ class ItemManager(django.db.models.Manager):
             )
             .only("id", "name", "text", "category__name", "main_image__image")
         )
+    def on_main(self):
+        return self.base(is_on_main=True)
 
     def published(self):
-        return (
-            self.get_queryset()
-            .filter(
-                is_published=True,
-                category__is_published=True,
-            )
-            .select_related("category", "main_image")
-            .prefetch_related(
-                django.db.models.Prefetch(
-                    "tags",
-                    queryset=catalog.models.Tag.objects.filter(
-                        is_published=True,
-                    ).only("name"),
-                ),
-            )
-            .only("id", "name", "text", "category__name", "main_image__image")
-            .order_by("category__name", "name")
-        )
+        return self.base().order_by("category__name", "name")
 
 
 class Tag(core.models.ModelNormalizedNames):
