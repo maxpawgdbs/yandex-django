@@ -22,7 +22,15 @@ def teapot(request):
     )
 
 
-__all__ = (
-    home,
-    teapot,
-)
+def echo(request):
+    template = "homepage/echo.html"
+    return django.shortcuts.render(request, template)
+
+
+def echo_submit(request):
+    if request.method == "POST":
+        return django.http.HttpResponse(str(request.POST["text"]))
+    return django.http.HttpResponseForbidden("ТЫ КУДА ПОЛЕЗ")
+
+
+__all__ = ()

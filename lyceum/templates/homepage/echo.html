@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Echo {% endblock %}
+{% block content %}
+<h1 class="title">Echo</h1>
+<form method="post" action="{% url 'homepage:echosubmit' %}">
+    {% csrf_token %}
+    <input type="text" name="text">
+    <button type="submit">send</button>
+</form>
+{% endblock %}

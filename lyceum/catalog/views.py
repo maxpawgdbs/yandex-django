@@ -17,9 +17,9 @@ def item_list(request):
 
 def item_detail(request, index):
     template = "catalog/item.html"
+    items = catalog.models.Item.objects.filter(is_published=True)
     item = django.shortcuts.get_object_or_404(
-        catalog.models.Item.objects.filter(is_published=True)
-        .select_related("category", "main_image")
+        items.select_related("category", "main_image")
         .prefetch_related(
             django.db.models.Prefetch(
                 "tags",

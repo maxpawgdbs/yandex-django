@@ -11,9 +11,9 @@ import core.models
 
 class ItemManager(django.db.models.Manager):
     def base(self, **kwargs):
+        items = self.get_queryset()
         return (
-            self.get_queryset()
-            .filter(
+            items.filter(
                 is_published=True,
                 category__is_published=True,
                 **kwargs,

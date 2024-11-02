@@ -29,14 +29,16 @@ ALLOW_REVERSE = os.environ.get(
     "y",
     "",
 }
+DJANGO_MAIL = os.environ.get("DJANGO_MAIL", "example@email.com")
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
 
 INSTALLED_APPS = [
     "about.apps.AboutConfig",
+    "catalog.apps.CatalogConfig",
     "download.apps.DownloadConfig",
     "homepage.apps.HomepageConfig",
-    "catalog.apps.CatalogConfig",
+    "feedback.apps.FeedbackConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -169,3 +171,9 @@ LANGUAGES = (
 LOCALE_PATHS = [
     BASE_DIR / "locale",
 ]
+
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+
+EMAIL_FILE_PATH = BASE_DIR / "send_mail"
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
