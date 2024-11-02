@@ -29,6 +29,7 @@ class ItemManager(django.db.models.Manager):
             )
             .only("id", "name", "text", "category__name", "main_image__image")
         )
+
     def on_main(self):
         return self.base(is_on_main=True)
 
