@@ -2,10 +2,10 @@ import django.conf
 import django.http
 
 
-def download(request, image, filename):
+def download(request, url):
     return django.http.FileResponse(
         open(
-            f"{django.conf.settings.MEDIA_ROOT}/items/{image}/{filename}",
+            django.conf.settings.MEDIA_ROOT / url,
             "rb",
         ),
         as_attachment=True,

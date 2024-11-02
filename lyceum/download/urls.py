@@ -5,7 +5,7 @@ import download.views
 app_name = "download"
 urlpatterns = [
     django.urls.path(
-        "items/<str:image>/<str:filename>",
+        "<path:url>",
         download.views.download,
         name="download",
     ),
