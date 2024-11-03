@@ -5,7 +5,6 @@ import django.http
 import django.shortcuts
 
 import catalog.models
-import homepage.forms
 
 
 def home(request):
@@ -35,10 +34,8 @@ def echo(request):
 
 def echo_submit(request):
     if request.method == "POST":
-        form = homepage.forms.EchoForm(request.POST)
-        if form.is_valid():
-            text = form.cleaned_data["text"]
-            return django.http.HttpResponse(text)
+        text = request.POST.get("text")
+        return django.http.HttpResponse(text)
 
     return django.http.HttpResponseNotAllowed(
         "Страничка доступна только по POST-запросу)",
