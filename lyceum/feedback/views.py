@@ -14,7 +14,7 @@ def feedback(request):
             django.core.mail.send_mail(
                 subject="Фидбек принят 👌",
                 message=form.cleaned_data["text"],
-                from_email=django.conf.settings.DJANGO_MAIL,
+                from_email=django.conf.settings.EMAIL_HOST,
                 recipient_list=[
                     form.cleaned_data["mail"],
                 ],
