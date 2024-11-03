@@ -12,16 +12,15 @@ def feedback(request):
         if form.is_valid():
             form.save()
             django.core.mail.send_mail(
-                subject="Фидбек принят 👌",
+                subject=form.cleaned_data["name"],
                 message=form.cleaned_data["text"],
                 from_email=django.conf.settings.EMAIL_HOST,
                 recipient_list=[
                     form.cleaned_data["mail"],
                 ],
             )
-            django.contrib.messages.add_message(
+            django.contrib.messages.success(
                 request,
-                25,
                 "Фидбек принят 👌",
             )
             return django.shortcuts.redirect("feedback:feedback")
