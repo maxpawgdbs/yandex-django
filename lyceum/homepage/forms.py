@@ -10,4 +10,5 @@ class EchoForm(django.forms.Form):
         help_text="Эхо",
     )
 
+
 __all__ = ()
