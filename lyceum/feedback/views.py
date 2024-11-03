@@ -11,18 +11,27 @@ def feedback(request):
         form = feedback_forms.FeedbackForm(request.POST)
         if form.is_valid():
             form.save()
-            django.core.mail.send_mail(
+            text = form.cleaned_data["text"]
+            mail = form.cleaned_data["mail"]
+            result = django.core.mail.send_mail(
                 subject="Фидбек принят 👌",
-                message=form.cleaned_data["text"],
+                message=text,
                 from_email=django.conf.settings.EMAIL_HOST,
                 recipient_list=[
-                    form.cleaned_data["mail"],
+                    mail,
                 ],
             )
-            django.contrib.messages.success(
-                request,
-                "Фидбек принят 👌",
-            )
+            if result:
+                django.contrib.messages.success(
+                    request,
+                    "Фидбек принят 👌",
+                )
+            else:
+                django.contrib.messages.success(
+                    request,
+                    "Где-то ошибка🤨",
+                )
+
             return django.shortcuts.redirect("feedback:feedback")
     else:
         form = feedback_forms.FeedbackForm()

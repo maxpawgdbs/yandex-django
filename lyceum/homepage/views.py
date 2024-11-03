@@ -36,8 +36,9 @@ def echo(request):
 def echo_submit(request):
     if request.method == "POST":
         form = homepage.forms.EchoForm(request.POST)
+        text = form.cleaned_data["text"]
         if form.is_valid():
-            return django.http.HttpResponse(str(form.cleaned_data["text"]))
+            return django.http.HttpResponse(text)
 
     return django.http.HttpResponseNotAllowed(
         "Страничка доступна только по POST-запросу)",
