@@ -5,6 +5,7 @@ import django.http
 import django.shortcuts
 
 import catalog.models
+import homepage.forms
 
 
 def home(request):
@@ -25,7 +26,11 @@ def teapot(request):
 def echo(request):
     if request.method == "GET":
         template = "homepage/echo.html"
-        return django.shortcuts.render(request, template)
+        form = homepage.forms.EchoForm()
+        context = {
+            "form": form,
+        }
+        return django.shortcuts.render(request, template, context)
 
     return django.http.HttpResponseNotAllowed(
         "Страничка доступна только по GET-запросу)",
