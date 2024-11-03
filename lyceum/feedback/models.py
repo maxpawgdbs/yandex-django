@@ -3,7 +3,7 @@ import django.db.models
 
 class Feedback(django.db.models.Model):
     name = django.db.models.CharField(
-        null=False,
+        null=True,
         verbose_name="Имя пользователя",
         max_length=150,
     )
