@@ -88,8 +88,8 @@ class Item(core.models.BaseModel):
         Category,
         on_delete=django.db.models.CASCADE,
     )
-    created_at = django.db.models.DateTimeField(auto_now_add=True)
-    updated_at = django.db.models.DateTimeField(auto_now=True)
+    created_at = django.db.models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = django.db.models.DateTimeField(auto_now=True, null=True)
 
     class Meta:
         ordering = ("name", "text", "id")

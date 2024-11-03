@@ -5,7 +5,9 @@
 <h1 class="title">Echo</h1>
 <form method="post" action="{% url 'homepage:echosubmit' %}">
     {% csrf_token %}
+    <div class="mb3">
     <input type="text" name="text">
-    <button type="submit">send</button>
+    </div>
+    <button type="submit" class="btn btn-primary">send</button>
 </form>
 {% endblock %}
