@@ -10,3 +10,5 @@ flake8-quotes==3.4.0
 flake8-return==1.2.0
 flake8-use-pathlib==0.3.0
 pep8-naming==0.14.1
+flake8-clean-block==0.1.2
+flake8-bugbear==24.10.31

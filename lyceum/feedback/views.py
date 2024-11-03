@@ -13,7 +13,7 @@ def feedback(request):
             form.save()
             django.core.mail.send_mail(
                 "Фидбек принят 👌",
-                form.cleaned_data.get("name"),
+                form.cleaned_data.get("text"),
                 django.conf.settings.DJANGO_MAIL,
                 [
                     form.cleaned_data.get("mail"),
@@ -27,6 +27,7 @@ def feedback(request):
             return django.shortcuts.redirect("feedback:feedback")
     else:
         form = feedback_forms.FeedbackForm()
+
     template = "feedback/feedback.html"
     context = {"form": form}
     return django.shortcuts.render(request, template, context)

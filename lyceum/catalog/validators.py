@@ -16,6 +16,7 @@ class ValidateMustContain:
             w = re.sub(r"^\W+|\W+$", "", w)
             if w in self.params:
                 return
+
         raise django.core.exceptions.ValidationError(
             "текст должен содержать {}".format(value),
         )

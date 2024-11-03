@@ -11,7 +11,7 @@ class Feedback(django.db.models.Model):
         null=False,
         verbose_name="Жалоба",
     )
-    created_at = django.db.models.DateTimeField(auto_now_add=True)
+    created_on = django.db.models.DateTimeField(auto_now_add=True)
     mail = django.db.models.EmailField(
         null=False,
         verbose_name="Почта пользователя",

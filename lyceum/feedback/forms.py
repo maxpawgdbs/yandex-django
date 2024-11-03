@@ -11,6 +11,7 @@ class FeedbackForm(django.forms.ModelForm):
             "text",
             "mail",
         )
+        exclude = ("created_on",)
         labels = {
             "name": "Имя",
             "text": "Фидбек",
@@ -22,10 +23,10 @@ class FeedbackForm(django.forms.ModelForm):
             "mail": "Email",
         }
         widgets = {
-            "name": django.forms.TextInput(attrs={"class": "form-conrol"}),
-            "text": django.forms.TextInput(attrs={"class": "form-conrol"}),
+            "name": django.forms.TextInput(attrs={"class": "form-control"}),
+            "text": django.forms.TextInput(attrs={"class": "form-control"}),
             "mail": django.forms.EmailInput(
-                attrs={"type": "email", "class": "form-conrol"},
+                attrs={"type": "email", "class": "form-control"},
             ),
         }
 

@@ -34,9 +34,11 @@ def normalization(word):
     word = " ".join(word.split())
     for i in cap_chars:
         word = word.replace(i, cap_chars[i])
+
     word = word.lower()
     for i in low_chars:
         word = word.replace(i, low_chars[i])
+
     return word
 
 

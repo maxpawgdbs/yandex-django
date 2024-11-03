@@ -24,11 +24,21 @@ class FormTest(django.test.TestCase):
 
     def test_redirect(self):
         url = django.shortcuts.reverse("feedback:feedback")
-        response = self.client.post(
+        response = django.test.Client().post(
             url,
             data={"name": "123", "text": "123", "mail": "123@123.123"},
+            follow=True,
         )
         self.assertRedirects(response, url)
+
+    def test_error_form(self):
+        url = django.shortcuts.reverse("feedback:feedback")
+        response = django.test.Client().post(
+            url,
+            data={"name": "123", "text": "123", "mail": "123123.123"},
+            follow=True,
+        )
+        self.assertTrue(response.context["form"].has_error("mail"))
 
 
 __all__ = ()

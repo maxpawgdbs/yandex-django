@@ -23,14 +23,22 @@ def teapot(request):
 
 
 def echo(request):
-    template = "homepage/echo.html"
-    return django.shortcuts.render(request, template)
+    if request.method == "GET":
+        template = "homepage/echo.html"
+        return django.shortcuts.render(request, template)
+
+    return django.http.HttpResponseNotAllowed(
+        "Страничка доступна только по GET-запросу)",
+    )
 
 
 def echo_submit(request):
     if request.method == "POST":
-        return django.http.HttpResponse(str(request.POST["text"]))
-    return django.http.HttpResponseForbidden("ТЫ КУДА ПОЛЕЗ")
+        return django.http.HttpResponse(str(request.POST.get("text")))
+
+    return django.http.HttpResponseNotAllowed(
+        "Страничка доступна только по POST-запросу)",
+    )
 
 
 __all__ = ()

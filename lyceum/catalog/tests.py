@@ -216,6 +216,7 @@ class ModelsTest(django.test.TestCase):
             self.item.full_clean()
             self.item.save()
             self.item.tags.add(ModelsTest.tag)
+
         self.assertEqual(
             catalog.models.Item.objects.count(),
             count,
@@ -233,6 +234,7 @@ class ModelsTest(django.test.TestCase):
             self.item.full_clean()
             self.item.save()
             self.item.tags.add(ModelsTest.tag)
+
         self.assertEqual(
             catalog.models.Item.objects.count(),
             count,
@@ -249,6 +251,7 @@ class ModelsTest(django.test.TestCase):
             )
             self.category_test.full_clean()
             self.category_test.save()
+
         self.assertEqual(
             catalog.models.Category.objects.count(),
             count,
@@ -265,6 +268,7 @@ class ModelsTest(django.test.TestCase):
             )
             self.category_test.full_clean()
             self.category_test.save()
+
         self.assertEqual(
             catalog.models.Category.objects.count(),
             count,
@@ -311,6 +315,7 @@ class ModelsTest(django.test.TestCase):
             )
             self.category_test.full_clean()
             self.category_test.save()
+
         self.assertEqual(
             catalog.models.Category.objects.count(),
             count,
@@ -327,6 +332,7 @@ class ModelsTest(django.test.TestCase):
             )
             self.category_test.full_clean()
             self.category_test.save()
+
         self.assertEqual(
             catalog.models.Category.objects.count(),
             count,
@@ -343,6 +349,7 @@ class ModelsTest(django.test.TestCase):
             )
             self.category_test.full_clean()
             self.category_test.save()
+
         self.assertEqual(
             catalog.models.Category.objects.count(),
             count,
@@ -360,6 +367,7 @@ class ModelsTest(django.test.TestCase):
             self.item.full_clean()
             self.item.save()
             self.item.tags.add(ModelsTest.tag)
+
         self.assertEqual(
             catalog.models.Item.objects.count(),
             count,
@@ -377,6 +385,7 @@ class ModelsTest(django.test.TestCase):
             self.item.full_clean()
             self.item.save()
             self.item.tags.add(ModelsTest.tag)
+
         self.assertEqual(
             catalog.models.Item.objects.count(),
             count,

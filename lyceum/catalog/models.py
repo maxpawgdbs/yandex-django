@@ -128,6 +128,7 @@ class MainImage(django.db.models.Model):
                     self.main_image.image.url,
                 ),
             )
+
         return None
 
     image_tmb.short_description = "превью"
@@ -163,6 +164,7 @@ class ItemGalery(django.db.models.Model):
                     self.images.images.url,
                 ),
             )
+
         return None
 
     image_tmb.short_description = "превью"

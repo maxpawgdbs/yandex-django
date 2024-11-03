@@ -20,10 +20,11 @@ class MyMiddleware:
                 MyMiddleware.count = 0
                 decode = response.content.decode("utf8")
                 response.content = re.sub(
-                    r"\w+[а-яА-ЯёЁ]",
+                    r"\b[а-яА-ЯёЁ]+\b",
                     self.reverse_russian_words,
                     decode,
                 ).encode("utf8")
+
         return response
 
 
