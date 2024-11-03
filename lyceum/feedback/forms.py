@@ -29,6 +29,9 @@ class FeedbackForm(django.forms.ModelForm):
                 attrs={"type": "email", "class": "form-control"},
             ),
         }
+        email = {
+            "required": True,
+        }
 
 
 __all__ = ()

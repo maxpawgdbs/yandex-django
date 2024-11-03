@@ -12,7 +12,7 @@ def feedback(request):
         if form.is_valid():
             form.save()
             django.core.mail.send_mail(
-                subject=form.cleaned_data["name"],
+                subject="Фидбек принят 👌",
                 message=form.cleaned_data["text"],
                 from_email=django.conf.settings.EMAIL_HOST,
                 recipient_list=[
