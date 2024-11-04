@@ -9,12 +9,16 @@ class FeedbackAdmin(django.contrib.admin.ModelAdmin):
         if change:
             statuslog = feedback.models.StatusLog(
                 user=request.user,
-                from_status=feedback.models.Feedback.objects.get(pk=obj.id).status,
+                from_status=feedback.models.Feedback.objects.get(
+                    pk=obj.id,
+                ).status,
                 to_status=obj.status,
             )
             statuslog.full_clean()
             statuslog.save()
+
         super().save_model(request, obj, form, change)
+
     list_display = (
         feedback.models.Feedback.name.field.name,
         feedback.models.Feedback.text.field.name,
@@ -32,7 +36,7 @@ class FeedbackAdmin(django.contrib.admin.ModelAdmin):
 
 
 @django.contrib.admin.register(feedback.models.StatusLog)
-class FeedbackAdmin(django.contrib.admin.ModelAdmin):
+class StatusLogAdmin(django.contrib.admin.ModelAdmin):
     list_display = (
         feedback.models.StatusLog.user.field.name,
         feedback.models.StatusLog.timestamp.field.name,
