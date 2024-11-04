@@ -12,7 +12,7 @@ class FeedbackAdmin(django.contrib.admin.ModelAdmin):
                 from_status=feedback.models.Feedback.objects.get(
                     pk=obj.id,
                 ).status,
-                to_status=obj.status,
+                to=obj.status,
             )
             statuslog.full_clean()
             statuslog.save()
@@ -41,13 +41,13 @@ class StatusLogAdmin(django.contrib.admin.ModelAdmin):
         feedback.models.StatusLog.user.field.name,
         feedback.models.StatusLog.timestamp.field.name,
         feedback.models.StatusLog.from_status.field.name,
-        feedback.models.StatusLog.to_status.field.name,
+        feedback.models.StatusLog.to.field.name,
     )
     readonly_fields = (
         feedback.models.StatusLog.user.field.name,
         feedback.models.StatusLog.timestamp.field.name,
         feedback.models.StatusLog.from_status.field.name,
-        feedback.models.StatusLog.to_status.field.name,
+        feedback.models.StatusLog.to.field.name,
     )
 
 

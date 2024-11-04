@@ -1,4 +1,4 @@
-import django.contrib.auth.models
+import django.conf
 import django.db.models
 
 
@@ -30,7 +30,7 @@ class Feedback(django.db.models.Model):
 
 class StatusLog(django.db.models.Model):
     user = django.db.models.ForeignKey(
-        django.contrib.auth.models.User,
+        django.conf.settings.AUTH_USER_MODEL,
         on_delete=django.db.models.CASCADE,
     )
     timestamp = django.db.models.DateTimeField(auto_now_add=True)
@@ -39,7 +39,7 @@ class StatusLog(django.db.models.Model):
         db_column="from",
         null=False,
     )
-    to_status = django.db.models.CharField(
+    to = django.db.models.CharField(
         max_length=8,
         db_column="to",
         null=False,
