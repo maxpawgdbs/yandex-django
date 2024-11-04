@@ -8,7 +8,7 @@ import feedback.forms as feedback_forms
 
 def feedback(request):
     if request.method == "POST":
-        form = feedback_forms.FeedbackForm(request.POST)
+        form = feedback_forms.FeedbackForm(request.POST or None)
         if form.is_valid():
             form.save()
             text = form.cleaned_data["text"]
