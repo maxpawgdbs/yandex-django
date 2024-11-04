@@ -11,10 +11,11 @@ def feedback(request):
         form = feedback_forms.FeedbackForm(request.POST or None)
         if form.is_valid():
             form.save()
+            name = form.cleaned_data["name"]
             text = form.cleaned_data["text"]
             mail = form.cleaned_data["mail"]
             result = django.core.mail.send_mail(
-                subject="Фидбек принят 👌",
+                subject=name,
                 message=text,
                 from_email=django.conf.settings.EMAIL_HOST,
                 recipient_list=[
