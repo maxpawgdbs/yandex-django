@@ -43,7 +43,6 @@ class StaticUrlCatalogTests(django.test.TestCase):
         response = django.test.Client().get(url)
         self.assertEqual(response.status_code, 200)
 
-
     def test_unverified(self):
         url = django.urls.reverse("catalog:unverified")
         response = django.test.Client().get(url)
