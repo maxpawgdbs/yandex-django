@@ -16,6 +16,15 @@ class Feedback(django.db.models.Model):
         null=False,
         verbose_name="Почта пользователя",
     )
+    status = django.db.models.CharField(
+        max_length=8,
+        choices=(
+            ("NEW", "получено"),
+            ("PENDING", "в обработке"),
+            ("COMPLETE", "ответ дан"),
+        ),
+        default="NEW",
+    )
 
 
 __all__ = ()

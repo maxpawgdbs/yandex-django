@@ -16,7 +16,7 @@ class FeedbackForm(django.forms.ModelForm):
             "text",
             "mail",
         )
-        exclude = ("created_on",)
+        exclude = ("created_on", "status",)
         labels = {
             "name": "Имя",
             "text": "Фидбек",
