@@ -17,6 +17,7 @@ class StaticUrlHomepageTest(django.test.TestCase):
         self.assertNotIn("is_on_main", items[0].__dict__)
         self.assertNotIn("images", items[0].__dict__)
 
+    @django.test.override_settings(ALLOW_REVERSE=False)
     def test_coffee(self):
         url = django.urls.reverse("homepage:teapot")
         response = django.test.Client().get(url)
