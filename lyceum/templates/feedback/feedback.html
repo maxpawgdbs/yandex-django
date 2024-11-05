@@ -11,7 +11,8 @@
     {% csrf_token %}
     <div class="mb-3">
         {{ form.as_p }}
-        <input type="file" name="files" multiple>
+        {{ textform.as_p }}
+        {{ fileform }}
     </div>
     <input type="submit" value="Submit" class="btn btn-primary">
 </form>

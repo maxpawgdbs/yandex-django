@@ -3,6 +3,20 @@ import django.contrib
 import feedback.models
 
 
+class TextInline(django.contrib.admin.TabularInline):
+    model = feedback.models.FeedbackText
+    extra = 1
+
+    def has_add_permission(self, request, obj=None):
+        return False
+
+    def has_delete_permission(self, request, obj=None):
+        return False
+
+    def has_change_permission(self, request, obj=None):
+        return False
+
+
 @django.contrib.admin.register(feedback.models.Feedback)
 class FeedbackAdmin(django.contrib.admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
@@ -21,18 +35,25 @@ class FeedbackAdmin(django.contrib.admin.ModelAdmin):
 
     list_display = (
         feedback.models.Feedback.name.field.name,
-        feedback.models.FeedbackText.text.field.name,
-        feedback.models.Feedback.created_on.field.name,
         feedback.models.Feedback.mail.field.name,
+        feedback.models.Feedback.created_on.field.name,
         feedback.models.Feedback.status.field.name,
     )
     fields = (
         feedback.models.Feedback.name.field.name,
-        feedback.models.FeedbackText.text.field.name,
         feedback.models.Feedback.mail.field.name,
         feedback.models.Feedback.status.field.name,
     )
+    readonly_fields = (
+        feedback.models.Feedback.name.field.name,
+        feedback.models.Feedback.mail.field.name,
+        feedback.models.Feedback.created_on.field.name,
+        TextInline,
+    )
     list_editable = (feedback.models.Feedback.status.field.name,)
+    inlines = [
+        TextInline,
+    ]
 
 
 @django.contrib.admin.register(feedback.models.StatusLog)

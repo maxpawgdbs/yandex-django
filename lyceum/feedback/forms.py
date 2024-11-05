@@ -13,7 +13,6 @@ class FeedbackForm(django.forms.ModelForm):
         model = feedback.models.Feedback
         fields = (
             "name",
-            "text",
             "mail",
         )
         exclude = (
@@ -22,17 +21,14 @@ class FeedbackForm(django.forms.ModelForm):
         )
         labels = {
             "name": "Имя",
-            "text": "Фидбек",
             "mail": "Email",
         }
         help_texts = {
             "name": "Имя",
-            "text": "Фидбек",
             "mail": "Email",
         }
         widgets = {
             "name": django.forms.TextInput(attrs={"class": "form-control"}),
-            "text": django.forms.TextInput(attrs={"class": "form-control"}),
             "mail": django.forms.EmailInput(
                 attrs={"type": "email", "class": "form-control"},
             ),
@@ -42,7 +38,18 @@ class FeedbackForm(django.forms.ModelForm):
         }
 
 
-class FeedbackFilesForm(django.forms.Form):
+class FeedbackTextForm(django.forms.ModelForm):
+    class Meta:
+        model = feedback.models.FeedbackText
+        fields = ("text",)
+        labels = {"text": "Текст"}
+        help_texts = {"text": "Текст"}
+        widgets = {
+            "text": django.forms.TextInput(attrs={"class": "form-control"}),
+        }
+
+
+class FeedbackFilesForm(django.forms.ModelForm):
     class Meta:
         model = feedback.models.FeedbackFile
         fields = ("file",)

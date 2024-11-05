@@ -1,3 +1,7 @@
+import tempfile
+
+import django.conf
+import django.core
 import django.shortcuts
 import django.test
 
@@ -5,6 +9,17 @@ import feedback.models
 
 
 class FormTest(django.test.TestCase):
+    def setUp(self):
+        self.test_file = tempfile.NamedTemporaryFile(delete=True)
+        self.test_file.write(b"This is a test file.")
+        self.test_file.seek(0)
+        self.test_file1 = tempfile.NamedTemporaryFile(delete=True)
+        self.test_file1.write(b"This is a test file.")
+        self.test_file1.seek(0)
+        self.test_file2 = tempfile.NamedTemporaryFile(delete=True)
+        self.test_file2.write(b"This is a test file.")
+        self.test_file2.seek(0)
+
     def test_context(self):
         url = django.shortcuts.reverse("feedback:feedback")
         response = django.test.Client().get(url)
@@ -14,14 +29,12 @@ class FormTest(django.test.TestCase):
         url = django.shortcuts.reverse("feedback:feedback")
         response = django.test.Client().get(url)
         self.assertEqual(response.context["form"]["name"].label, "Имя")
-        self.assertEqual(response.context["form"]["text"].label, "Фидбек")
         self.assertEqual(response.context["form"]["mail"].label, "Email")
 
     def test_help_texts(self):
         url = django.shortcuts.reverse("feedback:feedback")
         response = django.test.Client().get(url)
         self.assertEqual(response.context["form"]["name"].help_text, "Имя")
-        self.assertEqual(response.context["form"]["text"].help_text, "Фидбек")
         self.assertEqual(response.context["form"]["mail"].help_text, "Email")
 
     def test_redirect(self):
@@ -61,6 +74,24 @@ class FormTest(django.test.TestCase):
             follow=True,
         )
         self.assertEqual(count, feedback.models.Feedback.objects.count())
+
+    @django.test.override_settings(MEDIA_ROOT=tempfile.gettempdir())
+    def test_upload_file(self):
+        count = feedback.models.FeedbackFile.objects.count()
+        url = django.shortcuts.reverse("feedback:feedback")
+        _ = django.test.Client().post(
+            url,
+            data={
+                "name": "123",
+                "text": "123",
+                "mail": "123@123.123",
+                "file": [self.test_file, self.test_file1, self.test_file2],
+            },
+            follow=True,
+        )
+        self.assertEqual(
+            count + 3, feedback.models.FeedbackFile.objects.count()
+        )
 
 
 __all__ = ()

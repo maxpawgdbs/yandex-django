@@ -13,10 +13,6 @@ class Feedback(django.db.models.Model):
         max_length=150,
         blank=True,
     )
-    text = django.db.models.TextField(
-        null=False,
-        verbose_name="Жалоба",
-    )
     created_on = django.db.models.DateTimeField(auto_now_add=True)
     mail = django.db.models.EmailField(
         null=False,
@@ -60,6 +56,7 @@ class StatusLog(django.db.models.Model):
     user = django.db.models.ForeignKey(
         django.conf.settings.AUTH_USER_MODEL,
         on_delete=django.db.models.CASCADE,
+        null=True,
     )
     timestamp = django.db.models.DateTimeField(auto_now_add=True)
     from_status = django.db.models.CharField(
