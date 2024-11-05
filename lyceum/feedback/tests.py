@@ -90,7 +90,7 @@ class FormTest(django.test.TestCase):
             follow=True,
         )
         self.assertEqual(
-            count + 3, feedback.models.FeedbackFile.objects.count()
+            count + 3, feedback.models.FeedbackFile.objects.count(),
         )
 
 

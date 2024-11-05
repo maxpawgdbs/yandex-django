@@ -26,6 +26,7 @@ def feedback(request):
                     )
                     f.full_clean()
                     f.save()
+
                 if textform.is_valid():
                     text = textform.cleaned_data["text"]
                     t = feedback_models.FeedbackText(
