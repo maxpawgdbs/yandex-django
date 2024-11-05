@@ -2,6 +2,10 @@ import django.conf
 import django.db.models
 
 
+def get_upload_to(instance, filename):
+    return f"uploads/{instance.feedback.id}/{filename}"
+
+
 class Feedback(django.db.models.Model):
     name = django.db.models.CharField(
         null=False,
@@ -27,6 +31,8 @@ class Feedback(django.db.models.Model):
         ),
         default="NEW",
     )
+
+
 class FeedbackText(django.db.models.Model):
     feedback = django.db.models.OneToOneField(
         Feedback,
@@ -36,6 +42,19 @@ class FeedbackText(django.db.models.Model):
         null=False,
         verbose_name="Жалоба",
     )
+
+
+class FeedbackFile(django.db.models.Model):
+    feedback = django.db.models.ForeignKey(
+        Feedback,
+        on_delete=django.db.models.CASCADE,
+    )
+    file = django.db.models.FileField(
+        upload_to=get_upload_to,
+        null=True,
+        blank=True,
+    )
+
 
 class StatusLog(django.db.models.Model):
     user = django.db.models.ForeignKey(

@@ -42,4 +42,17 @@ class FeedbackForm(django.forms.ModelForm):
         }
 
 
+class FeedbackFilesForm(django.forms.Form):
+    class Meta:
+        model = feedback.models.FeedbackFile
+        fields = ("file",)
+        labels = {"file": "Файлы"}
+        help_texts = {"file": "Файлы"}
+        widgets = {
+            "file": django.forms.FileInput(
+                attrs={"multiple": True, "class": "form-control"},
+            ),
+        }
+
+
 __all__ = ()
