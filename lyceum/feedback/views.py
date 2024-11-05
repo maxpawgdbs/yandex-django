@@ -17,7 +17,7 @@ def feedback(request):
             result = django.core.mail.send_mail(
                 subject=name,
                 message=text,
-                from_email=django.conf.settings.DJANGO_EMAIL,
+                from_email=django.conf.settings.DJANGO_MAIL,
                 recipient_list=[
                     mail,
                 ],
