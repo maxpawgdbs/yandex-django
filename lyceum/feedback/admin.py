@@ -21,14 +21,14 @@ class FeedbackAdmin(django.contrib.admin.ModelAdmin):
 
     list_display = (
         feedback.models.Feedback.name.field.name,
-        feedback.models.Feedback.text.field.name,
+        feedback.models.FeedbackText.text.field.name,
         feedback.models.Feedback.created_on.field.name,
         feedback.models.Feedback.mail.field.name,
         feedback.models.Feedback.status.field.name,
     )
     fields = (
         feedback.models.Feedback.name.field.name,
-        feedback.models.Feedback.text.field.name,
+        feedback.models.FeedbackText.text.field.name,
         feedback.models.Feedback.mail.field.name,
         feedback.models.Feedback.status.field.name,
     )

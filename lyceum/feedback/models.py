@@ -27,7 +27,15 @@ class Feedback(django.db.models.Model):
         ),
         default="NEW",
     )
-
+class FeedbackText(django.db.models.Model):
+    feedback = django.db.models.OneToOneField(
+        Feedback,
+        on_delete=django.db.models.CASCADE,
+    )
+    text = django.db.models.TextField(
+        null=False,
+        verbose_name="Жалоба",
+    )
 
 class StatusLog(django.db.models.Model):
     user = django.db.models.ForeignKey(
