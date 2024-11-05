@@ -32,6 +32,7 @@ class StatusLog(django.db.models.Model):
     user = django.db.models.ForeignKey(
         django.conf.settings.AUTH_USER_MODEL,
         on_delete=django.db.models.CASCADE,
+        blank=True,
     )
     timestamp = django.db.models.DateTimeField(auto_now_add=True)
     from_status = django.db.models.CharField(
