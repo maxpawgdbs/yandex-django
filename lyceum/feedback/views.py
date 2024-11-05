@@ -21,6 +21,7 @@ def feedback(request):
                 recipient_list=[
                     mail,
                 ],
+                fail_silently=False,
             )
             if result:
                 django.contrib.messages.success(
