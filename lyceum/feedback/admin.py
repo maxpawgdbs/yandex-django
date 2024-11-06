@@ -6,6 +6,7 @@ import feedback.models
 class TextInline(django.contrib.admin.TabularInline):
     model = feedback.models.FeedbackText
     extra = 1
+    can_delete = False
 
     def has_add_permission(self, request, obj=None):
         return False
