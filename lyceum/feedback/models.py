@@ -42,21 +42,16 @@ class FeedbackText(django.db.models.Model):
         verbose_name="Жалоба",
     )
 
-    def delete(self, *args, **kwargs):
-        if self.feedback is not None:
-            raise django.core.exceptions.ValidationError("НЕЛЬЗЯ!!!")
-
-        super().delete(*args, **kwargs)
-
 
 class FeedbackFile(django.db.models.Model):
-    def get_upload_path(self, filename):
-        return f"uploads/{self.feedback.id}/{filename}"
-
     feedback = django.db.models.ForeignKey(
         Feedback,
         on_delete=django.db.models.CASCADE,
     )
+
+    def get_upload_path(self, filename):
+        return f"uploads/{self.feedback.id}/{filename}"
+
     file = django.db.models.FileField(
         upload_to=get_upload_path,
         null=True,

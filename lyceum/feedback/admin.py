@@ -33,6 +33,9 @@ class FeedbackAdmin(django.contrib.admin.ModelAdmin):
 
         super().save_model(request, obj, form, change)
 
+    def has_delete_permission(self, request, obj=None):
+        return False
+
     list_display = (
         feedback.models.Feedback.name.field.name,
         feedback.models.Feedback.mail.field.name,
