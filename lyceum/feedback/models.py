@@ -55,7 +55,7 @@ class FeedbackFile(django.db.models.Model):
     )
 
     def get_upload_path(self, filename):
-        return f"uploads/{self.feedback.id}/{filename}"
+        return f"uploads/{self.feedback_id}/{filename}"
 
     def upload_to(self, filename):
         return self.get_upload_path(filename)
