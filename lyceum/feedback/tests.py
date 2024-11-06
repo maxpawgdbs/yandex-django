@@ -10,15 +10,18 @@ import feedback.models
 
 class FormTest(django.test.TestCase):
     def setUp(self):
-        self.test_file = tempfile.NamedTemporaryFile(delete=True)
-        self.test_file.write(b"This is a test file.")
-        self.test_file.seek(0)
-        self.test_file1 = tempfile.NamedTemporaryFile(delete=True)
-        self.test_file1.write(b"This is a test file.")
-        self.test_file1.seek(0)
-        self.test_file2 = tempfile.NamedTemporaryFile(delete=True)
-        self.test_file2.write(b"This is a test file.")
-        self.test_file2.seek(0)
+        self.test_file = django.core.files.uploadedfile.SimpleUploadedFile(
+            "file.txt",
+            b"file_content",
+        )
+        self.test_file1 = django.core.files.uploadedfile.SimpleUploadedFile(
+            "file1.txt",
+            b"file_content",
+        )
+        self.test_file2 = django.core.files.uploadedfile.SimpleUploadedFile(
+            "file2.txt",
+            b"file_content",
+        )
 
     def test_context(self):
         url = django.shortcuts.reverse("feedback:feedback")
