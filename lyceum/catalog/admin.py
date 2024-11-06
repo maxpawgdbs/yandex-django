@@ -40,6 +40,8 @@ class ItemAdmin(django.contrib.admin.ModelAdmin):
         catalog.models.Item.category.field.name,
         catalog.models.Item.tags.field.name,
         catalog.models.Item.text.field.name,
+        catalog.models.Item.is_published.field.name,
+        catalog.models.Item.is_on_main.field.name,
     )
     inlines = [MainImageInline, GaleryInline]
     list_display_links = (catalog.models.Item.name.field.name,)

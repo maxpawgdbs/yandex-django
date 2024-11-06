@@ -8,27 +8,23 @@ BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
 dotenv_path = BASE_DIR.joinpath("lyceum/example.env")
 dotenv.load_dotenv(dotenv_path=dotenv_path)
 
+
+def get_env_bool(name, default):
+    return os.environ.get(name, default=default).lower() in {
+        "true",
+        "yes",
+        "on",
+        "1",
+        "y",
+        "",
+    }
+
+
 SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY", default="very_secret_data")
 
-DEBUG = os.environ.get("DJANGO_DEBUG", default="false").lower() in {
-    "true",
-    "yes",
-    "on",
-    "1",
-    "y",
-}
+DEBUG = get_env_bool("DJANGO_DEBUG", "false")
+ALLOW_REVERSE = get_env_bool("DJANGO_ALLOW_REVERSE", "true")
 
-ALLOW_REVERSE = os.environ.get(
-    "DJANGO_ALLOW_REVERSE",
-    default="true",
-).lower() in {
-    "true",
-    "yes",
-    "on",
-    "1",
-    "y",
-    "",
-}
 DJANGO_MAIL = os.environ.get("DJANGO_MAIL", "example@email.com")
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
@@ -179,3 +175,5 @@ EMAIL_FILE_PATH = BASE_DIR / "send_mail"
 MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 EMAIL_HOST = DJANGO_MAIL
+
+__all__ = ()
