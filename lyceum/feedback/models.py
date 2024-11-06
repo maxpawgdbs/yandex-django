@@ -51,7 +51,7 @@ class FeedbackText(django.db.models.Model):
 class FeedbackFile(django.db.models.Model):
     feedback = django.db.models.ForeignKey(
         Feedback,
-        on_delete=django.db.models.CASCADE,
+        on_delete=django.db.models.PROTECT,
     )
 
     def get_upload_path(self, filename):
