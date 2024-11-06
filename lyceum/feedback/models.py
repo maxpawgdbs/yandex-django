@@ -36,6 +36,9 @@ class Feedback(django.db.models.Model):
             "Удаление объектов этого типа запрещено.",
         )
 
+    def has_delete_permission(self, request, obj=None):
+        return False
+
 
 class FeedbackText(django.db.models.Model):
     feedback = django.db.models.OneToOneField(
