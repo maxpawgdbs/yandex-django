@@ -31,6 +31,11 @@ class Feedback(django.db.models.Model):
         default="NEW",
     )
 
+    def delete(self, *args, **kwargs):
+        raise django.core.exceptions.PermissionDenied(
+            "Удаление объектов этого типа запрещено.",
+        )
+
 
 class FeedbackText(django.db.models.Model):
     feedback = django.db.models.OneToOneField(
@@ -52,8 +57,11 @@ class FeedbackFile(django.db.models.Model):
     def get_upload_path(self, filename):
         return f"uploads/{self.feedback.id}/{filename}"
 
+    def upload_to(self, filename):
+        return self.get_upload_path(filename)
+
     file = django.db.models.FileField(
-        upload_to=get_upload_path,
+        upload_to=upload_to,
         null=True,
         blank=True,
     )
