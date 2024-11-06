@@ -40,7 +40,7 @@ class Feedback(django.db.models.Model):
 class FeedbackText(django.db.models.Model):
     feedback = django.db.models.OneToOneField(
         Feedback,
-        on_delete=django.db.models.CASCADE,
+        on_delete=django.db.models.PROTECT,
     )
     text = django.db.models.TextField(
         null=False,
