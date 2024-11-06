@@ -86,4 +86,10 @@ class StatusLog(django.db.models.Model):
     )
 
 
+def delete_feedback(sender, instance, **kwargs):
+    instance.feedback.delete()
+
+
+django.db.models.signals.post_delete.connect(delete_feedback, sender=Feedback)
+
 __all__ = ()
