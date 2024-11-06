@@ -70,7 +70,7 @@ class FeedbackFile(django.db.models.Model):
 class StatusLog(django.db.models.Model):
     user = django.db.models.ForeignKey(
         django.conf.settings.AUTH_USER_MODEL,
-        on_delete=django.db.models.CASCADE,
+        on_delete=django.db.models.PROTECT,
         null=True,
     )
     timestamp = django.db.models.DateTimeField(auto_now_add=True)
