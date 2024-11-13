@@ -17,6 +17,11 @@ def home(request):
 
 
 def teapot(request):
+    if request.user.is_authenticated:
+        profile = request.user.profile
+        profile.coffee_count += 1
+        profile.save()
+
     return django.http.HttpResponse(
         "Я чайник",
         status=http.HTTPStatus.IM_A_TEAPOT,

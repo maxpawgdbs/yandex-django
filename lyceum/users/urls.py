@@ -1,6 +1,8 @@
 from django.contrib import auth
 import django.urls
 
+import users.views
+
 app_name = "users"
 urlpatterns = [
     django.urls.path(
@@ -58,6 +60,31 @@ urlpatterns = [
             template_name="users/password_reset_complete.html",
         ),
         name="password_reset_complete",
+    ),
+    django.urls.path(
+        "signup/",
+        users.views.signup,
+        name="signup",
+    ),
+    django.urls.path(
+        "activate/<username>",
+        users.views.activate,
+        name="activate",
+    ),
+    django.urls.path(
+        "profile/",
+        users.views.profile,
+        name="profile",
+    ),
+    django.urls.path(
+        "user_detail/<int:pk>/",
+        users.views.user_detail,
+        name="user_detail",
+    ),
+    django.urls.path(
+        "user_list/",
+        users.views.user_list,
+        name="user_list",
     ),
 ]
 

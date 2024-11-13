@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Профиль {% endblock %}
+{% block content %}
+<h1>Профиль пользователя <a href="/auth/user_detail/{{ profile.id }}/">{{ profile.username }}</a></h1>
+{% if profile.first_name %}
+<p>{{ profile.first_name }}</p>
+{% else %}
+<p>Не указано</p>
+{% endif %}
+{% if profile.last_name %}
+<p>{{ profile.last_name }}</p>
+{% else %}
+<p>Не указано</p>
+{% endif %}
+{% if profile.profile.image %}
+<img href="{{ profile.profile.image.url }}">
+{% endif %}
+<p>{{ profile.profile.birthday }}</p>
+<p>{{ profile.email }}</p>
+<a href="/coffee/">Выпить кофе</a>
+<p>Выпитого кофе: {{ profile.profile.coffee_count }}</p>
+{% endblock %}

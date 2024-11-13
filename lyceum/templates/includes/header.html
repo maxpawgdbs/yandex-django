@@ -16,6 +16,9 @@
         <li class="{% if request.resolver_match.view_name == 'feedback:feedback' %}my-active{% endif %}">
             <a href="{% url 'feedback:feedback' %}">Feedback</a>
         </li>
+        <li>
+            <a href="/auth/profile/">Profile</a>
+        </li>
         {% if user.is_superuser %}
         <li>
             <a href="/admin/">Admin</a>

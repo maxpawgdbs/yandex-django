@@ -26,6 +26,10 @@ DEBUG = get_env_bool("DJANGO_DEBUG", "false")
 ALLOW_REVERSE = get_env_bool("DJANGO_ALLOW_REVERSE", "true")
 
 DJANGO_MAIL = os.environ.get("DJANGO_MAIL", "example@email.com")
+DEFAULT_USER_IS_ACTIVE = get_env_bool(
+    "DJANGO_DEFAULT_USER_IS_ACTIVE",
+    default=str(DEBUG),
+)
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
 

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %} Пользователи {% endblock %}
+{% block content %}
+{% for profile in users %}
+<h1>Профиль пользователя <a href="/auth/user_detail/{{ profile.id }}/">{{ profile.username }}</a></h1>
+{% if profile.first_name %}
+<p>{{ profile.first_name }}</p>
+{% else %}
+<p>Не указано</p>
+{% endif %}
+{% if profile.last_name %}
+<p>{{ profile.last_name }}</p>
+{% else %}
+<p>Не указано</p>
+{% endif %}
+{% if profile.profile.image %}
+<img href="{{ profile.profile.image.url }}">
+{% endif %}
+<p>{{ profile.profile.birthday }}</p>
+<p>{{ profile.email }}</p>
+<p>Выпитого кофе: {{ profile.profile.coffee_count }}</p>
+{% endfor %}
+{% endblock %}

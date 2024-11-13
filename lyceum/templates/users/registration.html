@@ -1,19 +1,19 @@
 {% extends "base.html" %}
 {% load static %}
-{% block title %} Авторизация {% endblock %}
+{% block title %} Регистрация {% endblock %}
 {% block content %}
-<h1>Авторизация</h1>
+<h1>Регистрация</h1>
 {% if messages %}
     {% for message in messages %}
         {{ message}}
     {% endfor %}
 {% endif %}
-<form action="/auth/login/" method="post" enctype="multipart/form-data">
+<form action="/auth/signup/" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="mb-3">
         {{ form.as_p }}
+        {{ profileform.as_p }}
     </div>
     <input type="submit" value="Submit" class="btn btn-primary">
 </form>
-
 {% endblock %}
