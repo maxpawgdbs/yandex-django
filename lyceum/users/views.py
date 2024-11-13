@@ -41,7 +41,7 @@ def signup(request):
             result = django.core.mail.send_mail(
                 subject=last.username,
                 message="У вас 12 часов на активацию профиля на нашем сайте\n"
-                        f"вот ссылка: 127.0.0.1/users/activate/{last.username}",
+                f"вот ссылка: 127.0.0.1/users/activate/{last.username}",
                 from_email=settings.DJANGO_MAIL,
                 recipient_list=[
                     last.email,

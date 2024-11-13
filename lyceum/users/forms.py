@@ -17,9 +17,10 @@ class ProfileForm(django.forms.ModelForm):
         widgets = {
             "birthday": django.forms.DateInput(attrs={"date": True}),
         }
+
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
-        self.fields['coffee_count'].widget.attrs['disabled'] = True
+        self.fields["coffee_count"].widget.attrs["disabled"] = True
 
 
 class CustomUserForm(UserCreationForm):
@@ -44,6 +45,7 @@ class CustomUserForm(UserCreationForm):
 
 class CustomChangeUserForm(UserChangeForm):
     password = None
+
     class Meta(UserChangeForm.Meta):
         model = User
         fields = (
