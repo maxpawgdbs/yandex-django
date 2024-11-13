@@ -2,20 +2,41 @@
 {% load static %}
 {% block title %} Профиль {% endblock %}
 {% block content %}
+
 <h1>Профиль пользователя <a href="/auth/user_detail/{{ profile.id }}/">{{ profile.username }}</a></h1>
+
 {% if profile.profile.image %}
 <img href="{{ profile.profile.image.url }}">
 {% endif %}
-<p>Birthday: {{ profile.profile.birthday }}</p>
-<p>Email: {{ profile.email }}</p>
+
+{% if profile.profile.birthday %}
+    <p>Birthday: {{ profile.profile.birthday }}</p>
+{% else %}
+    <p>Birthday: Не указано</p>
+{% endif %}
+
+{% if profile.profile.email %}
+    <p>Email: {{ profile.profile.email }}</p>
+{% else %}
+    <p>Email: Не указано</p>
+{% endif %}
+
 <a href="/coffee/">Выпить кофе</a>
+
 <p>Coffee count: {{ profile.profile.coffee_count }}</p>
+
 <form action="/auth/profile/" method="post" enctype="multipart/form-data">
+
     {% csrf_token %}
+
     <div class="mb-3">
+
         {{ userform.as_p }}
+
         {{ form.as_p }}
+
     </div>
     <input type="submit" value="Submit" class="btn btn-primary">
 </form>
+
 {% endblock %}

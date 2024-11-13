@@ -1,5 +1,6 @@
 from django.conf import settings
 import django.contrib
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 import django.core
 import django.shortcuts
@@ -40,7 +41,7 @@ def signup(request):
             result = django.core.mail.send_mail(
                 subject=last.username,
                 message="У вас 12 часов на активацию профиля на нашем сайте\n"
-                f"вот ссылка: 127.0.0.1/users/activate/{last.username}",
+                        f"вот ссылка: 127.0.0.1/users/activate/{last.username}",
                 from_email=settings.DJANGO_MAIL,
                 recipient_list=[
                     last.email,
@@ -89,48 +90,46 @@ def activate(request, username):
     return django.shortcuts.render(request, "users/activate.html")
 
 
+@login_required
 def profile(request):
-    if request.user.is_authenticated:
-        if request.method == "POST":
-            userform = users.forms.CustomChangeUserForm(request.POST or None)
-            profileform = users.forms.ProfileForm(request.POST or None)
-            if profileform.is_valid() and userform.is_valid():
-                name = userform.cleaned_data["first_name"]
-                email = userform.cleaned_data["email"]
-                birthday = profileform.cleaned_data["birthday"]
-                image = request.FILES.get("image")
-                user = request.user
+    if request.method == "POST":
+        userform = users.forms.CustomChangeUserForm(request.POST or None)
+        profileform = users.forms.ProfileForm(request.POST or None)
+        if profileform.is_valid() and userform.is_valid():
+            name = userform.cleaned_data["first_name"]
+            email = userform.cleaned_data["email"]
+            birthday = profileform.cleaned_data["birthday"]
+            image = request.FILES.get("image")
+            user = request.user
 
-                if name:
-                    user.first_name = name
+            if name:
+                user.first_name = name
 
-                if email:
-                    user.email = email
+            if email:
+                user.email = email
 
-                user.full_clean()
-                user.save()
+            user.full_clean()
+            user.save()
 
-                user_profile = request.user.profile
+            user_profile = request.user.profile
 
-                if birthday:
-                    user_profile.birthday = birthday
+            if birthday:
+                user_profile.birthday = birthday
 
-                if image:
-                    user_profile.image = image
+            if image:
+                user_profile.image = image
 
-                user_profile.full_clean()
-                user_profile.save()
+            user_profile.full_clean()
+            user_profile.save()
 
-        userform = users.forms.CustomChangeUserForm(instance=request.user)
-        profileform = users.forms.ProfileForm(instance=request.user.profile)
-        context = {
-            "profile": request.user,
-            "form": profileform,
-            "userform": userform,
-        }
-        return django.shortcuts.render(request, "users/profile.html", context)
-
-    return django.shortcuts.redirect("users:login")
+    userform = users.forms.CustomChangeUserForm(instance=request.user)
+    profileform = users.forms.ProfileForm(instance=request.user.profile)
+    context = {
+        "profile": request.user,
+        "form": profileform,
+        "userform": userform,
+    }
+    return django.shortcuts.render(request, "users/profile.html", context)
 
 
 def user_detail(request, pk):
