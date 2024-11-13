@@ -10,6 +10,11 @@ class ProfileInline(django.contrib.admin.TabularInline):
 
     can_delete = False
 
+    readonly_fields = (
+        "coffee_count",
+        "birthday",
+    )
+
 
 # временая моделька для отладки
 @django.contrib.admin.register(users.models.Profile)
@@ -31,6 +36,7 @@ class ProfileUserAdmin(UserAdmin):
         "is_active",
         "is_staff",
     )
+    readonly_fields = ("email",)
 
 
 django.contrib.admin.site.unregister(User)

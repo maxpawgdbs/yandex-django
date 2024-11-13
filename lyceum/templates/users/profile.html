@@ -3,18 +3,17 @@
 {% block title %} Профиль {% endblock %}
 {% block content %}
 <h1>Профиль пользователя <a href="/auth/user_detail/{{ profile.id }}/">{{ profile.username }}</a></h1>
+{% if profile.profile.image %}
 <img href="{{ profile.profile.image.url }}">
-<p>{{ profile.profile.birthday }}</p>
-<p>{{ profile.email }}</p>
+{% endif %}
+<p>Birthday: {{ profile.profile.birthday }}</p>
+<p>Email: {{ profile.email }}</p>
 <a href="/coffee/">Выпить кофе</a>
-<p>Выпитого кофе: {{ profile.profile.coffee_count }}</p>
+<p>Coffee count: {{ profile.profile.coffee_count }}</p>
 <form action="/auth/profile/" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <div class="mb-3">
-        <p>name</p>
-        <input id="name" name="name">
-        <p>email</p>
-        <input id="email" name="email">
+        {{ userform.as_p }}
         {{ form.as_p }}
     </div>
     <input type="submit" value="Submit" class="btn btn-primary">

@@ -21,6 +21,8 @@ def signup(request):
                 email,
                 password,
             )
+            last.is_active = settings.DEFAULT_USER_IS_ACTIVE
+            last.save()
             profile = users.models.Profile(
                 user=last,
             )
@@ -68,7 +70,7 @@ def signup(request):
     form = users.forms.CustomUserForm()
     profileform = users.forms.ProfileForm()
     context = {"form": form, "profileform": profileform}
-    return django.shortcuts.render(request, "users/registration.html", context)
+    return django.shortcuts.render(request, "users/signup.html", context)
 
 
 def activate(request, username):
@@ -80,7 +82,7 @@ def activate(request, username):
     hours = django.utils.timezone.now() - date
     hours = hours.total_seconds() / 3600
 
-    if hours > 12:
+    if hours < 12:
         obj.is_active = True
         obj.save()
 
@@ -90,14 +92,14 @@ def activate(request, username):
 def profile(request):
     if request.user.is_authenticated:
         if request.method == "POST":
+            userform = users.forms.CustomChangeUserForm(request.POST or None)
             profileform = users.forms.ProfileForm(request.POST or None)
-            if profileform.is_valid():
-                name = request.POST.get("name")
-                email = request.POST.get("email")
+            if profileform.is_valid() and userform.is_valid():
+                name = userform.cleaned_data["first_name"]
+                email = userform.cleaned_data["email"]
                 birthday = profileform.cleaned_data["birthday"]
                 image = request.FILES.get("image")
                 user = request.user
-                print(name, user)
 
                 if name:
                     user.first_name = name
@@ -107,6 +109,7 @@ def profile(request):
 
                 user.full_clean()
                 user.save()
+
                 user_profile = request.user.profile
 
                 if birthday:
@@ -118,8 +121,13 @@ def profile(request):
                 user_profile.full_clean()
                 user_profile.save()
 
+        userform = users.forms.CustomChangeUserForm(instance=request.user)
         profileform = users.forms.ProfileForm(instance=request.user.profile)
-        context = {"profile": request.user, "form": profileform}
+        context = {
+            "profile": request.user,
+            "form": profileform,
+            "userform": userform,
+        }
         return django.shortcuts.render(request, "users/profile.html", context)
 
     return django.shortcuts.redirect("users:login")

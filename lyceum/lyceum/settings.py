@@ -181,4 +181,8 @@ MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 EMAIL_HOST = DJANGO_MAIL
 
+LOGIN_URL = "/auth/login/"
+LOGIN_REDIRECT_URL = "/auth/profile/"
+LOGOUT_REDIRECT_URL = "/auth/login/"
+
 __all__ = ()

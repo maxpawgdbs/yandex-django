@@ -15,7 +15,7 @@ class Profile(django.db.models.Model):
         null=True,
         blank=True,
     )
-    coffee_count = django.db.models.IntegerField(null=False, default=0)
+    coffee_count = django.db.models.PositiveIntegerField(null=False, default=0)
 
     class Meta:
         verbose_name = "Дополнительные данные"

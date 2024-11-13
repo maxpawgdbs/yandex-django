@@ -1,8 +1,7 @@
 import django.contrib
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.models import User
 import django.forms
-
 
 import users.models
 
@@ -21,11 +20,7 @@ class ProfileForm(django.forms.ModelForm):
 
 
 class CustomUserForm(UserCreationForm):
-    email = django.forms.EmailField(
-        required=True,
-    )
-
-    class Meta:
+    class Meta(UserCreationForm.Meta):
         model = User
         fields = (
             "username",
@@ -42,6 +37,15 @@ class CustomUserForm(UserCreationForm):
             user.save()
 
         return user
+
+
+class CustomChangeUserForm(UserChangeForm):
+    class Meta(UserChangeForm.Meta):
+        model = User
+        fields = (
+            "first_name",
+            "email",
+        )
 
 
 __all__ = ()
