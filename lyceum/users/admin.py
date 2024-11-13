@@ -11,8 +11,8 @@ class ProfileInline(django.contrib.admin.TabularInline):
     can_delete = False
 
     readonly_fields = (
-        "coffee_count",
-        "birthday",
+        users.models.Profile.coffee_count.field.name,
+        users.models.Profile.birthday.field.name,
     )
 
 
