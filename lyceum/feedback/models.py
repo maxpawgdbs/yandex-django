@@ -31,7 +31,9 @@ class Feedback(django.db.models.Model):
         default="NEW",
     )
     text = django.db.models.TextField(
-        null=False, verbose_name="Жалоба", default="заглушка",
+        null=False,
+        verbose_name="Жалоба",
+        default="заглушка",
     )
 
     def delete(self, *args, **kwargs):
