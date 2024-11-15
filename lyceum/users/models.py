@@ -29,7 +29,7 @@ class Profile(django.db.models.Model):
 
 
 class ProxyManager(django.db.models.Manager):
-    def by_email(self, email):
+    def by_mail(self, email):
         return self.get(**{self.model.EMAIL_FIELD: email})
 
     def active(self):
