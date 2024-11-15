@@ -171,10 +171,4 @@ class ItemGalery(django.db.models.Model):
     image_tmb.allow_tags = True
 
 
-__all__ = (
-    Tag,
-    Category,
-    Item,
-    MainImage,
-    ItemGalery,
-)
+__all__ = ()

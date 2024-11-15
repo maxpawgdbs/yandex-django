@@ -28,6 +28,4 @@ class MyMiddleware:
         return response
 
 
-__all__ = [
-    MyMiddleware,
-]
+__all__ = ()

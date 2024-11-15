@@ -20,11 +20,6 @@ class ProfileForm(django.forms.ModelForm):
             ),
         }
 
-    def __init__(self, *args, **kwargs):
-        super(ProfileForm, self).__init__(*args, **kwargs)
-        coffee_count = users.models.Profile.coffee_count.field.name
-        self.fields[coffee_count].widget.attrs["disabled",] = True
-
 
 class CustomUserForm(UserCreationForm):
     class Meta(UserCreationForm.Meta):

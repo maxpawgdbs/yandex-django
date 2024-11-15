@@ -61,6 +61,7 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "django.middleware.locale.LocaleMiddleware",
     "lyceum.middleware.MyMiddleware",
+    "users.middleware.BestMiddlewareForDanila",
 ]
 if DEBUG:
     MIDDLEWARE.append("debug_toolbar.middleware.DebugToolbarMiddleware")
@@ -184,5 +185,9 @@ EMAIL_HOST = DJANGO_MAIL
 LOGIN_URL = "/auth/login/"
 LOGIN_REDIRECT_URL = "/auth/profile/"
 LOGOUT_REDIRECT_URL = "/auth/login/"
+
+AUTHENTICATION_BACKENDS = [
+    "users.backends.MyBestBackendForDanila",
+]
 
 __all__ = ()

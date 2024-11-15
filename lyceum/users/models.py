@@ -1,5 +1,11 @@
+import sys
+
 import django.contrib.auth.models
 import django.db
+
+if "makemigrations" not in sys.argv and "migrate" not in sys.argv:
+    user = django.contrib.auth.models.User
+    user._meta.get_field("email")._unique = True
 
 
 class Profile(django.db.models.Model):
@@ -20,6 +26,22 @@ class Profile(django.db.models.Model):
     class Meta:
         verbose_name = "Дополнительные данные"
         verbose_name_plural = "Дополнительные данные"
+
+
+class ProxyManager(django.db.models.Manager):
+    def by_email(self, email):
+        return self.get(**{self.model.EMAIL_FIELD: email})
+
+    def active(self):
+        users = self.get_queryset()
+        return users.filter(is_active=True).select_related("profile")
+
+
+class ProxyUser(django.contrib.auth.models.User):
+    objects = ProxyManager()
+
+    class Meta:
+        proxy = True
 
 
 __all__ = ()

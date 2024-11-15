@@ -6,7 +6,7 @@
 <h1>Профиль пользователя <a href="/auth/user_detail/{{ profile.id }}/">{{ profile.username }}</a></h1>
 
 {% if profile.profile.image %}
-<img href="{{ profile.profile.image.url }}">
+<img src="{{ profile.profile.image.url }}">
 {% endif %}
 
 {% if profile.profile.birthday %}
