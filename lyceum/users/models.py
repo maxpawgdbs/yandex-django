@@ -1,5 +1,6 @@
 import sys
 
+import django.contrib.auth.base_user
 import django.contrib.auth.models
 import django.db
 
@@ -23,16 +24,19 @@ class Profile(django.db.models.Model):
     )
     coffee_count = django.db.models.PositiveIntegerField(null=False, default=0)
     attempt_count = django.db.models.IntegerField(default=0)
-    attempt = django.db.models.DateTimeField(auto_now=True)
+    block_time = django.db.models.DateTimeField(
+        default="1111-11-11 11:11:11.1111",
+    )
 
     class Meta:
         verbose_name = "Дополнительные данные"
         verbose_name_plural = "Дополнительные данные"
 
 
-class ProxyManager(django.db.models.Manager):
+class ProxyManager(django.contrib.auth.base_user.BaseUserManager):
     @classmethod
     def normalize_email(cls, email):
+        email = super().normalize_email(email)
         email = email or ""
         email = email.lower()
         try:
@@ -44,7 +48,7 @@ class ProxyManager(django.db.models.Manager):
             if i != -1:
                 email_name = email_name[:i]
 
-            if domain_part == "google.com":
+            if domain_part == "gmail.com":
                 email_name = email_name.replace(".", "")
 
             if domain_part in ["ya.ru", "yandex.ru"]:

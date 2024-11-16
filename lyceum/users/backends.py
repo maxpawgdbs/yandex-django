@@ -1,5 +1,6 @@
 import django.conf
 import django.contrib.auth.backends
+import django.utils.timezone
 
 import users.models
 
@@ -7,17 +8,19 @@ import users.models
 class MyBestBackendForDanila(django.contrib.auth.backends.ModelBackend):
     def authenticate(self, request, username=None, password=None, **kwargs):
         try:
-            normalized_email = users.models.ProxyUser.objects.normalize_email(
-                username,
-            )
-            user = users.models.ProxyUser.objects.by_mail(
-                email=normalized_email,
-            )
-        except users.models.ProxyUser.DoesNotExist:
-            try:
+            if "@" in username:
+                normalized_email = (
+                    users.models.ProxyUser.objects.normalize_email(
+                        username,
+                    )
+                )
+                user = users.models.ProxyUser.objects.by_mail(
+                    email=normalized_email,
+                )
+            else:
                 user = users.models.ProxyUser.objects.get(username=username)
-            except users.models.ProxyUser.DoesNotExist:
-                return None
+        except users.models.ProxyUser.DoesNotExist:
+            return None
 
         if user.check_password(password):
             user.profile.attempt_count = 0
@@ -29,6 +32,8 @@ class MyBestBackendForDanila(django.contrib.auth.backends.ModelBackend):
             user.profile.attempt_count
             >= django.conf.settings.MAX_AUTH_ATTEMPTS
         ):
+            user.profile.block_time = django.utils.timezone.now()
+            user.profile.save()
             user.is_active = False
             user.save()
             django.core.mail.send_mail(

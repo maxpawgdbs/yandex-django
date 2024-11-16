@@ -95,7 +95,7 @@ def activated(request, username):
         User.objects,
         username=username,
     )
-    date = obj.profile.attempt
+    date = obj.profile.block_time
     hours = django.utils.timezone.now() - date
     hours = hours.total_seconds() / 3600
 
