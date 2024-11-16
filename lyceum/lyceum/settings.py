@@ -30,6 +30,11 @@ DEFAULT_USER_IS_ACTIVE = get_env_bool(
     "DJANGO_DEFAULT_USER_IS_ACTIVE",
     default=str(DEBUG),
 )
+MAX_AUTH_ATTEMPTS = os.environ.get("DJANGO_MAX_AUTH_ATTEMPTS", default=3)
+try:
+    MAX_AUTH_ATTEMPTS = int(MAX_AUTH_ATTEMPTS)
+except ValueError:
+    MAX_AUTH_ATTEMPTS = 3
 
 ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "*").split(",")
 
@@ -186,8 +191,9 @@ LOGIN_URL = "/auth/login/"
 LOGIN_REDIRECT_URL = "/auth/profile/"
 LOGOUT_REDIRECT_URL = "/auth/login/"
 
+AUTHENTICATION_BACKEND = "users.backends.MyBestBackendForDanila"
 AUTHENTICATION_BACKENDS = [
-    "users.backends.MyBestBackendForDanila",
+    AUTHENTICATION_BACKEND,
 ]
 
 __all__ = ()

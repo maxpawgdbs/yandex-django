@@ -47,13 +47,37 @@ class TestUser(django.test.TestCase):
                 "password": self.password,
             },
         )
-        self.assertContains(
-            response,
-            (
-                "Пожалуйста, введите правильные имя пользователя и пароль."
-                " Оба поля могут быть чувствительны к регистру."
-            ),
+        self.assertEqual(200, response.status_code)
+
+    def test_normalize_email(self):
+        response = self.client.post(
+            django.urls.reverse("users:login"),
+            {
+                "username": "test+dgdssdg@test.test",
+                "password": self.password,
+            },
         )
+        self.assertRedirects(response, django.urls.reverse("users:profile"))
+
+    @django.test.override_settings(MAX_AUTH_ATTEMPTS=3)
+    def test_attempts(self):
+        for i_ in range(4):
+            self.client.post(
+                django.urls.reverse("users:login"),
+                {
+                    "username": self.email,
+                    "password": "dsgfsgsd",
+                },
+            )
+
+        self.user.refresh_from_db()
+        self.assertFalse(self.user.is_active)
+
+        self.client.get(
+            django.urls.reverse("users:activated", args=[self.user.username]),
+        )
+        self.user.refresh_from_db()
+        self.assertTrue(self.user.is_active)
 
 
 __all__ = ()

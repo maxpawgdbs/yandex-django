@@ -90,6 +90,22 @@ def activate(request, username):
     return django.shortcuts.render(request, "users/activate.html")
 
 
+def activated(request, username):
+    obj = django.shortcuts.get_object_or_404(
+        User.objects,
+        username=username,
+    )
+    date = obj.profile.attempt
+    hours = django.utils.timezone.now() - date
+    hours = hours.total_seconds() / 3600
+
+    if hours < 24 * 7:
+        obj.is_active = True
+        obj.save()
+
+    return django.shortcuts.render(request, "users/activate.html")
+
+
 @login_required
 def profile(request):
     if request.method == "POST":

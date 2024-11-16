@@ -72,6 +72,11 @@ urlpatterns = [
         name="activate",
     ),
     django.urls.path(
+        "activated/<username>",
+        users.views.activated,
+        name="activated",
+    ),
+    django.urls.path(
         "profile/",
         users.views.profile,
         name="profile",
