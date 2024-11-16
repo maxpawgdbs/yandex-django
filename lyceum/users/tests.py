@@ -61,7 +61,7 @@ class TestUser(django.test.TestCase):
 
     @django.test.override_settings(MAX_AUTH_ATTEMPTS=3)
     def test_attempts(self):
-        for i_ in range(4):
+        for _ in range(4):
             self.client.post(
                 django.urls.reverse("users:login"),
                 {
