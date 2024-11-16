@@ -50,16 +50,14 @@ def signup(request):
             )
 
             if result:
-                django.contrib.messages.success(
-                    request,
-                    "Отправили письмо активации на почту",
-                )
-
+                message = "Отправили письмо активации на почту"
             else:
-                django.contrib.messages.success(
-                    request,
-                    "Ну вы где-то начудили",
-                )
+                message = "Ну вы где-то начудили"
+
+            django.contrib.messages.success(
+                request,
+                message,
+            )
 
         else:
             for field, errors in form.errors.items():

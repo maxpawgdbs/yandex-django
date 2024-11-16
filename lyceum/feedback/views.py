@@ -13,28 +13,28 @@ def feedback(request):
     fileform = feedback_forms.FeedbackFilesForm(request.POST or None)
     if request.method == "POST":
         if form.is_valid():
-            form.save()
-            last = feedback_models.Feedback.objects.all()[::-1][0]
+            last = form.save()
             name = form.cleaned_data["name"]
             mail = form.cleaned_data["mail"]
             if fileform.is_valid():
                 files = request.FILES.getlist("file")
                 for file in files:
-                    f = feedback_models.FeedbackFile(
+                    fileobject = feedback_models.FeedbackFile(
                         feedback=last,
                         file=file,
                     )
-                    f.full_clean()
-                    f.save()
+                    fileobject.full_clean()
+                    fileobject.save()
 
                 if textform.is_valid():
                     text = textform.cleaned_data["text"]
-                    t = feedback_models.FeedbackText(
+                    textobject = feedback_models.FeedbackText(
                         feedback=last,
                         text=text,
                     )
-                    t.full_clean()
-                    t.save()
+                    textobject.full_clean()
+                    textobject.save()
+
                     result = django.core.mail.send_mail(
                         subject=name,
                         message=text,
@@ -45,15 +45,14 @@ def feedback(request):
                         fail_silently=False,
                     )
                     if result:
-                        django.contrib.messages.success(
-                            request,
-                            "Фидбек принят 👌",
-                        )
+                        message = "Фидбек принят 👌"
                     else:
-                        django.contrib.messages.success(
-                            request,
-                            "Где-то ошибка🤨",
-                        )
+                        message = "Где-то ошибка🤨"
+
+                    django.contrib.messages.success(
+                        request,
+                        message,
+                    )
 
                     return django.shortcuts.redirect("feedback:feedback")
     else:

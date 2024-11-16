@@ -23,7 +23,7 @@ class Profile(django.db.models.Model):
         blank=True,
     )
     coffee_count = django.db.models.PositiveIntegerField(null=False, default=0)
-    attempt_count = django.db.models.IntegerField(default=0)
+    attempts_count = django.db.models.IntegerField(default=0)
     block_time = django.db.models.DateTimeField(
         default="1111-11-11 11:11:11.1111",
     )

@@ -23,13 +23,13 @@ class MyBestBackendForDanila(django.contrib.auth.backends.ModelBackend):
             return None
 
         if user.check_password(password):
-            user.profile.attempt_count = 0
+            user.profile.attempts_count = 0
             user.profile.save()
             return user
 
-        user.profile.attempt_count += 1
+        user.profile.attempts_count += 1
         if (
-            user.profile.attempt_count
+            user.profile.attempts_count
             >= django.conf.settings.MAX_AUTH_ATTEMPTS
         ):
             user.profile.block_time = django.utils.timezone.now()

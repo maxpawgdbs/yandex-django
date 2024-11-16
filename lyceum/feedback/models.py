@@ -5,6 +5,7 @@ import django.db.models
 
 # еще одна функция
 # которая уже часть корабля
+# миграции ругаются если удалить 😇
 def get_upload_to(instance, filename):
     return f"uploads/{instance.feedback.id}/{filename}"
 
