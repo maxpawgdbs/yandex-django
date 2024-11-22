@@ -1,3 +1,4 @@
+__all__ = ()
 import http
 
 import django.test
@@ -23,6 +24,3 @@ class StaticUrlHomepageTest(django.test.TestCase):
         response = django.test.Client().get(url)
         self.assertEqual(http.HTTPStatus.IM_A_TEAPOT, response.status_code)
         self.assertEqual("Я чайник", response.content.decode("utf8"))
-
-
-__all__ = (StaticUrlHomepageTest,)

@@ -1,3 +1,4 @@
+__all__ = ()
 import django.conf
 import django.contrib.messages
 import django.core.mail
@@ -63,6 +64,3 @@ def feedback(request):
     template = "feedback/feedback.html"
     context = {"form": form, "textform": textform, "fileform": fileform}
     return django.shortcuts.render(request, template, context)
-
-
-__all__ = ()

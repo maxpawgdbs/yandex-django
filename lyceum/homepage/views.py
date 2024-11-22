@@ -1,3 +1,4 @@
+__all__ = ()
 import http
 
 import django.db
@@ -52,6 +53,3 @@ def echo_submit(request):
     return django.http.HttpResponseNotAllowed(
         "Страничка доступна только по POST-запросу)",
     )
-
-
-__all__ = ()

@@ -1,3 +1,4 @@
+__all__ = ()
 import tempfile
 
 import django.conf
@@ -96,6 +97,3 @@ class FormTest(django.test.TestCase):
             count + 3,
             feedback.models.FeedbackFile.objects.count(),
         )
-
-
-__all__ = ()

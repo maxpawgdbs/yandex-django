@@ -1,3 +1,6 @@
+__all__ = ()
+
+
 class Converter:
     regex = r"[1-9]\d*"
 
@@ -6,6 +9,3 @@ class Converter:
 
     def to_url(self, value):
         return str(value)
-
-
-__all__ = ()

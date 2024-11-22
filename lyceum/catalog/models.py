@@ -1,3 +1,4 @@
+__all__ = ()
 import django.core
 import django.db
 import django.dispatch
@@ -168,6 +169,3 @@ class ItemGalery(django.db.models.Model):
 
     image_tmb.short_description = "превью"
     image_tmb.allow_tags = True
-
-
-__all__ = ()

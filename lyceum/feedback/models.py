@@ -1,3 +1,4 @@
+__all__ = ()
 import django.conf
 import django.core
 import django.db.models
@@ -90,5 +91,3 @@ def delete_feedback(sender, instance, **kwargs):
 
 
 django.db.models.signals.post_delete.connect(delete_feedback, sender=Feedback)
-
-__all__ = ()

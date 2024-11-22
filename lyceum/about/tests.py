@@ -1,3 +1,4 @@
+__all__ = ()
 import http
 
 import django.test
@@ -9,6 +10,3 @@ class StaticUrlAboutTests(django.test.TestCase):
         url = django.urls.reverse("about:description")
         response = django.test.Client().get(url)
         self.assertEqual(response.status_code, http.HTTPStatus.OK)
-
-
-__all__ = (StaticUrlAboutTests,)

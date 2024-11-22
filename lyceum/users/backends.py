@@ -1,3 +1,4 @@
+__all__ = ()
 import django.conf
 import django.contrib.auth.backends
 import django.urls
@@ -56,6 +57,3 @@ class ProxyAuthenticateBackend(django.contrib.auth.backends.ModelBackend):
         user.profile.save()
 
         return None
-
-
-__all__ = ()

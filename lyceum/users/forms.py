@@ -1,3 +1,4 @@
+__all__ = ()
 import django.contrib
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.models import User
@@ -55,6 +56,3 @@ class CustomChangeUserForm(UserChangeForm):
             "email",
         )
         exclude = ("password",)
-
-
-__all__ = ()

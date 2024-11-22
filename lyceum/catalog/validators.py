@@ -1,3 +1,4 @@
+__all__ = ()
 import re
 
 import django.core.exceptions
@@ -40,9 +41,3 @@ def custom_validator_zero(value):
         raise django.core.exceptions.ValidationError(
             "Вес не соотвествует стандартам",
         )
-
-
-__all__ = (
-    ValidateMustContain,
-    custom_validator_zero,
-)

@@ -1,3 +1,4 @@
+__all__ = ()
 import re
 
 from django.conf import settings
@@ -26,6 +27,3 @@ class MyMiddleware:
                 ).encode("utf8")
 
         return response
-
-
-__all__ = ()

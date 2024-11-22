@@ -1,3 +1,4 @@
+__all__ = ()
 import django.contrib
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
@@ -44,5 +45,3 @@ class ProfileUserAdmin(UserAdmin):
 
 django.contrib.admin.site.unregister(User)
 django.contrib.admin.site.register(User, ProfileUserAdmin)
-
-__all__ = ()

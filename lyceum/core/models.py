@@ -1,3 +1,4 @@
+__all__ = ()
 import django.core.exceptions
 import django.core.validators
 import django.db
@@ -70,9 +71,3 @@ class ModelNormalizedNames(BaseModel):
 
     class Meta:
         abstract = True
-
-
-__all__ = (
-    BaseModel,
-    ModelNormalizedNames,
-)

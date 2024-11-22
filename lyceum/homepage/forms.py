@@ -1,3 +1,4 @@
+__all__ = ()
 import django.forms
 
 
@@ -9,6 +10,3 @@ class EchoForm(django.forms.Form):
         label="Эхо",
         help_text="Эхо",
     )
-
-
-__all__ = ()

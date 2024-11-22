@@ -1,3 +1,4 @@
+__all__ = ()
 import django.contrib
 
 import feedback.models
@@ -74,6 +75,3 @@ class StatusLogAdmin(django.contrib.admin.ModelAdmin):
         feedback.models.StatusLog.from_status.field.name,
         feedback.models.StatusLog.to.field.name,
     )
-
-
-__all__ = ()

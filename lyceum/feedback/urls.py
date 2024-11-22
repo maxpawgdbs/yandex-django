@@ -1,3 +1,4 @@
+__all__ = ()
 import django.urls
 
 import feedback.views
@@ -10,5 +11,3 @@ urlpatterns = [
         name="feedback",
     ),
 ]
-
-__all__ = ()

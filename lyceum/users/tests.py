@@ -1,3 +1,4 @@
+__all__ = ()
 from django.contrib.auth.models import User
 import django.test
 import django.urls
@@ -78,6 +79,3 @@ class TestUser(django.test.TestCase):
         )
         self.user.refresh_from_db()
         self.assertTrue(self.user.is_active)
-
-
-__all__ = ()

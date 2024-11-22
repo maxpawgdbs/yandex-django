@@ -1,3 +1,4 @@
+__all__ = ()
 import django.urls
 
 import homepage.views
@@ -13,5 +14,3 @@ urlpatterns = [
         name="echosubmit",
     ),
 ]
-
-__all__ = ()

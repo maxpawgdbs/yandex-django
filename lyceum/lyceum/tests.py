@@ -1,3 +1,4 @@
+__all__ = ()
 import django.test
 import django.urls
 
@@ -22,6 +23,3 @@ class MiddlewareOnLyceumTest(django.test.TestCase):
             content.append(response.content.decode("utf8"))
 
         self.assertEqual(content.count("Я кинйач"), 0)
-
-
-__all__ = (MiddlewareOnLyceumTest,)

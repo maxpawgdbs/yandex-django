@@ -1,3 +1,4 @@
+__all__ = ()
 import http
 
 import django.core.exceptions
@@ -493,10 +494,3 @@ class UniqueNormalizeTest(django.test.TestCase):
             catalog.models.Category.objects.count(),
             count + 1,
         )
-
-
-__all__ = (
-    StaticUrlCatalogTests,
-    ModelsTest,
-    UniqueNormalizeTest,
-)

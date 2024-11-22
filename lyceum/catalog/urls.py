@@ -1,3 +1,4 @@
+__all__ = ()
 import django.urls
 
 import catalog.converter
@@ -30,8 +31,3 @@ urlpatterns = [
     django.urls.path("friday/", catalog.views.friday, name="friday"),
     django.urls.path("new/", catalog.views.new, name="new"),
 ]
-
-__all__ = (
-    app_name,
-    urlpatterns,
-)

@@ -1,6 +1,7 @@
+__all__ = ()
 import django.forms
 
-from feedback.models import Feedback,  FeedbackFile, FeedbackText
+from feedback.models import Feedback, FeedbackFile, FeedbackText
 
 
 class FeedbackForm(django.forms.ModelForm):
@@ -64,6 +65,3 @@ class FeedbackFilesForm(django.forms.ModelForm):
                 attrs={"multiple": True, "class": "form-control"},
             ),
         }
-
-
-__all__ = ()

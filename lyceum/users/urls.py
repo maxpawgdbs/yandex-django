@@ -1,3 +1,4 @@
+__all__ = ()
 from django.contrib import auth
 import django.urls
 
@@ -92,5 +93,3 @@ urlpatterns = [
         name="user_list",
     ),
 ]
-
-__all__ = ()

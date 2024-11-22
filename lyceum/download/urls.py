@@ -1,3 +1,4 @@
+__all__ = ()
 import django.urls
 
 import download.views
@@ -10,8 +11,3 @@ urlpatterns = [
         name="download",
     ),
 ]
-
-__all__ = (
-    app_name,
-    urlpatterns,
-)

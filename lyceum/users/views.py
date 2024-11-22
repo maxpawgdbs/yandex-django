@@ -1,3 +1,4 @@
+__all__ = ()
 from django.conf import settings
 import django.contrib
 from django.contrib.auth.decorators import login_required
@@ -169,6 +170,3 @@ def user_list(request):
         "users": users,
     }
     return django.shortcuts.render(request, "users/user_list.html", context)
-
-
-__all__ = ()

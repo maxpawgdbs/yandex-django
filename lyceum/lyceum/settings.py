@@ -1,3 +1,4 @@
+__all__ = ()
 import os
 import pathlib
 
@@ -189,5 +190,3 @@ LOGOUT_REDIRECT_URL = "/auth/login/"
 AUTHENTICATION_BACKENDS = [
     "users.backends.ProxyAuthenticateBackend",
 ]
-
-__all__ = ()

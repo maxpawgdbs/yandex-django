@@ -1,3 +1,4 @@
+__all__ = ()
 import users.models
 
 
@@ -11,6 +12,3 @@ class BestMiddlewareForDanila:
             request.user = user
 
         return self.get_response(request)
-
-
-__all__ = ()

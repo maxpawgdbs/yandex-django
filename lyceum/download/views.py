@@ -1,3 +1,4 @@
+__all__ = ()
 import django.conf
 import django.http
 
@@ -10,6 +11,3 @@ def download(request, url):
         ),
         as_attachment=True,
     )
-
-
-__all__ = ()

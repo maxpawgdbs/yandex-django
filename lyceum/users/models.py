@@ -1,3 +1,4 @@
+__all__ = ()
 import sys
 
 import django.contrib.auth.base_user
@@ -73,6 +74,3 @@ class ProxyUser(django.contrib.auth.models.User):
 
     class Meta:
         proxy = True
-
-
-__all__ = ()
