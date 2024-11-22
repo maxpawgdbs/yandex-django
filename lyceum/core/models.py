@@ -8,7 +8,6 @@ import core.validators
 class BaseModel(django.db.models.Model):
     name = django.db.models.CharField(
         verbose_name="название",
-        default="Название",
         help_text="Введите название обьекта",
         max_length=150,
         unique=True,
@@ -43,11 +42,10 @@ class ModelNormalizedNames(BaseModel):
     )
 
     normalized_name = django.db.models.CharField(
-        default="нормализуйся",
         verbose_name="нормализованные имена",
         help_text="Тут сохраняются нормализованные имена",
         max_length=150,
-        unique=False,
+        unique=True,
         editable=False,
     )
 

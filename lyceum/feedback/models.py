@@ -12,14 +12,12 @@ def get_upload_to(instance, filename):
 
 class Feedback(django.db.models.Model):
     name = django.db.models.CharField(
-        null=False,
         verbose_name="Имя пользователя",
         max_length=150,
         blank=True,
     )
     created_on = django.db.models.DateTimeField(auto_now_add=True)
     mail = django.db.models.EmailField(
-        null=False,
         verbose_name="Почта пользователя",
     )
     status = django.db.models.CharField(
@@ -30,11 +28,6 @@ class Feedback(django.db.models.Model):
             ("COMPLETE", "ответ дан"),
         ),
         default="NEW",
-    )
-    text = django.db.models.TextField(
-        null=False,
-        verbose_name="Жалоба",
-        default="заглушка",
     )
 
     def delete(self, *args, **kwargs):
@@ -52,7 +45,6 @@ class FeedbackText(django.db.models.Model):
         on_delete=django.db.models.PROTECT,
     )
     text = django.db.models.TextField(
-        null=False,
         verbose_name="Жалоба",
     )
 
@@ -86,12 +78,10 @@ class StatusLog(django.db.models.Model):
     from_status = django.db.models.CharField(
         max_length=8,
         db_column="from",
-        null=False,
     )
     to = django.db.models.CharField(
         max_length=8,
         db_column="to",
-        null=False,
     )
 
 

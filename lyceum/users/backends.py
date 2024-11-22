@@ -1,11 +1,12 @@
 import django.conf
 import django.contrib.auth.backends
+import django.urls
 import django.utils.timezone
 
 import users.models
 
 
-class MyBestBackendForDanila(django.contrib.auth.backends.ModelBackend):
+class ProxyAuthenticateBackend(django.contrib.auth.backends.ModelBackend):
     def authenticate(self, request, username=None, password=None, **kwargs):
         try:
             if "@" in username:
@@ -33,14 +34,18 @@ class MyBestBackendForDanila(django.contrib.auth.backends.ModelBackend):
             >= django.conf.settings.MAX_AUTH_ATTEMPTS
         ):
             user.profile.block_time = django.utils.timezone.now()
-            user.profile.save()
             user.is_active = False
             user.save()
+
+            mail_url = django.urls.reverse(
+                "users:activated",
+                args=[user.username],
+            )
             django.core.mail.send_mail(
                 subject=user.username,
                 message="У вас неделя на восстановление "
                 "профиля на нашем сайте\n"
-                f"вот ссылка: 127.0.0.1/users/activated/{user.username}",
+                f"вот ссылка: 127.0.0.1:8000{mail_url}/",
                 from_email=django.conf.settings.DJANGO_MAIL,
                 recipient_list=[
                     user.email,

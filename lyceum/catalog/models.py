@@ -69,7 +69,6 @@ class Item(core.models.BaseModel):
     objects = ItemManager()
     text = tinymce.models.HTMLField(
         verbose_name="текст",
-        default="Превосходно",
         help_text="Описание товара",
         validators=[
             catalog.validators.ValidateMustContain(

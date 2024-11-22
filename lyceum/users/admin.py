@@ -19,24 +19,27 @@ class ProfileInline(django.contrib.admin.TabularInline):
 # временая моделька для отладки
 @django.contrib.admin.register(users.models.Profile)
 class FeedbackAdmin(django.contrib.admin.ModelAdmin):
-    fields = ("coffee_count", "user")
+    fields = (
+        users.models.Profile.coffee_count.field.name,
+        users.models.Profile.user.field.name,
+    )
 
 
 class ProfileUserAdmin(UserAdmin):
     inlines = (ProfileInline,)
     list_display = (
-        "username",
-        "email",
-        "first_name",
-        "last_name",
-        "is_active",
-        "is_staff",
+        User.username.field.name,
+        User.email.field.name,
+        User.first_name.field.name,
+        User.last_name.field.name,
+        User.is_active.field.name,
+        User.is_staff.field.name,
     )
     list_editable = (
-        "is_active",
-        "is_staff",
+        User.is_active.field.name,
+        User.is_staff.field.name,
     )
-    readonly_fields = ("email",)
+    readonly_fields = (User.email.field.name,)
 
 
 django.contrib.admin.site.unregister(User)

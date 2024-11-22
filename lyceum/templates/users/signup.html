@@ -5,7 +5,9 @@
 <h1>Регистрация</h1>
 {% if messages %}
     {% for message in messages %}
-        {{ message}}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+    </div>
     {% endfor %}
 {% endif %}
 <form action="/auth/signup/" method="post" enctype="multipart/form-data">

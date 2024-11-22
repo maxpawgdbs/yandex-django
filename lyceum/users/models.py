@@ -9,6 +9,22 @@ if "makemigrations" not in sys.argv and "migrate" not in sys.argv:
     user._meta.get_field("email")._unique = True
 
 
+def normalization_email(email):
+    email_name, domain_part = email.strip().rsplit("@", 1)
+    tag = email_name.find("+")
+    if tag != -1:
+        email_name = email_name[:tag]
+
+    if domain_part == "gmail.com":
+        email_name = email_name.replace(".", "")
+
+    if domain_part in ["ya.ru", "yandex.ru"]:
+        email_name = email_name.replace(".", "-")
+        domain_part = "yandex.ru"
+
+    return email_name + "@" + domain_part
+
+
 class Profile(django.db.models.Model):
     user = django.db.models.OneToOneField(
         django.contrib.auth.models.User,
@@ -22,7 +38,7 @@ class Profile(django.db.models.Model):
         null=True,
         blank=True,
     )
-    coffee_count = django.db.models.PositiveIntegerField(null=False, default=0)
+    coffee_count = django.db.models.PositiveIntegerField(default=0)
     attempts_count = django.db.models.IntegerField(default=0)
     block_time = django.db.models.DateTimeField(
         default="1111-11-11 11:11:11.1111",
@@ -37,27 +53,10 @@ class ProxyManager(django.contrib.auth.base_user.BaseUserManager):
     @classmethod
     def normalize_email(cls, email):
         email = super().normalize_email(email)
-        email = email or ""
-        email = email.lower()
-        try:
-            email_name, domain_part = email.strip().rsplit("@", 1)
-        except ValueError:
-            pass
-        else:
-            i = email_name.find("+")
-            if i != -1:
-                email_name = email_name[:i]
+        if email == "":
+            return ""
 
-            if domain_part == "gmail.com":
-                email_name = email_name.replace(".", "")
-
-            if domain_part in ["ya.ru", "yandex.ru"]:
-                email_name = email_name.replace(".", "-")
-                domain_part = "yandex.ru"
-
-            email = email_name + "@" + domain_part
-
-        return email
+        return normalization_email(email)
 
     def by_mail(self, email):
         return self.get(

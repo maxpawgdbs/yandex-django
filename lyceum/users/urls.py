@@ -67,12 +67,12 @@ urlpatterns = [
         name="signup",
     ),
     django.urls.path(
-        "activate/<username>",
+        "activate/<username>/",
         users.views.activate,
         name="activate",
     ),
     django.urls.path(
-        "activated/<username>",
+        "activated/<username>/",
         users.views.activated,
         name="activated",
     ),

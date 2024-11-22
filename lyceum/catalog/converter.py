@@ -8,4 +8,4 @@ class Converter:
         return str(value)
 
 
-__all__ = (Converter,)
+__all__ = ()

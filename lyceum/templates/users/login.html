@@ -5,7 +5,9 @@
 <h1>Авторизация</h1>
 {% if messages %}
     {% for message in messages %}
-        {{ message}}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+    </div>
     {% endfor %}
 {% endif %}
 <form action="/auth/login/" method="post" enctype="multipart/form-data">

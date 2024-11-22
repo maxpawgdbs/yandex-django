@@ -7,7 +7,4 @@ urlpatterns = [
     django.urls.path("", about.views.description, name="description"),
 ]
 
-__all__ = (
-    app_name,
-    urlpatterns,
-)
+__all__ = ()

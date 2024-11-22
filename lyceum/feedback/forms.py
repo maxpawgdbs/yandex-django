@@ -1,6 +1,6 @@
 import django.forms
 
-import feedback.models
+from feedback.models import Feedback,  FeedbackFile, FeedbackText
 
 
 class FeedbackForm(django.forms.ModelForm):
@@ -10,30 +10,28 @@ class FeedbackForm(django.forms.ModelForm):
             field.field.widget.attrs["class"] = "form-control"
 
     class Meta:
-        model = feedback.models.Feedback
+        model = Feedback
         fields = (
-            "name",
-            "mail",
-            "text",
+            Feedback.name.field.name,
+            Feedback.mail.field.name,
         )
         exclude = (
-            "created_on",
-            "status",
+            Feedback.created_on.field.name,
+            Feedback.status.field.name,
         )
         labels = {
-            "name": "Имя",
-            "text": "Текст",
-            "mail": "Email",
+            Feedback.name.field.name: "Имя",
+            Feedback.mail.field.name: "Email",
         }
         help_texts = {
-            "name": "Имя",
-            "text": "Текст",
-            "mail": "Email",
+            Feedback.name.field.name: "Имя",
+            Feedback.mail.field.name: "Email",
         }
         widgets = {
-            "name": django.forms.TextInput(attrs={"class": "form-control"}),
-            "text": django.forms.TextInput(attrs={"class": "form-control"}),
-            "mail": django.forms.EmailInput(
+            Feedback.name.field.name: django.forms.TextInput(
+                attrs={"class": "form-control"},
+            ),
+            Feedback.mail.field.name: django.forms.EmailInput(
                 attrs={"type": "email", "class": "form-control"},
             ),
         }
@@ -44,23 +42,25 @@ class FeedbackForm(django.forms.ModelForm):
 
 class FeedbackTextForm(django.forms.ModelForm):
     class Meta:
-        model = feedback.models.FeedbackText
-        fields = ("text",)
-        labels = {"text": "Текст"}
-        help_texts = {"text": "Текст"}
+        model = FeedbackText
+        fields = (FeedbackText.text.field.name,)
+        labels = {FeedbackText.text.field.name: "Текст"}
+        help_texts = {FeedbackText.text.field.name: "Текст"}
         widgets = {
-            "text": django.forms.TextInput(attrs={"class": "form-control"}),
+            FeedbackText.text.field.name: django.forms.TextInput(
+                attrs={"class": "form-control"},
+            ),
         }
 
 
 class FeedbackFilesForm(django.forms.ModelForm):
     class Meta:
-        model = feedback.models.FeedbackFile
-        fields = ("file",)
-        labels = {"file": "Файлы"}
-        help_texts = {"file": "Файлы"}
+        model = FeedbackFile
+        fields = (FeedbackFile.file.field.name,)
+        labels = {FeedbackFile.file.field.name: "Файлы"}
+        help_texts = {FeedbackFile.file.field.name: "Файлы"}
         widgets = {
-            "file": django.forms.FileInput(
+            FeedbackFile.file.field.name: django.forms.FileInput(
                 attrs={"multiple": True, "class": "form-control"},
             ),
         }

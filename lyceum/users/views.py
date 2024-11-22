@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 import django.core
 import django.shortcuts
+import django.urls
 import django.utils
 
 import users.forms
@@ -38,10 +39,15 @@ def signup(request):
 
             profile.full_clean()
             profile.save()
+
+            mail_url = django.urls.reverse(
+                "users:activate",
+                args=[last.username],
+            )
             result = django.core.mail.send_mail(
                 subject=last.username,
                 message="У вас 12 часов на активацию профиля на нашем сайте\n"
-                f"вот ссылка: 127.0.0.1/users/activate/{last.username}",
+                f"вот ссылка: 127.0.0.1:8000{mail_url}",
                 from_email=settings.DJANGO_MAIL,
                 recipient_list=[
                     last.email,
