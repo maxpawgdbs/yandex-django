@@ -81,11 +81,3 @@ def new(request):
         "items": items,
     }
     return django.shortcuts.render(request, template, context)
-
-
-__all__ = (
-    item_detail,
-    item_detail_re,
-    item_list,
-    converter,
-)
