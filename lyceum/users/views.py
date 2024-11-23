@@ -9,6 +9,7 @@ import django.urls
 import django.utils
 
 import users.forms
+import users.models
 
 
 def signup(request):
@@ -18,10 +19,15 @@ def signup(request):
         if form.is_valid() and profileform.is_valid():
             username = form.cleaned_data["username"]
             email = form.cleaned_data["email"]
+            normalized_email = (
+                users.models.ProxyUser.objects.normalize_email(
+                    email,
+                )
+            )
             password = form.cleaned_data["password1"]
             last = User.objects.create_user(
                 username,
-                email,
+                normalized_email,
                 password,
             )
             last.is_active = settings.DEFAULT_USER_IS_ACTIVE

@@ -4,6 +4,7 @@ import sys
 import django.contrib.auth.base_user
 import django.contrib.auth.models
 import django.db
+import django.utils
 
 if "makemigrations" not in sys.argv and "migrate" not in sys.argv:
     user = django.contrib.auth.models.User
@@ -41,9 +42,7 @@ class Profile(django.db.models.Model):
     )
     coffee_count = django.db.models.PositiveIntegerField(default=0)
     attempts_count = django.db.models.IntegerField(default=0)
-    block_time = django.db.models.DateTimeField(
-        default="1111-11-11 11:11:11.1111",
-    )
+    block_time = django.db.models.DateTimeField(default=django.utils.timezone.now)
 
     class Meta:
         verbose_name = "Дополнительные данные"
