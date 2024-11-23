@@ -14,7 +14,7 @@ import users.forms
 def signup(request):
     if request.method == "POST":
         form = users.forms.CustomUserForm(request.POST)
-        profileform = users.forms.ProfileForm(request.POST)
+        profileform = users.forms.ProfileCreateForm(request.POST)
         if form.is_valid() and profileform.is_valid():
             username = form.cleaned_data["username"]
             email = form.cleaned_data["email"]
@@ -74,7 +74,7 @@ def signup(request):
         return django.shortcuts.redirect("users:signup")
 
     form = users.forms.CustomUserForm()
-    profileform = users.forms.ProfileForm()
+    profileform = users.forms.ProfileCreateForm()
     context = {"form": form, "profileform": profileform}
     return django.shortcuts.render(request, "users/signup.html", context)
 

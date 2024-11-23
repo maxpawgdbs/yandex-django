@@ -5,14 +5,14 @@
 <h1>Регистрация</h1>
 {% if messages %}
     {% for message in messages %}
-    <div class="alert alert-primary" role="alert">
-        {{message}}
-    </div>
+        <div class="alert alert-primary" role="alert">
+            {{message}}
+        </div>
     {% endfor %}
 {% endif %}
 <form action="/auth/signup/" method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="mb-3">
+    <div class="form-group">
         {{ form.as_p }}
         {{ profileform.as_p }}
     </div>

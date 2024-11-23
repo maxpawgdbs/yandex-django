@@ -21,12 +21,17 @@ class ProfileForm(django.forms.ModelForm):
             ),
         }
 
-        def __init__(self, *args, **kwargs):
-            super(ProfileForm, self).__init__(*args, **kwargs)
-            self.fields["coffee_count"].widget.attrs["disabled"] = True
+    def __init__(self, *args, **kwargs):
+        super(ProfileForm, self).__init__(*args, **kwargs)
+        self.fields["coffee_count"].widget.attrs["disabled"] = True
 
 
 class CustomUserForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.visible_fields():
+            field.field.widget.attrs["class"] = "form-control"
+
     class Meta(UserCreationForm.Meta):
         model = User
         fields = (
@@ -44,6 +49,25 @@ class CustomUserForm(UserCreationForm):
             user.save()
 
         return user
+
+
+class ProfileCreateForm(django.forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field in self.visible_fields():
+            field.field.widget.attrs["class"] = "form-control"
+
+    class Meta:
+        model = users.models.Profile
+        fields = (
+            users.models.Profile.birthday.field.name,
+            users.models.Profile.image.field.name,
+        )
+        widgets = {
+            users.models.Profile.birthday.field.name: django.forms.DateInput(
+                attrs={"date": True},
+            ),
+        }
 
 
 class CustomChangeUserForm(UserChangeForm):
