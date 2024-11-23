@@ -19,6 +19,11 @@
         <li>
             <a href="/auth/profile/">Profile</a>
         </li>
+        {% if user.is_authenticated %}
+        <li>
+            <a href="/auth/logout/">Logout</a>
+        </li>
+        {% endif %}
         {% if user.is_superuser %}
         <li>
             <a href="/admin/">Admin</a>

@@ -74,7 +74,7 @@ urlpatterns = [
     ),
     django.urls.path(
         "activated/<username>/",
-        users.views.activated,
+        users.views.activate,
         name="activated",
     ),
     django.urls.path(

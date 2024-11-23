@@ -1,4 +1,5 @@
 __all__ = ()
+
 from django.conf import settings
 import django.contrib
 from django.contrib.auth.decorators import login_required
@@ -19,10 +20,8 @@ def signup(request):
         if form.is_valid() and profileform.is_valid():
             username = form.cleaned_data["username"]
             email = form.cleaned_data["email"]
-            normalized_email = (
-                users.models.ProxyUser.objects.normalize_email(
-                    email,
-                )
+            normalized_email = users.models.ProxyUser.objects.normalize_email(
+                email,
             )
             password = form.cleaned_data["password1"]
             last = User.objects.create_user(
@@ -93,26 +92,14 @@ def activate(request, username):
     date = obj.date_joined
     hours = django.utils.timezone.now() - date
     hours = hours.total_seconds() / 3600
-
-    if hours < 12:
-        obj.is_active = True
-        obj.save()
-
-    return django.shortcuts.render(request, "users/activate.html")
-
-
-def activated(request, username):
-    obj = django.shortcuts.get_object_or_404(
-        User.objects,
-        username=username,
-    )
-    date = obj.profile.block_time
-    hours = django.utils.timezone.now() - date
-    hours = hours.total_seconds() / 3600
-
-    if hours < 24 * 7:
-        obj.is_active = True
-        obj.save()
+    if obj.profile.attempts_count >= django.conf.settings.MAX_AUTH_ATTEMPTS:
+        if hours < 24 * 7:
+            obj.is_active = True
+            obj.save()
+    else:
+        if hours < 12:
+            obj.is_active = True
+            obj.save()
 
     return django.shortcuts.render(request, "users/activate.html")
 
@@ -120,8 +107,16 @@ def activated(request, username):
 @login_required
 def profile(request):
     if request.method == "POST":
-        userform = users.forms.CustomChangeUserForm(request.POST or None)
-        profileform = users.forms.ProfileForm(request.POST or None)
+        email = request.POST["email"]
+        new_request = request.POST.copy()
+        if (
+            email
+            and users.models.ProxyUser.objects.filter(email=email).exists()
+        ):
+            new_request["email"] = ""
+        # Накостылил, но зато работает
+        userform = users.forms.CustomChangeUserForm(new_request or None)
+        profileform = users.forms.ProfileForm(new_request or None)
         if profileform.is_valid() and userform.is_valid():
             name = userform.cleaned_data["first_name"]
             email = userform.cleaned_data["email"]

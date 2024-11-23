@@ -40,9 +40,11 @@ class Profile(django.db.models.Model):
         null=True,
         blank=True,
     )
-    coffee_count = django.db.models.PositiveIntegerField(default=0)
+    coffee_count = django.db.models.PositiveIntegerField(default=0, blank=True)
     attempts_count = django.db.models.IntegerField(default=0)
-    block_time = django.db.models.DateTimeField(default=django.utils.timezone.now)
+    block_time = django.db.models.DateTimeField(
+        default=django.utils.timezone.now,
+    )
 
     class Meta:
         verbose_name = "Дополнительные данные"
