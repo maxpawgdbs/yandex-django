@@ -7,7 +7,7 @@ import django.utils.translation
 import dotenv
 
 BASE_DIR = pathlib.Path(__file__).resolve().parent.parent
-dotenv_path = BASE_DIR.joinpath("lyceum/example.env")
+dotenv_path = BASE_DIR.parent.joinpath(".env")
 dotenv.load_dotenv(dotenv_path=dotenv_path)
 
 

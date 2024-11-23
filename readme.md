@@ -35,7 +35,7 @@ pip3 install -r requirements/dev.txt
 ```
 ##### Перенос шаблона .env
 ```
-cat .env.template >> lyceum/lyceum/.env
+cat .env.template >> .env
 ```
 
 ### Запуск сервера
