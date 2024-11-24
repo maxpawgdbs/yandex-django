@@ -1,4 +1,5 @@
 __all__ = ()
+
 from django.contrib.auth.forms import UserChangeForm, UserCreationForm
 from django.contrib.auth.models import User
 import django.forms
@@ -52,6 +53,10 @@ class CustomUserForm(UserCreationForm):
 
 class CustomChangeUserForm(UserChangeForm):
     password = None
+
+    def __init__(self, *args, **kwargs):
+        super(CustomChangeUserForm, self).__init__(*args, **kwargs)
+        self.fields["email"].widget.attrs["disabled"] = True
 
     class Meta(UserChangeForm.Meta):
         model = User

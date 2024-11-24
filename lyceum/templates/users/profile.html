@@ -5,25 +5,9 @@
 
 <h1>Профиль пользователя <a href="/auth/user_detail/{{ profile.id }}/">{{ profile.username }}</a></h1>
 
-{% if profile.profile.image %}
-<img src="{{ profile.profile.image.url }}">
+{% if image %}
+    <img src="{{ image.url }}">
 {% endif %}
-
-{% if profile.profile.birthday %}
-    <p>Birthday: {{ profile.profile.birthday }}</p>
-{% else %}
-    <p>Birthday: Не указано</p>
-{% endif %}
-
-{% if profile.profile.email %}
-    <p>Email: {{ profile.profile.email }}</p>
-{% else %}
-    <p>Email: Не указано</p>
-{% endif %}
-
-<a href="/coffee/">Выпить кофе</a>
-
-<p>Coffee count: {{ profile.profile.coffee_count }}</p>
 
 <form action="/auth/profile/" method="post" enctype="multipart/form-data">
 
@@ -34,6 +18,7 @@
         {{ userform.as_p }}
 
         {{ form.as_p }}
+        <a href="/coffee/">Выпить кофе</a>
 
     </div>
     <input type="submit" value="Submit" class="btn btn-primary">

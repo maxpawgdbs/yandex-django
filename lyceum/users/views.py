@@ -93,28 +93,16 @@ def activate(request, username):
 @login_required
 def profile(request):
     if request.method == "POST":
-        email = request.POST["email"]
-        new_request = request.POST.copy()
-        if (
-            email
-            and users.models.ProxyUser.objects.filter(email=email).exists()
-        ):
-            new_request["email"] = ""
-        # Накостылил, но зато работает
-        userform = users.forms.CustomChangeUserForm(new_request or None)
-        profileform = users.forms.ProfileForm(new_request or None)
+        userform = users.forms.CustomChangeUserForm(request.POST or None)
+        profileform = users.forms.ProfileForm(request.POST or None)
         if profileform.is_valid() and userform.is_valid():
             name = userform.cleaned_data["first_name"]
-            email = userform.cleaned_data["email"]
             birthday = profileform.cleaned_data["birthday"]
             image = request.FILES.get("image")
             user = request.user
 
             if name:
                 user.first_name = name
-
-            if email:
-                user.email = email
 
             user.full_clean()
             user.save()
@@ -133,7 +121,7 @@ def profile(request):
     userform = users.forms.CustomChangeUserForm(instance=request.user)
     profileform = users.forms.ProfileForm(instance=request.user.profile)
     context = {
-        "profile": request.user,
+        "image": request.user.profile.image,
         "form": profileform,
         "userform": userform,
     }
