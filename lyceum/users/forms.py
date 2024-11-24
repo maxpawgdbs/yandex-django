@@ -50,25 +50,6 @@ class CustomUserForm(UserCreationForm):
         return user
 
 
-class ProfileCreateForm(django.forms.ModelForm):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        for field in self.visible_fields():
-            field.field.widget.attrs["class"] = "form-control"
-
-    class Meta:
-        model = users.models.Profile
-        fields = (
-            users.models.Profile.birthday.field.name,
-            users.models.Profile.image.field.name,
-        )
-        widgets = {
-            users.models.Profile.birthday.field.name: django.forms.DateInput(
-                attrs={"date": True},
-            ),
-        }
-
-
 class CustomChangeUserForm(UserChangeForm):
     password = None
 

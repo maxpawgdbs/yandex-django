@@ -16,8 +16,7 @@ import users.models
 def signup(request):
     if request.method == "POST":
         form = users.forms.CustomUserForm(request.POST)
-        profileform = users.forms.ProfileCreateForm(request.POST)
-        if form.is_valid() and profileform.is_valid():
+        if form.is_valid():
             username = form.cleaned_data["username"]
             email = form.cleaned_data["email"]
             normalized_email = users.models.ProxyUser.objects.normalize_email(
@@ -31,20 +30,6 @@ def signup(request):
             )
             last.is_active = settings.DEFAULT_USER_IS_ACTIVE
             last.save()
-            profile = users.models.Profile(
-                user=last,
-            )
-            birthday = profileform.cleaned_data["birthday"]
-            image = request.FILES.get("image")
-
-            if birthday:
-                profile.birthday = birthday
-
-            if image:
-                profile.image = image
-
-            profile.full_clean()
-            profile.save()
 
             mail_url = django.urls.reverse(
                 "users:activate",
@@ -80,8 +65,7 @@ def signup(request):
         return django.shortcuts.redirect("users:signup")
 
     form = users.forms.CustomUserForm()
-    profileform = users.forms.ProfileCreateForm()
-    context = {"form": form, "profileform": profileform}
+    context = {"form": form}
     return django.shortcuts.render(request, "users/signup.html", context)
 
 

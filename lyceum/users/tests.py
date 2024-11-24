@@ -3,8 +3,6 @@ from django.contrib.auth.models import User
 import django.test
 import django.urls
 
-import users.models
-
 
 class TestUser(django.test.TestCase):
     @classmethod
@@ -18,7 +16,6 @@ class TestUser(django.test.TestCase):
             cls.email,
             cls.password,
         )
-        cls.profile = users.models.Profile.objects.create(user=cls.user)
 
     def test_login_username(self):
         response = self.client.post(
