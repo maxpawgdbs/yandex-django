@@ -24,12 +24,6 @@ class BaseModel(django.db.models.Model):
         help_text="Отображать статус публикации",
     )
 
-    def clean(self):
-        if isinstance(self.id, str) or self.id is not None and self.id < 1:
-            raise django.core.exceptions.ValidationError(
-                "ID не соответсвует правильному формату",
-            )
-
     class Meta:
         abstract = True
 
