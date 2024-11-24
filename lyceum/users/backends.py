@@ -42,11 +42,12 @@ class ProxyAuthenticateBackend(django.contrib.auth.backends.ModelBackend):
                 "users:activated",
                 args=[user.username],
             )
+            url = f"{request.scheme}://{request.get_host()}{mail_url}"
             django.core.mail.send_mail(
                 subject=user.username,
                 message="У вас неделя на восстановление "
                 "профиля на нашем сайте\n"
-                f"вот ссылка: 127.0.0.1:8000{mail_url}/",
+                f"вот ссылка: {url}",
                 from_email=django.conf.settings.DJANGO_MAIL,
                 recipient_list=[
                     user.email,

@@ -50,10 +50,11 @@ def signup(request):
                 "users:activate",
                 args=[last.username],
             )
+            url = f"{request.scheme}://{request.get_host()}{mail_url}"
             result = django.core.mail.send_mail(
                 subject=last.username,
                 message="У вас 12 часов на активацию профиля на нашем сайте\n"
-                f"вот ссылка: 127.0.0.1:8000{mail_url}",
+                f"вот ссылка: {url}",
                 from_email=settings.DJANGO_MAIL,
                 recipient_list=[
                     last.email,
