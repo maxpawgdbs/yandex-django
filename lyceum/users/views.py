@@ -112,6 +112,9 @@ def profile(request):
             if birthday:
                 user_profile.birthday = birthday
 
+            if request.POST.get("image-clear", False):
+                user_profile.image.delete(save=False)
+
             if image:
                 user_profile.image = image
 
