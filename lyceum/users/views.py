@@ -30,32 +30,33 @@ def signup(request):
             )
             last.is_active = settings.DEFAULT_USER_IS_ACTIVE
             last.save()
+            if not settings.DEFAULT_USER_IS_ACTIVE:
+                mail_url = django.urls.reverse(
+                    "users:activate",
+                    args=[last.username],
+                )
+                url = f"{request.scheme}://{request.get_host()}{mail_url}"
+                result = django.core.mail.send_mail(
+                    subject=last.username,
+                    message="У вас 12 часов на активацию "
+                    "профиля на нашем сайте\n"
+                    f"вот ссылка: {url}",
+                    from_email=settings.DJANGO_MAIL,
+                    recipient_list=[
+                        last.email,
+                    ],
+                    fail_silently=False,
+                )
 
-            mail_url = django.urls.reverse(
-                "users:activate",
-                args=[last.username],
-            )
-            url = f"{request.scheme}://{request.get_host()}{mail_url}"
-            result = django.core.mail.send_mail(
-                subject=last.username,
-                message="У вас 12 часов на активацию профиля на нашем сайте\n"
-                f"вот ссылка: {url}",
-                from_email=settings.DJANGO_MAIL,
-                recipient_list=[
-                    last.email,
-                ],
-                fail_silently=False,
-            )
+                if result:
+                    message = "Отправили письмо активации на почту"
+                else:
+                    message = "Ну вы где-то начудили"
 
-            if result:
-                message = "Отправили письмо активации на почту"
-            else:
-                message = "Ну вы где-то начудили"
-
-            django.contrib.messages.success(
-                request,
-                message,
-            )
+                django.contrib.messages.success(
+                    request,
+                    message,
+                )
 
         else:
             for field, errors in form.errors.items():
