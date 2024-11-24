@@ -15,24 +15,17 @@ source venv/bin/activate
 ```
 pip3 install -r requirements/prod.txt
 ```
+
 #### TEST
 ```
 pip3 install -r requirements/test.txt
 ```
+
 #### DEV
 ```
 pip3 install -r requirements/dev.txt
 ```
 
-### Задание переменных окружения
-Перед запуском измените в файле settings.py
-```
-8. dotenv_path = BASE_DIR.joinpath("lyceum/example.env")
-```
-↓
-```
-8. dotenv_path = BASE_DIR.joinpath("lyceum/.env")
-```
 ##### Перенос шаблона .env
 ```
 cat .env.template >> .env
