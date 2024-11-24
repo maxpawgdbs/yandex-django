@@ -1,6 +1,6 @@
 [![pipeline status](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/badges/main/pipeline.svg)](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/pipelines)
 
-![image](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/raw/main/ER.jpg)
+![image](https://gitlab.crja72.ru/django/2024/autumn/course/students/196470-maxpawgdbs-course-1187/-/raw/main/Main_ER.jpg)
 
 Проект разработан под Python 3.11
 ### Установка и запуск виртуального окружение
