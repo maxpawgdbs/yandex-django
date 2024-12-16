@@ -51,3 +51,8 @@ sudo apt install gettext
 ```
 django-admin compilemessages
 ```
+
+##### Создаём админа
+```
+python3 lyceum/manage.py createsuperuser
+```
