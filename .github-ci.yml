@@ -3,14 +3,14 @@ stages:
 
 flake8:
   stage: linting
-  image: registry.gitlab.com/pipeline-components/flake8:latest
+  image: registry.github.com/pipeline-components/flake8:latest
   script:
     - pip3 install -r requirements/flake8.txt
     - flake8 --verbose .
 
 black:
   stage: refactoring
-  image: registry.gitlab.com/pipeline-components/black:latest
+  image: registry.github.com/pipeline-components/black:latest
   script:
     - black --check .
 
