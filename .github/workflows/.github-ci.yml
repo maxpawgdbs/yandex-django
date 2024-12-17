@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 name: CI Pipeline
 
 on: [push, pull_request]
@@ -63,28 +62,3 @@ jobs:
         run: |
           cd lyceum
           python manage.py test
-=======
-stages:
-  [ 'linting', 'refactoring', 'test' ]
-
-flake8:
-  stage: linting
-  image: registry.github.com/pipeline-components/flake8:latest
-  script:
-    - pip3 install -r requirements/flake8.txt
-    - flake8 --verbose .
-
-black:
-  stage: refactoring
-  image: registry.github.com/pipeline-components/black:latest
-  script:
-    - black --check .
-
-test:
-  stage: test
-  image: python:3.11
-  script:
-    - pip3 install -r requirements/test.txt
-    - cd lyceum
-    - python3 manage.py test
->>>>>>> parent of eefe5de (update ci cd)
