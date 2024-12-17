@@ -14,6 +14,7 @@ source venv/bin/activate
 #### PROD
 ```
 pip3 install -r requirements/prod.txt
+python3 lyceum/manage.py collectstatic
 ```
 
 #### TEST
